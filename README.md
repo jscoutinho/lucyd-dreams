@@ -10,3 +10,6 @@ Um jogo que se passa nos sonhos de Lucy (personagem principal), que ao descobrir
 ## Telas
 <img src="./readme/concept.png" alt="texto alternativo" width="700">
 Primeira concept art da rua no mundo dos sonhos. Construções em ruínas e pedaços da rua flutuando. 
+
+## Ferramentas
+Pixelart: Usei o <a href="https://www.pixilart.com/">Pixilart</a>. Se quiser acessar o <a href="https://www.pixilart.com/coutothecreator/gallery">meu perfil</a> todas as artes estão na galeria!
