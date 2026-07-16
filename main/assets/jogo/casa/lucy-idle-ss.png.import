@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4k3h6njk5y7o"
-path="res://.godot/imported/lucy-idle.png-d3740f6945da7eb2dceeea9d4e0562a7.ctex"
+uid="uid://d4dgqpmq8f0ek"
+path="res://.godot/imported/lucy-idle-ss.png-b242d298bd2ec9b869fb2d230b5709c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/jogo/casa/lucy-idle.png"
-dest_files=["res://.godot/imported/lucy-idle.png-d3740f6945da7eb2dceeea9d4e0562a7.ctex"]
+source_file="res://assets/jogo/casa/lucy-idle-ss.png"
+dest_files=["res://.godot/imported/lucy-idle-ss.png-b242d298bd2ec9b869fb2d230b5709c2.ctex"]
 
 [params]
 
