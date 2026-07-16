@@ -22,7 +22,7 @@ var slide_atual = 0
 
 func mostrar_slide():
 
-	$TextureRect.texture = slides[slide_atual]["imagem"]
+	$img.texture = slides[slide_atual]["imagem"]
 
 	$Label.text = slides[slide_atual]["texto"]
 
