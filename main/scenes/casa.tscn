@@ -3,9 +3,19 @@
 [ext_resource type="Texture2D" uid="uid://be27jblbnudmw" path="res://assets/jogo/casa/casa.png" id="1_16s4k"]
 [ext_resource type="Script" uid="uid://c6a5iysgh4tka" path="res://scripts/player.gd" id="2_ias33"]
 [ext_resource type="Texture2D" uid="uid://d4dgqpmq8f0ek" path="res://assets/jogo/casa/lucy-idle-ss.png" id="3_ias33"]
+[ext_resource type="Texture2D" uid="uid://dntrlnss3xunb" path="res://assets/jogo/casa/lucy-andando-ss.png" id="4_d31c8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
-size = Vector2(3033, 51)
+size = Vector2(3036, 57.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ov4ip"]
+size = Vector2(246, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsy63"]
+size = Vector2(34.5, 730.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtsop"]
+size = Vector2(129, 72.25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d31c8"]
 atlas = ExtResource("3_ias33")
@@ -39,6 +49,54 @@ region = Rect2(864, 0, 144, 248)
 atlas = ExtResource("3_ias33")
 region = Rect2(1008, 0, 144, 248)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kn8t"]
+atlas = ExtResource("4_d31c8")
+region = Rect2(0, 0, 152, 248)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ix5r"]
+atlas = ExtResource("4_d31c8")
+region = Rect2(152, 0, 152, 248)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qil8m"]
+atlas = ExtResource("4_d31c8")
+region = Rect2(304, 0, 152, 248)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgbb3"]
+atlas = ExtResource("4_d31c8")
+region = Rect2(456, 0, 152, 248)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhns3"]
+atlas = ExtResource("4_d31c8")
+region = Rect2(608, 0, 152, 248)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmncb"]
+atlas = ExtResource("4_d31c8")
+region = Rect2(760, 0, 152, 248)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iupxv"]
+atlas = ExtResource("4_d31c8")
+region = Rect2(912, 0, 152, 248)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wx5t"]
+atlas = ExtResource("4_d31c8")
+region = Rect2(1064, 0, 152, 248)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42bnm"]
+atlas = ExtResource("4_d31c8")
+region = Rect2(1216, 0, 152, 248)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7koj"]
+atlas = ExtResource("4_d31c8")
+region = Rect2(1368, 0, 152, 248)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlu1a"]
+atlas = ExtResource("4_d31c8")
+region = Rect2(1520, 0, 152, 248)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgvlm"]
+atlas = ExtResource("4_d31c8")
+region = Rect2(1672, 0, 152, 248)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_sa2ql"]
 animations = [{
 "frames": [{
@@ -67,38 +125,103 @@ animations = [{
 "texture": SubResource("AtlasTexture_g3anh")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"idle",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kn8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ix5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qil8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgbb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhns3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmncb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iupxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wx5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42bnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7koj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlu1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgvlm")
+}],
+"loop": 1,
+"name": &"walking",
+"speed": 7.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ov4ip"]
-radius = 49.0
-height = 232.0
+radius = 29.0
+height = 242.0
 
 [node name="Casa" type="Node2D" unique_id=467067166]
+metadata/_edit_vertical_guides_ = [3039.0]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1784103656]
 offset_right = 1725.0
 offset_bottom = 864.0
 texture = ExtResource("1_16s4k")
+metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=850360607]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1378928029]
-visible = false
-position = Vector2(1518.5, 857)
+[node name="Chão" type="CollisionShape2D" parent="StaticBody2D" unique_id=1378928029]
+position = Vector2(1517, 854)
 shape = SubResource("RectangleShape2D_sa2ql")
 
+[node name="Mesa" type="CollisionShape2D" parent="StaticBody2D" unique_id=55481266]
+position = Vector2(879, 706)
+shape = SubResource("RectangleShape2D_ov4ip")
+one_way_collision = true
+
+[node name="esquerda" type="CollisionShape2D" parent="StaticBody2D" unique_id=1560698557]
+position = Vector2(18, 465)
+shape = SubResource("RectangleShape2D_vsy63")
+
+[node name="direita" type="CollisionShape2D" parent="StaticBody2D" unique_id=1859195378]
+position = Vector2(3027, 461)
+shape = SubResource("RectangleShape2D_vsy63")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=861619175]
+position = Vector2(100, 789.125)
+shape = SubResource("RectangleShape2D_qtsop")
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1844448226]
-position = Vector2(196, 693)
+position = Vector2(203, 700)
 script = ExtResource("2_ias33")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1878411280]
 sprite_frames = SubResource("SpriteFrames_sa2ql")
-autoplay = "default"
-frame_progress = 0.76062006
+animation = &"walking"
+autoplay = "idle"
+frame_progress = 0.43015012
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1936083529]
-visible = false
-position = Vector2(7, 5)
+position = Vector2(7, 4)
 shape = SubResource("CapsuleShape2D_ov4ip")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1369710671]
+position = Vector2(2, -271)
+limit_left = 0
+limit_top = 0
+limit_right = 3040
