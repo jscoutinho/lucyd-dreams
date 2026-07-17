@@ -9,9 +9,10 @@ Um jogo plataformer Um jogo que se passa nos sonhos de Lucy (personagem principa
 Primeira concept art da rua no mundo dos sonhos. Construções em ruínas e pedaços da rua flutuando. 
 
 ## Como Jogar  
-<p>Windows - <a href="https://github.com/jscoutinho/lucyd-dreams/blob/main/main/export/windows/lucyd_dreams.exe">Clique aqui</a> para se redirecionar para a página de download do exe. É só baixar e executar na máquina. </p>
-
-<p>Linux - <a href="https://github.com/jscoutinho/lucyd-dreams/tree/main/main/export/linux">Clique aqui</a> para se redirecionar para a página de download dos arquivos. É necessário baixar tanto o arquivo .x86_64 quanto o arquivo .sh.
+<h4>Windows</h4>
+<p> <a href="https://github.com/jscoutinho/lucyd-dreams/blob/main/main/export/windows/lucyd_dreams.exe">Clique aqui</a> para se redirecionar para a página de download do exe. É só baixar e executar na máquina. </p>
+<h4>Linux</h4>
+<p><a href="https://github.com/jscoutinho/lucyd-dreams/tree/main/main/export/linux">Clique aqui</a> para se redirecionar para a página de download dos arquivos. É necessário baixar tanto o arquivo .x86_64 quanto o arquivo .sh.
 Depois de baixar é necessário ativar a permissão para executar o .x86_64. Executando no terminal as linhas abaixo:</p>
 <code>cd /Downloads
 chmod +x lucyd_dreams.x86_64
