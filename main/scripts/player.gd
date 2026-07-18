@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -500.0
-
+var transitioning = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -26,10 +26,26 @@ func _physics_process(delta: float) -> void:
 	
 	if direction > 0:
 		anim.flip_h = false
-		anim.play("walking")
+		if !transitioning and anim.animation != "walking":
+			transitioning = true
+			anim.play("transitioning")
 	elif direction < 0:
 		anim.flip_h = true
-		anim.play("walking")
+		if !transitioning and anim.animation != "walking":
+			transitioning = true
+			anim.play("transitioning")
 	else:
+		transitioning = false
 		anim.play("idle")
 	move_and_slide()
+
+
+
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if anim.animation == "transitioning":
+		if Input.get_axis("ui_left", "ui_right") != 0:
+			anim.play("walking")
+		else:
+			anim.play("idle")
