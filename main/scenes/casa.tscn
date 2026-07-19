@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://d4dgqpmq8f0ek" path="res://assets/jogo/casa/lucy-idle-ss.png" id="3_ias33"]
 [ext_resource type="Texture2D" uid="uid://bkhw62blud1wi" path="res://assets/jogo/casa/lucy-trans.png" id="4_6lyl3"]
 [ext_resource type="Texture2D" uid="uid://dntrlnss3xunb" path="res://assets/jogo/casa/lucy-andando-ss.png" id="4_d31c8"]
+[ext_resource type="Texture2D" uid="uid://c7qrqtqupo7k8" path="res://assets/jogo/casa/ventilador-ss.png" id="6_sje03"]
+[ext_resource type="Texture2D" uid="uid://clftp76pb4287" path="res://assets/jogo/casa/porta.png" id="7_uum25"]
+[ext_resource type="Texture2D" uid="uid://cvn44tcnbk6k8" path="res://assets/jogo/casa/coisas-frente.png" id="8_lgdna"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
 size = Vector2(3036, 57.5)
@@ -206,7 +209,64 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ov4ip"]
 radius = 29.0
-height = 242.0
+height = 222.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6faw1"]
+atlas = ExtResource("6_sje03")
+region = Rect2(0, 0, 296, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgo0o"]
+atlas = ExtResource("6_sje03")
+region = Rect2(296, 0, 296, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sf32j"]
+atlas = ExtResource("6_sje03")
+region = Rect2(592, 0, 296, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gueh2"]
+atlas = ExtResource("6_sje03")
+region = Rect2(888, 0, 296, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgvlb"]
+atlas = ExtResource("6_sje03")
+region = Rect2(1184, 0, 296, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcuoi"]
+atlas = ExtResource("6_sje03")
+region = Rect2(1480, 0, 296, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu1hf"]
+atlas = ExtResource("6_sje03")
+region = Rect2(1776, 0, 296, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ov4ip"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_6faw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgo0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sf32j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gueh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgvlb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcuoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu1hf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 12.0
+}]
 
 [node name="Casa" type="Node2D" unique_id=467067166]
 metadata/_edit_vertical_guides_ = [3039.0]
@@ -218,6 +278,7 @@ texture = ExtResource("1_16s4k")
 metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=850360607]
+visible = false
 
 [node name="Chão" type="CollisionShape2D" parent="StaticBody2D" unique_id=1378928029]
 position = Vector2(1517, 854)
@@ -251,7 +312,8 @@ autoplay = "idle"
 frame_progress = 0.9023682
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1936083529]
-position = Vector2(7, 4)
+visible = false
+position = Vector2(6, 14)
 shape = SubResource("CapsuleShape2D_ov4ip")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1369710671]
@@ -259,5 +321,24 @@ position = Vector2(2, -271)
 limit_left = 0
 limit_top = 0
 limit_right = 3040
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=226278224]
+position = Vector2(544, 311)
+sprite_frames = SubResource("SpriteFrames_ov4ip")
+autoplay = "default"
+frame_progress = 0.26093164
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=249138377]
+offset_left = 960.0
+offset_top = 511.0
+offset_right = 1240.0
+offset_bottom = 863.0
+texture = ExtResource("7_uum25")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=173174772]
+offset_top = 718.0
+offset_right = 1152.0
+offset_bottom = 862.0
+texture = ExtResource("8_lgdna")
 
 [connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_finished"]
