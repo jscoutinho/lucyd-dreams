@@ -42,9 +42,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-#==========================
-# TROCA DE ESTADOS
-#==========================
+# go_to 
+
 
 func go_to_idle_state():
 	status = PlayerState.IDLE
@@ -67,9 +66,8 @@ func go_to_jump_state():
 	velocity.y = JUMP_VELOCITY
 
 
-#==========================
-# ESTADOS
-#==========================
+
+# states
 
 func idle_state():
 	move()
@@ -117,9 +115,9 @@ func jump_state():
 			go_to_walk_state()
 
 
-#==========================
+
 # MOVIMENTO
-#==========================
+
 
 func move():
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -135,9 +133,7 @@ func move():
 		anim.flip_h = true
 
 
-#==========================
 # ANIMAÇÕES
-#==========================
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if anim.animation == "transitioning":
