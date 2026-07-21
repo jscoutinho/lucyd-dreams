@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://c7qrqtqupo7k8" path="res://assets/jogo/casa/ventilador-ss.png" id="6_sje03"]
 [ext_resource type="Texture2D" uid="uid://clftp76pb4287" path="res://assets/jogo/casa/porta.png" id="7_uum25"]
 [ext_resource type="Texture2D" uid="uid://cvn44tcnbk6k8" path="res://assets/jogo/casa/coisas-frente.png" id="8_lgdna"]
+[ext_resource type="Script" uid="uid://dnstan2732u1i" path="res://scenes/abajur.gd" id="9_wui1u"]
+[ext_resource type="Texture2D" uid="uid://cjyp1wkayi28o" path="res://assets/jogo/casa/interact-button.png" id="10_g3anh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
 size = Vector2(3036, 57.5)
@@ -20,6 +22,9 @@ size = Vector2(53.25, 730.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtsop"]
 size = Vector2(129, 72.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qd1lp"]
+size = Vector2(122, 104.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d31c8"]
 atlas = ExtResource("3_ias33")
@@ -208,7 +213,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ov4ip"]
-radius = 29.0
+radius = 34.0
 height = 222.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6faw1"]
@@ -268,17 +273,19 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wwuq"]
+size = Vector2(87.5, 144)
+
 [node name="Casa" type="Node2D" unique_id=467067166]
 metadata/_edit_vertical_guides_ = [3039.0]
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1784103656]
+[node name="Fundo" type="TextureRect" parent="." unique_id=1784103656]
 offset_right = 1725.0
 offset_bottom = 864.0
 texture = ExtResource("1_16s4k")
 metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=850360607]
-visible = false
 
 [node name="Chão" type="CollisionShape2D" parent="StaticBody2D" unique_id=1378928029]
 position = Vector2(1517, 854)
@@ -301,44 +308,63 @@ shape = SubResource("RectangleShape2D_vsy63")
 position = Vector2(100, 789.125)
 shape = SubResource("RectangleShape2D_qtsop")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1844448226]
+[node name="Teto da porta" type="CollisionShape2D" parent="StaticBody2D" unique_id=497201640]
+position = Vector2(1179, 479.75)
+shape = SubResource("RectangleShape2D_qd1lp")
+
+[node name="Lucy" type="CharacterBody2D" parent="." unique_id=1844448226]
 position = Vector2(203, 700)
 script = ExtResource("2_ias33")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1878411280]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Lucy" unique_id=1878411280]
 sprite_frames = SubResource("SpriteFrames_sa2ql")
 animation = &"walking"
 autoplay = "idle"
 frame_progress = 0.9023682
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1936083529]
-visible = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lucy" unique_id=1936083529]
 position = Vector2(6, 14)
 shape = SubResource("CapsuleShape2D_ov4ip")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1369710671]
+[node name="Camera2D" type="Camera2D" parent="Lucy" unique_id=1369710671]
 position = Vector2(2, -271)
 limit_left = 0
 limit_top = 0
 limit_right = 3040
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=226278224]
+[node name="Ventilador" type="AnimatedSprite2D" parent="." unique_id=226278224]
 position = Vector2(544, 311)
 sprite_frames = SubResource("SpriteFrames_ov4ip")
 autoplay = "default"
 frame_progress = 0.26093164
 
-[node name="TextureRect3" type="TextureRect" parent="." unique_id=249138377]
+[node name="Porta Quarto" type="TextureRect" parent="." unique_id=249138377]
 offset_left = 960.0
 offset_top = 511.0
 offset_right = 1240.0
 offset_bottom = 863.0
 texture = ExtResource("7_uum25")
 
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=173174772]
+[node name="Coisas Frente Quarto" type="TextureRect" parent="." unique_id=173174772]
 offset_top = 718.0
 offset_right = 1152.0
 offset_bottom = 862.0
 texture = ExtResource("8_lgdna")
 
-[connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_finished"]
+[node name="Abajur" type="Node2D" parent="." unique_id=1278602666]
+script = ExtResource("9_wui1u")
+
+[node name="Area2D" type="Area2D" parent="Abajur" unique_id=335087963]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Abajur/Area2D" unique_id=1070031374]
+visible = false
+position = Vector2(283, 750)
+shape = SubResource("RectangleShape2D_8wwuq")
+
+[node name="Prompt" type="Sprite2D" parent="Abajur" unique_id=224827211]
+position = Vector2(287, 555)
+texture = ExtResource("10_g3anh")
+
+[connection signal="animation_finished" from="Lucy/AnimatedSprite2D" to="Lucy" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Abajur/Area2D" to="Abajur" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Abajur/Area2D" to="Abajur" method="_on_area_2d_body_exited"]
