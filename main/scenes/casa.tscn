@@ -218,36 +218,36 @@ height = 222.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6faw1"]
 atlas = ExtResource("6_sje03")
-region = Rect2(0, 0, 296, 112)
+region = Rect2(0, 0, 296, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kgo0o"]
 atlas = ExtResource("6_sje03")
-region = Rect2(296, 0, 296, 112)
+region = Rect2(296, 0, 296, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sf32j"]
 atlas = ExtResource("6_sje03")
-region = Rect2(592, 0, 296, 112)
+region = Rect2(592, 0, 296, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gueh2"]
 atlas = ExtResource("6_sje03")
-region = Rect2(888, 0, 296, 112)
+region = Rect2(888, 0, 296, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sgvlb"]
 atlas = ExtResource("6_sje03")
-region = Rect2(1184, 0, 296, 112)
+region = Rect2(1184, 0, 296, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dcuoi"]
 atlas = ExtResource("6_sje03")
-region = Rect2(1480, 0, 296, 112)
+region = Rect2(1480, 0, 296, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vu1hf"]
 atlas = ExtResource("6_sje03")
-region = Rect2(1776, 0, 296, 112)
+region = Rect2(1776, 0, 296, 120)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ov4ip"]
 animations = [{
 "frames": [{
-"duration": 2.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_6faw1")
 }, {
 "duration": 1.0,
@@ -286,6 +286,7 @@ texture = ExtResource("1_16s4k")
 metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=850360607]
+visible = false
 
 [node name="Chão" type="CollisionShape2D" parent="StaticBody2D" unique_id=1378928029]
 position = Vector2(1517, 854)
@@ -333,14 +334,14 @@ limit_top = 0
 limit_right = 3040
 
 [node name="Ventilador" type="AnimatedSprite2D" parent="." unique_id=226278224]
-position = Vector2(544, 311)
+position = Vector2(545, 316)
 sprite_frames = SubResource("SpriteFrames_ov4ip")
 autoplay = "default"
-frame_progress = 0.26093164
+frame_progress = 0.70220166
 
 [node name="Porta Quarto" type="TextureRect" parent="." unique_id=249138377]
 offset_left = 960.0
-offset_top = 511.0
+offset_top = 167.0
 offset_right = 1240.0
 offset_bottom = 863.0
 texture = ExtResource("7_uum25")
