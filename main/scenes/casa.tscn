@@ -11,6 +11,9 @@
 [ext_resource type="Script" uid="uid://dnstan2732u1i" path="res://scenes/abajur.gd" id="9_wui1u"]
 [ext_resource type="Texture2D" uid="uid://cjyp1wkayi28o" path="res://assets/jogo/casa/interact-button.png" id="10_g3anh"]
 [ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="11_g3anh"]
+[ext_resource type="Texture2D" uid="uid://duykr7bccb3gx" path="res://assets/jogo/casa/luz-abajur.png" id="12_3kn8t"]
+[ext_resource type="Script" uid="uid://dexdrs5cv1l7j" path="res://scenes/guitarra.gd" id="13_2ix5r"]
+[ext_resource type="Script" uid="uid://dedmvym355qis" path="res://scenes/retrato.gd" id="14_qil8m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
 size = Vector2(3036, 57.5)
@@ -58,6 +61,10 @@ region = Rect2(864, 0, 144, 248)
 [sub_resource type="AtlasTexture" id="AtlasTexture_g3anh"]
 atlas = ExtResource("3_ias33")
 region = Rect2(1008, 0, 144, 248)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml6ug"]
+atlas = ExtResource("4_6lyl3")
+region = Rect2(456, 0, 152, 248)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3kn8t"]
 atlas = ExtResource("4_6lyl3")
@@ -153,6 +160,14 @@ animations = [{
 "loop": 1,
 "name": &"idle",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ml6ug")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -279,7 +294,10 @@ size = Vector2(87.5, 144)
 
 [sub_resource type="LabelSettings" id="LabelSettings_sa2ql"]
 font = ExtResource("11_g3anh")
-font_size = 35
+font_size = 40
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1g1ej"]
+size = Vector2(66, 69)
 
 [node name="Casa" type="Node2D" unique_id=467067166]
 metadata/_edit_vertical_guides_ = [3039.0]
@@ -290,43 +308,43 @@ offset_bottom = 864.0
 texture = ExtResource("1_16s4k")
 metadata/_edit_use_anchors_ = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=850360607]
+[node name="Colisões" type="StaticBody2D" parent="." unique_id=850360607]
 visible = false
 
-[node name="Chão" type="CollisionShape2D" parent="StaticBody2D" unique_id=1378928029]
+[node name="Chão" type="CollisionShape2D" parent="Colisões" unique_id=1378928029]
 position = Vector2(1517, 854)
 shape = SubResource("RectangleShape2D_sa2ql")
 
-[node name="Mesa" type="CollisionShape2D" parent="StaticBody2D" unique_id=55481266]
+[node name="Mesa" type="CollisionShape2D" parent="Colisões" unique_id=55481266]
 position = Vector2(879, 706)
 shape = SubResource("RectangleShape2D_ov4ip")
 one_way_collision = true
 
-[node name="esquerda" type="CollisionShape2D" parent="StaticBody2D" unique_id=1560698557]
+[node name="esquerda" type="CollisionShape2D" parent="Colisões" unique_id=1560698557]
 position = Vector2(27.375, 465)
 shape = SubResource("RectangleShape2D_vsy63")
 
-[node name="direita" type="CollisionShape2D" parent="StaticBody2D" unique_id=1859195378]
+[node name="direita" type="CollisionShape2D" parent="Colisões" unique_id=1859195378]
 position = Vector2(3027, 461)
 shape = SubResource("RectangleShape2D_vsy63")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=861619175]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisões" unique_id=861619175]
 position = Vector2(100, 789.125)
 shape = SubResource("RectangleShape2D_qtsop")
 
-[node name="Teto da porta" type="CollisionShape2D" parent="StaticBody2D" unique_id=497201640]
+[node name="Teto da porta" type="CollisionShape2D" parent="Colisões" unique_id=497201640]
 position = Vector2(1179, 479.75)
 shape = SubResource("RectangleShape2D_qd1lp")
 
 [node name="Lucy" type="CharacterBody2D" parent="." unique_id=1844448226]
+z_index = 1
 position = Vector2(203, 700)
 script = ExtResource("2_ias33")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Lucy" unique_id=1878411280]
 sprite_frames = SubResource("SpriteFrames_sa2ql")
-animation = &"walking"
+animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.9023682
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lucy" unique_id=1936083529]
 position = Vector2(6, 14)
@@ -345,6 +363,7 @@ autoplay = "default"
 frame_progress = 0.70220166
 
 [node name="Porta Quarto" type="TextureRect" parent="." unique_id=249138377]
+z_index = 2
 offset_left = 960.0
 offset_top = 167.0
 offset_right = 1240.0
@@ -352,6 +371,7 @@ offset_bottom = 863.0
 texture = ExtResource("7_uum25")
 
 [node name="Coisas Frente Quarto" type="TextureRect" parent="." unique_id=173174772]
+z_index = 2
 offset_top = 718.0
 offset_right = 1152.0
 offset_bottom = 862.0
@@ -368,18 +388,72 @@ position = Vector2(283, 750)
 shape = SubResource("RectangleShape2D_8wwuq")
 
 [node name="Prompt" type="Sprite2D" parent="Abajur" unique_id=224827211]
-position = Vector2(292, 514)
+position = Vector2(288, 536.5)
 scale = Vector2(0.4861111, 0.4861111)
 texture = ExtResource("10_g3anh")
 
-[node name="Label" type="Label" parent="Abajur" unique_id=1857516336]
-offset_left = 261.0
-offset_top = 528.0
-offset_right = 335.0
-offset_bottom = 573.0
+[node name="Abajur nome" type="Label" parent="Abajur" unique_id=1857516336]
+offset_left = 252.0
+offset_top = 550.5
+offset_right = 326.0
+offset_bottom = 595.5
 text = "Abajur"
+label_settings = SubResource("LabelSettings_sa2ql")
+
+[node name="Luz Abajur" type="Sprite2D" parent="Abajur" unique_id=1796119806]
+position = Vector2(289, 660)
+texture = ExtResource("12_3kn8t")
+
+[node name="Guitarra" type="Node2D" parent="." unique_id=345268622]
+position = Vector2(533, 489)
+script = ExtResource("13_2ix5r")
+
+[node name="Area2D" type="Area2D" parent="Guitarra" unique_id=475727558]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guitarra/Area2D" unique_id=140206735]
+position = Vector2(-12, 266)
+shape = SubResource("RectangleShape2D_1g1ej")
+
+[node name="Prompt" type="Sprite2D" parent="Guitarra" unique_id=1263524693]
+position = Vector2(-10, 52.5)
+scale = Vector2(0.4861111, 0.4861111)
+texture = ExtResource("10_g3anh")
+
+[node name="Guitarra" type="Label" parent="Guitarra" unique_id=1499309490]
+offset_left = -59.0
+offset_top = 67.0
+offset_right = 38.0
+offset_bottom = 112.0
+text = "Guitarra"
+label_settings = SubResource("LabelSettings_sa2ql")
+
+[node name="Retrato" type="Node2D" parent="." unique_id=853934650]
+position = Vector2(799, 510)
+script = ExtResource("14_qil8m")
+
+[node name="Area2D" type="Area2D" parent="Retrato" unique_id=621957783]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Retrato/Area2D" unique_id=869316891]
+position = Vector2(-12, 266)
+shape = SubResource("RectangleShape2D_1g1ej")
+
+[node name="Prompt" type="Sprite2D" parent="Retrato" unique_id=513622903]
+position = Vector2(-8, 27.5)
+scale = Vector2(0.4861111, 0.4861111)
+texture = ExtResource("10_g3anh")
+
+[node name="Retrato" type="Label" parent="Retrato" unique_id=606781304]
+offset_left = -57.0
+offset_top = 42.0
+offset_right = 40.0
+offset_bottom = 87.0
+text = "Retrato"
 label_settings = SubResource("LabelSettings_sa2ql")
 
 [connection signal="animation_finished" from="Lucy/AnimatedSprite2D" to="Lucy" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Abajur/Area2D" to="Abajur" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Abajur/Area2D" to="Abajur" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Guitarra/Area2D" to="Guitarra" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Guitarra/Area2D" to="Guitarra" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Retrato/Area2D" to="Retrato" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Retrato/Area2D" to="Retrato" method="_on_area_2d_body_exited"]
