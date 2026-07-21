@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cvn44tcnbk6k8" path="res://assets/jogo/casa/coisas-frente.png" id="8_lgdna"]
 [ext_resource type="Script" uid="uid://dnstan2732u1i" path="res://scenes/abajur.gd" id="9_wui1u"]
 [ext_resource type="Texture2D" uid="uid://cjyp1wkayi28o" path="res://assets/jogo/casa/interact-button.png" id="10_g3anh"]
+[ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="11_g3anh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
 size = Vector2(3036, 57.5)
@@ -213,7 +214,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ov4ip"]
-radius = 34.0
+radius = 29.0
 height = 222.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6faw1"]
@@ -275,6 +276,10 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wwuq"]
 size = Vector2(87.5, 144)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sa2ql"]
+font = ExtResource("11_g3anh")
+font_size = 35
 
 [node name="Casa" type="Node2D" unique_id=467067166]
 metadata/_edit_vertical_guides_ = [3039.0]
@@ -363,8 +368,17 @@ position = Vector2(283, 750)
 shape = SubResource("RectangleShape2D_8wwuq")
 
 [node name="Prompt" type="Sprite2D" parent="Abajur" unique_id=224827211]
-position = Vector2(287, 555)
+position = Vector2(292, 514)
+scale = Vector2(0.4861111, 0.4861111)
 texture = ExtResource("10_g3anh")
+
+[node name="Label" type="Label" parent="Abajur" unique_id=1857516336]
+offset_left = 261.0
+offset_top = 528.0
+offset_right = 335.0
+offset_bottom = 573.0
+text = "Abajur"
+label_settings = SubResource("LabelSettings_sa2ql")
 
 [connection signal="animation_finished" from="Lucy/AnimatedSprite2D" to="Lucy" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Abajur/Area2D" to="Abajur" method="_on_area_2d_body_entered"]
