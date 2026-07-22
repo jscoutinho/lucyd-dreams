@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://ca54upyg0b12s"]
 
 [ext_resource type="Texture2D" uid="uid://be27jblbnudmw" path="res://assets/jogo/casa/casa.png" id="1_16s4k"]
+[ext_resource type="Script" uid="uid://c4iga5f0lfy5w" path="res://scenes/casa.gd" id="1_mmncb"]
 [ext_resource type="Script" uid="uid://c6a5iysgh4tka" path="res://scripts/player.gd" id="2_ias33"]
 [ext_resource type="Texture2D" uid="uid://d4dgqpmq8f0ek" path="res://assets/jogo/casa/lucy-idle-ss.png" id="3_ias33"]
 [ext_resource type="Texture2D" uid="uid://bkhw62blud1wi" path="res://assets/jogo/casa/lucy-trans.png" id="4_6lyl3"]
 [ext_resource type="Texture2D" uid="uid://dntrlnss3xunb" path="res://assets/jogo/casa/lucy-andando-ss.png" id="4_d31c8"]
+[ext_resource type="Texture2D" uid="uid://bc8q65s3hvp78" path="res://assets/jogo/casa/lucy-rising-ss.png" id="6_iupxv"]
 [ext_resource type="Texture2D" uid="uid://c7qrqtqupo7k8" path="res://assets/jogo/casa/ventilador-ss.png" id="6_sje03"]
 [ext_resource type="Texture2D" uid="uid://clftp76pb4287" path="res://assets/jogo/casa/porta.png" id="7_uum25"]
 [ext_resource type="Texture2D" uid="uid://cvn44tcnbk6k8" path="res://assets/jogo/casa/coisas-frente.png" id="8_lgdna"]
@@ -90,6 +92,26 @@ region = Rect2(304, 0, 152, 248)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dgbb3"]
 atlas = ExtResource("4_6lyl3")
 region = Rect2(456, 0, 152, 248)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5dhl"]
+atlas = ExtResource("6_iupxv")
+region = Rect2(0, 0, 144, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbwet"]
+atlas = ExtResource("6_iupxv")
+region = Rect2(144, 0, 144, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soppo"]
+atlas = ExtResource("6_iupxv")
+region = Rect2(288, 0, 144, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8iyh"]
+atlas = ExtResource("6_iupxv")
+region = Rect2(432, 0, 144, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8hm6"]
+atlas = ExtResource("6_iupxv")
+region = Rect2(576, 0, 144, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mhns3"]
 atlas = ExtResource("4_d31c8")
@@ -207,6 +229,26 @@ animations = [{
 "speed": 9.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5dhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbwet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soppo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8iyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8hm6")
+}],
+"loop": 0,
+"name": &"wake_up",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.1,
 "texture": SubResource("AtlasTexture_mhns3")
 }, {
@@ -309,12 +351,15 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wwuq"]
-size = Vector2(87.5, 144)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1g1ej"]
+size = Vector2(66, 69)
 
 [sub_resource type="LabelSettings" id="LabelSettings_sa2ql"]
 font = ExtResource("11_g3anh")
 font_size = 40
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wwuq"]
+size = Vector2(87.5, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqtc8"]
 atlas = ExtResource("13_dgbb3")
@@ -383,10 +428,83 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1g1ej"]
-size = Vector2(66, 69)
+[sub_resource type="Animation" id="Animation_v0syc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Lucy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(192, 700)]
+}
+
+[sub_resource type="Animation" id="Animation_dgbb3"]
+resource_name = "fade_in"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Lucy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.53, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(137, 700), Vector2(192, 700)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Lucy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_wake_up"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mhns3"]
+_data = {
+&"RESET": SubResource("Animation_v0syc"),
+&"intro": SubResource("Animation_dgbb3")
+}
 
 [node name="Casa" type="Node2D" unique_id=467067166]
+script = ExtResource("1_mmncb")
 metadata/_edit_vertical_guides_ = [3039.0]
 
 [node name="Fundo" type="TextureRect" parent="." unique_id=1784103656]
@@ -424,13 +542,15 @@ shape = SubResource("RectangleShape2D_qd1lp")
 
 [node name="Lucy" type="CharacterBody2D" parent="." unique_id=1844448226]
 z_index = 1
-position = Vector2(203, 700)
+position = Vector2(192, 700)
 script = ExtResource("2_ias33")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Lucy" unique_id=1878411280]
 sprite_frames = SubResource("SpriteFrames_sa2ql")
-animation = &"stop"
+animation = &"wake_up"
 autoplay = "idle"
+frame = 4
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lucy" unique_id=1936083529]
 position = Vector2(6, 14)
@@ -463,73 +583,25 @@ offset_right = 1152.0
 offset_bottom = 862.0
 texture = ExtResource("8_lgdna")
 
-[node name="Abajur" type="Node2D" parent="." unique_id=1278602666]
-script = ExtResource("9_wui1u")
+[node name="Objetos" type="Node2D" parent="." unique_id=1155473948]
+position = Vector2(203, 700)
 
-[node name="Area2D" type="Area2D" parent="Abajur" unique_id=335087963]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Abajur/Area2D" unique_id=1070031374]
-visible = false
-position = Vector2(283, 750)
-shape = SubResource("RectangleShape2D_8wwuq")
-
-[node name="Abajur nome" type="Label" parent="Abajur" unique_id=1857516336]
-offset_left = 252.0
-offset_top = 550.5
-offset_right = 326.0
-offset_bottom = 595.5
-text = "Abajur"
-label_settings = SubResource("LabelSettings_sa2ql")
-
-[node name="Luz Abajur" type="Sprite2D" parent="Abajur" unique_id=1796119806]
-position = Vector2(289, 660)
-texture = ExtResource("12_3kn8t")
-
-[node name="interact" type="AnimatedSprite2D" parent="Abajur" unique_id=852698115]
-position = Vector2(289, 534)
-scale = Vector2(0.5277778, 0.475)
-sprite_frames = SubResource("SpriteFrames_vsy63")
-animation = &"release"
-
-[node name="Guitarra" type="Node2D" parent="." unique_id=345268622]
-position = Vector2(533, 489)
-script = ExtResource("13_2ix5r")
-
-[node name="Area2D" type="Area2D" parent="Guitarra" unique_id=475727558]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Guitarra/Area2D" unique_id=140206735]
-position = Vector2(-12, 266)
-shape = SubResource("RectangleShape2D_1g1ej")
-
-[node name="Prompt" type="Sprite2D" parent="Guitarra" unique_id=1263524693]
-position = Vector2(-10, 52.5)
-scale = Vector2(0.4861111, 0.4861111)
-texture = ExtResource("10_g3anh")
-
-[node name="Guitarra" type="Label" parent="Guitarra" unique_id=1499309490]
-offset_left = -59.0
-offset_top = 67.0
-offset_right = 38.0
-offset_bottom = 112.0
-text = "Guitarra"
-label_settings = SubResource("LabelSettings_sa2ql")
-
-[node name="Retrato" type="Node2D" parent="." unique_id=853934650]
-position = Vector2(799, 510)
+[node name="Retrato" type="Node2D" parent="Objetos" unique_id=853934650]
+position = Vector2(596, -190)
 script = ExtResource("14_qil8m")
 
-[node name="Area2D" type="Area2D" parent="Retrato" unique_id=621957783]
+[node name="Area2D" type="Area2D" parent="Objetos/Retrato" unique_id=621957783]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Retrato/Area2D" unique_id=869316891]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objetos/Retrato/Area2D" unique_id=869316891]
 position = Vector2(-12, 266)
 shape = SubResource("RectangleShape2D_1g1ej")
 
-[node name="Prompt" type="Sprite2D" parent="Retrato" unique_id=513622903]
+[node name="Prompt" type="Sprite2D" parent="Objetos/Retrato" unique_id=513622903]
 position = Vector2(-8, 27.5)
 scale = Vector2(0.4861111, 0.4861111)
 texture = ExtResource("10_g3anh")
 
-[node name="Retrato" type="Label" parent="Retrato" unique_id=606781304]
+[node name="Retrato" type="Label" parent="Objetos/Retrato" unique_id=606781304]
 offset_left = -57.0
 offset_top = 42.0
 offset_right = 40.0
@@ -537,11 +609,78 @@ offset_bottom = 87.0
 text = "Retrato"
 label_settings = SubResource("LabelSettings_sa2ql")
 
+[node name="Guitarra" type="Node2D" parent="Objetos" unique_id=345268622]
+position = Vector2(330, -211)
+script = ExtResource("13_2ix5r")
+
+[node name="Area2D" type="Area2D" parent="Objetos/Guitarra" unique_id=475727558]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objetos/Guitarra/Area2D" unique_id=140206735]
+position = Vector2(-12, 266)
+shape = SubResource("RectangleShape2D_1g1ej")
+
+[node name="Prompt" type="Sprite2D" parent="Objetos/Guitarra" unique_id=1263524693]
+position = Vector2(-10, 52.5)
+scale = Vector2(0.4861111, 0.4861111)
+texture = ExtResource("10_g3anh")
+
+[node name="Guitarra" type="Label" parent="Objetos/Guitarra" unique_id=1499309490]
+offset_left = -59.0
+offset_top = 67.0
+offset_right = 38.0
+offset_bottom = 112.0
+text = "Guitarra"
+label_settings = SubResource("LabelSettings_sa2ql")
+
+[node name="Abajur" type="Node2D" parent="Objetos" unique_id=1278602666]
+position = Vector2(-203, -700)
+script = ExtResource("9_wui1u")
+
+[node name="Area2D" type="Area2D" parent="Objetos/Abajur" unique_id=335087963]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objetos/Abajur/Area2D" unique_id=1070031374]
+visible = false
+position = Vector2(283, 750)
+shape = SubResource("RectangleShape2D_8wwuq")
+
+[node name="Abajur nome" type="Label" parent="Objetos/Abajur" unique_id=1857516336]
+offset_left = 252.0
+offset_top = 550.5
+offset_right = 326.0
+offset_bottom = 595.5
+text = "Abajur"
+label_settings = SubResource("LabelSettings_sa2ql")
+
+[node name="Luz Abajur" type="Sprite2D" parent="Objetos/Abajur" unique_id=1796119806]
+position = Vector2(289, 660)
+texture = ExtResource("12_3kn8t")
+
+[node name="interact" type="AnimatedSprite2D" parent="Objetos/Abajur" unique_id=852698115]
+position = Vector2(289, 534)
+scale = Vector2(0.5277778, 0.475)
+sprite_frames = SubResource("SpriteFrames_vsy63")
+animation = &"release"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1196139982]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1310660608]
+root_node = NodePath("../ColorRect")
+libraries/ = SubResource("AnimationLibrary_mhns3")
+autoplay = &"intro"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1209259651]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
 [connection signal="animation_finished" from="Lucy/AnimatedSprite2D" to="Lucy" method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="body_entered" from="Abajur/Area2D" to="Abajur" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Abajur/Area2D" to="Abajur" method="_on_area_2d_body_exited"]
-[connection signal="animation_finished" from="Abajur/interact" to="Abajur" method="_on_interact_animation_finished"]
-[connection signal="body_entered" from="Guitarra/Area2D" to="Guitarra" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Guitarra/Area2D" to="Guitarra" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="Retrato/Area2D" to="Retrato" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Retrato/Area2D" to="Retrato" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Objetos/Retrato/Area2D" to="Objetos/Retrato" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Objetos/Retrato/Area2D" to="Objetos/Retrato" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Objetos/Guitarra/Area2D" to="Objetos/Guitarra" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Objetos/Guitarra/Area2D" to="Objetos/Guitarra" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Objetos/Abajur/Area2D" to="Objetos/Abajur" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Objetos/Abajur/Area2D" to="Objetos/Abajur" method="_on_area_2d_body_exited"]
+[connection signal="animation_finished" from="Objetos/Abajur/interact" to="Objetos/Abajur" method="_on_interact_animation_finished"]

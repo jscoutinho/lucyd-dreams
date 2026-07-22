@@ -5,7 +5,8 @@ enum PlayerState {
 	TRANSITION,
 	WALK,
 	STOP,
-	JUMP
+	JUMP,
+	CUTSCENE
 }
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -19,6 +20,9 @@ var status: PlayerState
 
 func _ready() -> void:
 	go_to_idle_state()
+	
+func play_wake_up():
+	go_to_cutscene_state()
 
 
 func _physics_process(delta: float) -> void:
@@ -41,7 +45,9 @@ func _physics_process(delta: float) -> void:
 
 		PlayerState.JUMP:
 			jump_state()
-
+		
+		PlayerState.CUTSCENE:
+			cutscene_state()
 	move_and_slide()
 
 
@@ -74,6 +80,9 @@ func go_to_jump_state():
 	anim.play("jump")
 	velocity.y = JUMP_VELOCITY
 
+func go_to_cutscene_state():
+	status = PlayerState.CUTSCENE
+	anim.play("wake_up")
 
 #====================
 # STATES
@@ -139,6 +148,10 @@ func jump_state():
 			go_to_idle_state()
 		else:
 			go_to_walk_state()
+			
+
+func cutscene_state():
+	pass
 
 
 #====================
@@ -177,3 +190,5 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		"stop":
 			if status == PlayerState.STOP:
 				go_to_idle_state()
+		"wake_up":
+			go_to_idle_state()
