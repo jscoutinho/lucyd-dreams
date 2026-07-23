@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://djhptl4tm4nw7"]
+
+[ext_resource type="Script" uid="uid://c3t55ak2lvyu6" path="res://canvas_layer.gd" id="1_0rkfd"]
+
+[node name="DialogueBox" type="CanvasLayer" unique_id=594521042]
+script = ExtResource("1_0rkfd")
+
+[node name="Panel" type="Panel" parent="." unique_id=758645488]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -162.0
+offset_right = 164.0
+offset_bottom = 120.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Panel" unique_id=82106592]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true

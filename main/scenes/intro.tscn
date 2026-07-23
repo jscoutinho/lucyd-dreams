@@ -173,7 +173,8 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="z" unique_id=1035207629]
-position = Vector2(-50, -50)
+position = Vector2(-41, -35.5)
+scale = Vector2(0.71875, 0.72115386)
 sprite_frames = SubResource("SpriteFrames_sa2ql")
 autoplay = "default"
 frame_progress = 0.01462058
