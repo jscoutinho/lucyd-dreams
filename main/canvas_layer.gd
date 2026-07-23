@@ -15,6 +15,9 @@ func show_dialogue(dialogue: Array):
 
 	label.text = texts[index]
 	show()
+	
+	var player = get_tree().current_scene.get_node("Lucy")
+	player.go_to_dialogue_state()
 
 func _ready():
 	hide()
@@ -32,5 +35,7 @@ func _process(_delta):
 		if index >= texts.size():
 			hide()
 			active = false
+			var player = get_tree().current_scene.get_node("Lucy")
+			player.exit_dialogue()
 		else:
 			label.text = texts[index]

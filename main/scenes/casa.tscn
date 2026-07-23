@@ -280,6 +280,10 @@ offset_bottom = 112.0
 text = "Guitarra"
 label_settings = SubResource("LabelSettings_sa2ql")
 
+[node name="UI" type="Node2D" parent="." unique_id=1545718603]
+
+[node name="DialogueBox" parent="UI" unique_id=356217972 instance=ExtResource("12_3kn8t")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1196139982]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1310660608]
@@ -294,8 +298,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
-
-[node name="DialogueBox" parent="." unique_id=356217972 instance=ExtResource("12_3kn8t")]
 
 [connection signal="body_entered" from="Objetos/Retrato/Area2D" to="Objetos/Retrato" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Objetos/Retrato/Area2D" to="Objetos/Retrato" method="_on_area_2d_body_exited"]

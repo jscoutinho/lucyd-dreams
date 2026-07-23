@@ -36,6 +36,8 @@ func _on_interact_animation_finished() -> void:
 		"press":
 			# A interação acontece quando o botão termina de ser pressionado
 			luz.visible = !luz.visible
+			var dialogue = get_tree().current_scene.get_node("UI/DialogueBox")
+			dialogue.show_dialogue(["Bem melhor assim."])
 			interact.play("release")
 
 		"release":

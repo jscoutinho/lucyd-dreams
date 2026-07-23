@@ -1,6 +1,51 @@
 [gd_scene format=3 uid="uid://djhptl4tm4nw7"]
 
 [ext_resource type="Script" uid="uid://c3t55ak2lvyu6" path="res://canvas_layer.gd" id="1_0rkfd"]
+[ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="2_t6yfi"]
+[ext_resource type="Texture2D" uid="uid://csprgtnsomd7e" path="res://assets/intro/z-intro-ss.png" id="3_utthg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ife8n"]
+atlas = ExtResource("3_utthg")
+region = Rect2(0, 0, 64, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4dsf"]
+atlas = ExtResource("3_utthg")
+region = Rect2(64, 0, 64, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u0vr"]
+atlas = ExtResource("3_utthg")
+region = Rect2(128, 0, 64, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0ejf"]
+atlas = ExtResource("3_utthg")
+region = Rect2(192, 0, 64, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gor1f"]
+atlas = ExtResource("3_utthg")
+region = Rect2(256, 0, 64, 104)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sa2ql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ife8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4dsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u0vr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0ejf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gor1f")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="DialogueBox" type="CanvasLayer" unique_id=594521042]
 script = ExtResource("1_0rkfd")
@@ -9,15 +54,31 @@ script = ExtResource("1_0rkfd")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -162.0
-offset_right = 164.0
-offset_bottom = 120.0
+offset_left = -249.0
+offset_right = 252.0
+offset_bottom = 207.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
 [node name="Label" type="Label" parent="Panel" unique_id=82106592]
-layout_mode = 0
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08183633
+anchor_top = 0.12077295
+anchor_right = 0.8003992
+anchor_bottom = 0.14492753
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_t6yfi")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel" unique_id=1415600698]
+position = Vector2(475, 170.5)
+scale = Vector2(0.46875, 0.39423078)
+sprite_frames = SubResource("SpriteFrames_sa2ql")
+autoplay = "default"
