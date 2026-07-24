@@ -487,12 +487,11 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1241153127]
-texture_repeat = 2
-position = Vector2(528, 483)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1806932680]
 stream = ExtResource("6_g3eks")
-volume_db = -12.846
+volume_db = -10.523
 autoplay = true
+parameters/looping = true
 
 [connection signal="animation_finished" from="Lucy/Lucy + Title" to="." method="_on_lucy__title_animation_finished"]
 [connection signal="pressed" from="madeby/js_coutinho" to="." method="_on_js_coutinho_pressed"]

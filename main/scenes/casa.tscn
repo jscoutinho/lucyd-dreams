@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="11_g3anh"]
 [ext_resource type="PackedScene" uid="uid://djhptl4tm4nw7" path="res://scenes/UI/dialogue_box.tscn" id="12_3kn8t"]
 [ext_resource type="AudioStream" uid="uid://dftxddign7jve" path="res://assets/msc/lucid-dreams.mp3" id="13_2ix5r"]
+[ext_resource type="Texture2D" uid="uid://drbsofgrkg3xr" path="res://assets/jogo/casa/pia-ss.png" id="14_dgbb3"]
 [ext_resource type="Script" uid="uid://dedmvym355qis" path="res://scripts/objects/retrato.gd" id="14_qil8m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
@@ -182,6 +183,98 @@ _data = {
 &"intro": SubResource("Animation_dgbb3")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhns3"]
+atlas = ExtResource("14_dgbb3")
+region = Rect2(0, 0, 120, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmncb"]
+atlas = ExtResource("14_dgbb3")
+region = Rect2(120, 0, 120, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iupxv"]
+atlas = ExtResource("14_dgbb3")
+region = Rect2(240, 0, 120, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wx5t"]
+atlas = ExtResource("14_dgbb3")
+region = Rect2(360, 0, 120, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42bnm"]
+atlas = ExtResource("14_dgbb3")
+region = Rect2(480, 0, 120, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7koj"]
+atlas = ExtResource("14_dgbb3")
+region = Rect2(600, 0, 120, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlu1a"]
+atlas = ExtResource("14_dgbb3")
+region = Rect2(720, 0, 120, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgvlm"]
+atlas = ExtResource("14_dgbb3")
+region = Rect2(840, 0, 120, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k26xf"]
+atlas = ExtResource("14_dgbb3")
+region = Rect2(960, 0, 120, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41oo6"]
+atlas = ExtResource("14_dgbb3")
+region = Rect2(1080, 0, 120, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o42bb"]
+atlas = ExtResource("14_dgbb3")
+region = Rect2(1200, 0, 120, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pptxt"]
+atlas = ExtResource("14_dgbb3")
+region = Rect2(1320, 0, 120, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sa2ql"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_mhns3")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_mmncb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iupxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wx5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42bnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7koj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlu1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgvlm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k26xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41oo6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o42bb")
+}, {
+"duration": 8.0,
+"texture": SubResource("AtlasTexture_pptxt")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
 [node name="Casa" type="Node2D" unique_id=467067166]
 script = ExtResource("1_mmncb")
 metadata/_edit_vertical_guides_ = [3039.0]
@@ -296,9 +389,15 @@ color = Color(0, 0, 0, 0)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1065459597]
 stream = ExtResource("13_2ix5r")
-volume_db = -0.045
+volume_db = -10.523
 autoplay = true
 parameters/looping = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=34732416]
+position = Vector2(1437, 631)
+sprite_frames = SubResource("SpriteFrames_sa2ql")
+autoplay = "default"
+frame_progress = 0.5003225
 
 [connection signal="body_entered" from="Objetos/Retrato/Area2D" to="Objetos/Retrato" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Objetos/Retrato/Area2D" to="Objetos/Retrato" method="_on_area_2d_body_exited"]
