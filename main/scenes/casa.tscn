@@ -6,11 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://c7qrqtqupo7k8" path="res://assets/jogo/casa/ventilador-ss.png" id="6_sje03"]
 [ext_resource type="PackedScene" uid="uid://b3lsrtu0loa8a" path="res://scenes/objects/abajur.tscn" id="7_g3anh"]
 [ext_resource type="Texture2D" uid="uid://clftp76pb4287" path="res://assets/jogo/casa/porta.png" id="7_uum25"]
+[ext_resource type="PackedScene" uid="uid://baqv5bsi56ypr" path="res://scenes/objects/guitarra.tscn" id="8_3kn8t"]
 [ext_resource type="Texture2D" uid="uid://cvn44tcnbk6k8" path="res://assets/jogo/casa/coisas-frente.png" id="8_lgdna"]
 [ext_resource type="Texture2D" uid="uid://cjyp1wkayi28o" path="res://assets/jogo/casa/interact-button.png" id="10_g3anh"]
 [ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="11_g3anh"]
 [ext_resource type="PackedScene" uid="uid://djhptl4tm4nw7" path="res://scenes/UI/dialogue_box.tscn" id="12_3kn8t"]
-[ext_resource type="Script" uid="uid://dexdrs5cv1l7j" path="res://scripts/objects/guitarra.gd" id="13_2ix5r"]
+[ext_resource type="AudioStream" uid="uid://dftxddign7jve" path="res://assets/msc/lucid-dreams.mp3" id="13_2ix5r"]
 [ext_resource type="Script" uid="uid://dedmvym355qis" path="res://scripts/objects/retrato.gd" id="14_qil8m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
@@ -248,6 +249,9 @@ position = Vector2(203, 700)
 [node name="Abajur" parent="Objetos" unique_id=1907105461 instance=ExtResource("7_g3anh")]
 position = Vector2(-203, -700)
 
+[node name="Guitarra" parent="Objetos" unique_id=1912262104 instance=ExtResource("8_3kn8t")]
+position = Vector2(325, -217)
+
 [node name="Retrato" type="Node2D" parent="Objetos" unique_id=853934650]
 position = Vector2(596, -190)
 script = ExtResource("14_qil8m")
@@ -271,29 +275,6 @@ offset_bottom = 87.0
 text = "Retrato"
 label_settings = SubResource("LabelSettings_sa2ql")
 
-[node name="Guitarra" type="Node2D" parent="Objetos" unique_id=345268622]
-position = Vector2(330, -211)
-script = ExtResource("13_2ix5r")
-
-[node name="Area2D" type="Area2D" parent="Objetos/Guitarra" unique_id=475727558]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objetos/Guitarra/Area2D" unique_id=140206735]
-position = Vector2(-12, 266)
-shape = SubResource("RectangleShape2D_1g1ej")
-
-[node name="Prompt" type="Sprite2D" parent="Objetos/Guitarra" unique_id=1263524693]
-position = Vector2(-10, 52.5)
-scale = Vector2(0.4861111, 0.4861111)
-texture = ExtResource("10_g3anh")
-
-[node name="Guitarra" type="Label" parent="Objetos/Guitarra" unique_id=1499309490]
-offset_left = -59.0
-offset_top = 67.0
-offset_right = 38.0
-offset_bottom = 112.0
-text = "Guitarra"
-label_settings = SubResource("LabelSettings_sa2ql")
-
 [node name="UI" type="Node2D" parent="." unique_id=1545718603]
 
 [node name="DialogueBox" parent="UI" unique_id=356217972 instance=ExtResource("12_3kn8t")]
@@ -313,8 +294,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1065459597]
+stream = ExtResource("13_2ix5r")
+volume_db = -0.045
+autoplay = true
+parameters/looping = true
+
 [connection signal="body_entered" from="Objetos/Retrato/Area2D" to="Objetos/Retrato" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Objetos/Retrato/Area2D" to="Objetos/Retrato" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="Objetos/Guitarra/Area2D" to="Objetos/Guitarra" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Objetos/Guitarra/Area2D" to="Objetos/Guitarra" method="_on_area_2d_body_exited"]
 [connection signal="finished" from="UI/DialogueBox" to="." method="_on_dialogue_box_finished"]

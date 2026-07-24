@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://baqv5bsi56ypr"]
+
+[ext_resource type="Script" uid="uid://dexdrs5cv1l7j" path="res://scripts/objects/guitarra.gd" id="1_m52bv"]
+[ext_resource type="Texture2D" uid="uid://bgwuhn51ysmuh" path="res://assets/jogo/casa/interact-button-ss.png" id="3_m52bv"]
+[ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="3_neoq5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1g1ej"]
+size = Vector2(66, 69)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sa2ql"]
+font = ExtResource("3_neoq5")
+font_size = 40
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqtc8"]
+atlas = ExtResource("3_m52bv")
+region = Rect2(0, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sw1sf"]
+atlas = ExtResource("3_m52bv")
+region = Rect2(72, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sroq"]
+atlas = ExtResource("3_m52bv")
+region = Rect2(144, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5lgu"]
+atlas = ExtResource("3_m52bv")
+region = Rect2(216, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ockme"]
+atlas = ExtResource("3_m52bv")
+region = Rect2(288, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c1y8"]
+atlas = ExtResource("3_m52bv")
+region = Rect2(360, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47e1h"]
+atlas = ExtResource("3_m52bv")
+region = Rect2(432, 0, 72, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_35nhv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqtc8")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sw1sf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sroq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5lgu")
+}],
+"loop": 0,
+"name": &"press",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ockme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c1y8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47e1h")
+}],
+"loop": 0,
+"name": &"release",
+"speed": 12.0
+}]
+
+[node name="Guitarra" type="Node2D" unique_id=1912262104]
+script = ExtResource("1_m52bv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2049190244]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1905906160]
+position = Vector2(-12, 266)
+shape = SubResource("RectangleShape2D_1g1ej")
+
+[node name="Guitarra" type="Label" parent="." unique_id=449300055]
+offset_left = -59.0
+offset_top = 67.0
+offset_right = 38.0
+offset_bottom = 112.0
+text = "Guitarra"
+label_settings = SubResource("LabelSettings_sa2ql")
+
+[node name="interact" type="AnimatedSprite2D" parent="." unique_id=467609995]
+position = Vector2(-14, 54)
+scale = Vector2(0.5277778, 0.475)
+sprite_frames = SubResource("SpriteFrames_35nhv")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 1.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="animation_finished" from="interact" to="." method="_on_interact_animation_finished"]
