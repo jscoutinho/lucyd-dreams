@@ -10,7 +10,7 @@ Primeira concept art da rua no mundo dos sonhos. Construções em ruínas e peda
 
 ## Como Jogar  
 <h4>Windows</h4>
-<p> <a href="https://github.com/jscoutinho/lucyd-dreams/blob/main/main/export/">Clique aqui</a> para se redirecionar para a página de download do exe. É só baixar e executar na máquina. </p>
+<p> <a href="https://github.com/jscoutinho/lucyd-dreams/blob/main/main/export/windows.zip">Clique aqui</a> para se redirecionar para a página de download do exe. É só baixar e executar na máquina. </p>
 <h4>Linux</h4>
 <p><a href="https://github.com/jscoutinho/lucyd-dreams/tree/main/main/export/linux">Clique aqui</a> para se redirecionar para a página de download dos arquivos. É necessário baixar tanto o arquivo .x86_64 quanto o arquivo .sh.
 Depois de baixar é necessário ativar a permissão para executar o .x86_64. Executando no terminal as linhas abaixo:</p>
