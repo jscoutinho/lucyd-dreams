@@ -54,21 +54,21 @@ script = ExtResource("1_0rkfd")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -249.0
-offset_right = 252.0
+offset_left = -355.0
+offset_right = 355.0
 offset_bottom = 207.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="Panel" unique_id=82106592]
+[node name="Conteudo" type="Label" parent="Panel" unique_id=82106592]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.08183633
-anchor_top = 0.12077295
-anchor_right = 0.8003992
-anchor_bottom = 0.14492753
+anchor_left = 0.1084507
+anchor_top = 0.14009662
+anchor_right = 0.82701355
+anchor_bottom = 0.24637681
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("2_t6yfi")
@@ -78,7 +78,16 @@ autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel" unique_id=1415600698]
-position = Vector2(475, 170.5)
+position = Vector2(629, 173)
 scale = Vector2(0.46875, 0.39423078)
 sprite_frames = SubResource("SpriteFrames_sa2ql")
 autoplay = "default"
+
+[node name="Nome" type="Label" parent="Panel" unique_id=150181824]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 148.0
+offset_right = 101.0
+offset_bottom = 204.0
+theme_override_fonts/font = ExtResource("2_t6yfi")
+theme_override_font_sizes/font_size = 45

@@ -1,19 +1,21 @@
 extends CanvasLayer
 
 @onready var panel = $Panel
-@onready var label = $Panel/Label
+@onready var conteudo = $Panel/Conteudo
+@onready var nome: Label = $Panel/Nome
 
-
+signal finished
 var index := 0
 var active := false
 var texts: Array = []
 
-func show_dialogue(dialogue: Array):
+func show_dialogue(dialogue: Array, sujeito: String):
 	texts = dialogue
 	index = 0
 	active = true
 
-	label.text = texts[index]
+	conteudo.text = texts[index]
+	nome.text = sujeito
 	show()
 	
 	var player = get_tree().current_scene.get_node("Lucy")
@@ -37,5 +39,6 @@ func _process(_delta):
 			active = false
 			var player = get_tree().current_scene.get_node("Lucy")
 			player.exit_dialogue()
+			finished.emit()
 		else:
-			label.text = texts[index]
+			conteudo.text = texts[index]
