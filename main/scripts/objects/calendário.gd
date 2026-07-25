@@ -35,8 +35,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_interact_animation_finished() -> void:
 	match interact.animation:
 		"press":
-			var dialogue = get_tree().current_scene.get_node("UI/DialogueBox")
-			dialogue.show_dialogue(["Eu não deveria ter tocado nela hoje.", "Fazia tanto tempo que ela estava guardada...", "Desde que..."], "Lucy")
+			var dialogue = get_tree().current_scene.get_node("UI/ImageBox")
+			dialogue.show_dialogue(["Dia 8 de dezembro...", "Ou será 7? Nunca fui boa com tempo, mas parece que ainda não amanheceu"], "Lucy", "res://assets/jogo/casa/calendario.png")
 			interact.play("release")
 
 		"release":

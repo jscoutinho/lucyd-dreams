@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://clftp76pb4287" path="res://assets/jogo/casa/porta.png" id="5_q0tqs"]
 [ext_resource type="Texture2D" uid="uid://cvn44tcnbk6k8" path="res://assets/jogo/casa/coisas-frente.png" id="6_8a3k2"]
 [ext_resource type="PackedScene" uid="uid://b3lsrtu0loa8a" path="res://scenes/objects/abajur.tscn" id="7_fw7h6"]
+[ext_resource type="Texture2D" uid="uid://c4dkdgrrckfld" path="res://assets/jogo/casa/batente.png" id="7_ojn3e"]
 [ext_resource type="PackedScene" uid="uid://baqv5bsi56ypr" path="res://scenes/objects/guitarra.tscn" id="8_3dot3"]
 [ext_resource type="PackedScene" uid="uid://cjwbpb244dch5" path="res://scenes/objects/retrato.tscn" id="9_i70gd"]
 [ext_resource type="PackedScene" uid="uid://cs0kpx0lip5og" path="res://scenes/objects/geladeira.tscn" id="10_okrb8"]
@@ -31,6 +32,9 @@ size = Vector2(126.5, 72.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd1lp"]
 size = Vector2(122, 104.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wwuq"]
+size = Vector2(129, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6faw1"]
 atlas = ExtResource("4_5gewj")
@@ -307,6 +311,10 @@ shape = SubResource("RectangleShape2D_qtsop")
 position = Vector2(1179, 479.75)
 shape = SubResource("RectangleShape2D_qd1lp")
 
+[node name="Teto batebte" type="CollisionShape2D" parent="Colisões" unique_id=1394608541]
+position = Vector2(2079.5, 490)
+shape = SubResource("RectangleShape2D_8wwuq")
+
 [node name="Lucy" parent="." unique_id=1039624184 instance=ExtResource("3_7yr2r")]
 position = Vector2(100, 699)
 
@@ -331,6 +339,14 @@ offset_right = 1152.0
 offset_bottom = 862.0
 texture = ExtResource("6_8a3k2")
 
+[node name="Batente Sala" type="TextureRect" parent="." unique_id=1703716022]
+z_index = 1
+offset_left = 2040.0
+offset_top = 255.0
+offset_right = 2144.0
+offset_bottom = 856.0
+texture = ExtResource("7_ojn3e")
+
 [node name="Objetos" type="Node2D" parent="." unique_id=1155473948]
 position = Vector2(203, 700)
 
@@ -350,7 +366,7 @@ position = Vector2(1106, -214)
 position = Vector2(1411, -312)
 
 [node name="PortaBanheiro" parent="Objetos" unique_id=1349251306 instance=ExtResource("12_tj0lg")]
-position = Vector2(1667, -223)
+position = Vector2(1669, -339)
 
 [node name="UI" type="Node2D" parent="." unique_id=1545718603]
 
@@ -379,7 +395,7 @@ volume_db = -10.523
 autoplay = true
 parameters/looping = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=34732416]
+[node name="Pia" type="AnimatedSprite2D" parent="." unique_id=34732416]
 position = Vector2(1437, 631)
 sprite_frames = SubResource("SpriteFrames_sa2ql")
 autoplay = "default"

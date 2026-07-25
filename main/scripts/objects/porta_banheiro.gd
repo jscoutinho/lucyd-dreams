@@ -35,7 +35,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_interact_animation_finished() -> void:
 	match interact.animation:
 		"press":
-			get_tree().change_scene_to_file("res://scenes/maps/banheiro.tscn")
+			print("indo")
+			#get_tree().change_scene_to_file("res://scenes/maps/banheiro.tscn")
 
 		"release":
 			interact.play("idle")

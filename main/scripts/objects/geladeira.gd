@@ -36,7 +36,7 @@ func _on_interact_animation_finished() -> void:
 	match interact.animation:
 		"press":
 			var dialogue = get_tree().current_scene.get_node("UI/DialogueBox")
-			dialogue.show_dialogue(["Eu não deveria ter tocado nela hoje.", "Fazia tanto tempo que ela estava guardada...", "Desde que..."], "Lucy")
+			dialogue.show_dialogue(["O taco de ontem vai ter que esperar um pouco mais para o lanche da meia noite."], "Lucy")
 			interact.play("release")
 
 		"release":

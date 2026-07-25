@@ -89,14 +89,14 @@ shape = SubResource("RectangleShape2D_8jr5m")
 
 [node name="GeladeiraN" type="Label" parent="." unique_id=1498033313]
 offset_left = -59.0
-offset_top = 67.0
-offset_right = 38.0
-offset_bottom = 112.0
+offset_top = -7.0
+offset_right = 46.0
+offset_bottom = 38.0
 text = "Geladeira"
 label_settings = SubResource("LabelSettings_ujy4s")
 
 [node name="interact" type="AnimatedSprite2D" parent="." unique_id=1861264458]
-position = Vector2(-14, 54)
+position = Vector2(-7, -21)
 scale = Vector2(0.5277778, 0.475)
 sprite_frames = SubResource("SpriteFrames_6pdng")
 animation = &"idle"

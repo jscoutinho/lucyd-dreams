@@ -38,7 +38,7 @@ func _on_interact_animation_finished() -> void:
 	match interact.animation:
 		"press":
 			var dialogue = get_tree().current_scene.get_node("UI/ImageBox")
-			dialogue.show_dialogue(["Eu não deveria ter tocado nela hoje.", "Fazia tanto tempo que ela estava guardada...", "Desde que..."], "Retrato", "res://assets/intro/img-2.png")
+			dialogue.show_dialogue(["'Para MINHA Lucy lembrar de onde veio - SUA Mamãe c:'","Ah... Esse dia no parque. Me lembro como se fosse ontem.", "Nessa época, eu não sabia o quão sortuda era. Queria tantas coisas, mas não enxerguei que já tinha tudo o que eu precisava.", "Obrigada por me obrigar a tirar essa foto."], "Lucy", "res://assets/jogo/casa/quadro.png")
 			interact.play("release")
 
 		"release":

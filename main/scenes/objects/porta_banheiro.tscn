@@ -84,7 +84,7 @@ script = ExtResource("1_is5ho")
 [node name="Area2D" type="Area2D" parent="." unique_id=790017195]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1132119300]
-position = Vector2(-12, 266)
+position = Vector2(-11, 319)
 shape = SubResource("RectangleShape2D_4nbs1")
 
 [node name="Banheiro" type="Label" parent="." unique_id=1272503122]
