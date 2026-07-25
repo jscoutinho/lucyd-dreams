@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://cs0kpx0lip5og"]
+
+[ext_resource type="Script" uid="uid://c3nujedlcwgnv" path="res://scripts/objects/geladeira.gd" id="1_gaars"]
+[ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="2_e5g5b"]
+[ext_resource type="Texture2D" uid="uid://bgwuhn51ysmuh" path="res://assets/jogo/casa/interact-button-ss.png" id="3_2fa08"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jr5m"]
+size = Vector2(66, 69)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ujy4s"]
+font = ExtResource("2_e5g5b")
+font_size = 40
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqtc8"]
+atlas = ExtResource("3_2fa08")
+region = Rect2(0, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sw1sf"]
+atlas = ExtResource("3_2fa08")
+region = Rect2(72, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sroq"]
+atlas = ExtResource("3_2fa08")
+region = Rect2(144, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5lgu"]
+atlas = ExtResource("3_2fa08")
+region = Rect2(216, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ockme"]
+atlas = ExtResource("3_2fa08")
+region = Rect2(288, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c1y8"]
+atlas = ExtResource("3_2fa08")
+region = Rect2(360, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47e1h"]
+atlas = ExtResource("3_2fa08")
+region = Rect2(432, 0, 72, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6pdng"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqtc8")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sw1sf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sroq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5lgu")
+}],
+"loop": 0,
+"name": &"press",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ockme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c1y8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47e1h")
+}],
+"loop": 0,
+"name": &"release",
+"speed": 12.0
+}]
+
+[node name="Geladeira" type="Node2D" unique_id=794218641]
+script = ExtResource("1_gaars")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1798732979]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=986506290]
+position = Vector2(-12, 266)
+shape = SubResource("RectangleShape2D_8jr5m")
+
+[node name="GeladeiraN" type="Label" parent="." unique_id=1498033313]
+offset_left = -59.0
+offset_top = 67.0
+offset_right = 38.0
+offset_bottom = 112.0
+text = "Geladeira"
+label_settings = SubResource("LabelSettings_ujy4s")
+
+[node name="interact" type="AnimatedSprite2D" parent="." unique_id=1861264458]
+position = Vector2(-14, 54)
+scale = Vector2(0.5277778, 0.475)
+sprite_frames = SubResource("SpriteFrames_6pdng")
+animation = &"idle"
+autoplay = "idle"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="animation_finished" from="interact" to="." method="_on_interact_animation_finished"]

@@ -1,21 +1,46 @@
 extends Node2D
 
-@onready var prompt: Sprite2D = $Prompt
+@onready var interact: AnimatedSprite2D = $interact
 @onready var retrato: Label = $Retrato
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	retrato.hide()
-	prompt.hide()
+const FOTO := preload("res://assets/intro/img-2.png")
 
+var player_near = false
+var interacting = false
+
+func _ready() -> void:
+	interact.hide()
+	retrato.hide()
+
+func _process(_delta: float) -> void:
+	if player_near and Input.is_action_just_pressed("interact") and !interacting:
+		interacting = true
+		interact.play("press")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Lucy":
-			retrato.show()
-			prompt.show()
+		player_near = true
+		interact.show()
+		interact.play("idle")
+		retrato.show()
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Lucy":
-			retrato.hide()
-			prompt.hide()
+		player_near = false
+		interact.hide()
+		retrato.hide()
+		interacting = false
+		
+
+
+func _on_interact_animation_finished() -> void:
+	match interact.animation:
+		"press":
+			var dialogue = get_tree().current_scene.get_node("UI/ImageBox")
+			dialogue.show_dialogue(["Eu não deveria ter tocado nela hoje.", "Fazia tanto tempo que ela estava guardada...", "Desde que..."], "Retrato", "res://assets/intro/img-2.png")
+			interact.play("release")
+
+		"release":
+			interact.play("idle")
+			interacting = false

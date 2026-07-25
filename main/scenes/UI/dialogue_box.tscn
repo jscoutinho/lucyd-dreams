@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://djhptl4tm4nw7"]
 
-[ext_resource type="Script" uid="uid://c3t55ak2lvyu6" path="res://canvas_layer.gd" id="1_0rkfd"]
+[ext_resource type="Script" uid="uid://c3t55ak2lvyu6" path="res://scripts/UI/canvas_layer.gd" id="1_0rkfd"]
 [ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="2_t6yfi"]
 [ext_resource type="Texture2D" uid="uid://csprgtnsomd7e" path="res://assets/intro/z-intro-ss.png" id="3_utthg"]
 
@@ -61,6 +61,7 @@ offset_bottom = 230.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Conteudo" type="Label" parent="Panel" unique_id=82106592]
 custom_minimum_size = Vector2(400, 0)
@@ -92,3 +93,4 @@ offset_right = 101.0
 offset_bottom = 204.0
 theme_override_fonts/font = ExtResource("2_t6yfi")
 theme_override_font_sizes/font_size = 45
+metadata/_edit_use_anchors_ = true

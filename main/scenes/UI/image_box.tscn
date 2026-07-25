@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://bvjb8ngnk127e"]
+
+[ext_resource type="Script" uid="uid://cq6cqoaemv7om" path="res://scripts/UI/image_box.gd" id="1_n150k"]
+[ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="2_0hk1e"]
+[ext_resource type="Texture2D" uid="uid://csprgtnsomd7e" path="res://assets/intro/z-intro-ss.png" id="3_f2eiq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ife8n"]
+atlas = ExtResource("3_f2eiq")
+region = Rect2(0, 0, 64, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4dsf"]
+atlas = ExtResource("3_f2eiq")
+region = Rect2(64, 0, 64, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u0vr"]
+atlas = ExtResource("3_f2eiq")
+region = Rect2(128, 0, 64, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0ejf"]
+atlas = ExtResource("3_f2eiq")
+region = Rect2(192, 0, 64, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gor1f"]
+atlas = ExtResource("3_f2eiq")
+region = Rect2(256, 0, 64, 104)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sa2ql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ife8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4dsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u0vr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0ejf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gor1f")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ImageBox" type="CanvasLayer" unique_id=594521042]
+script = ExtResource("1_n150k")
+
+[node name="Panel" type="Panel" parent="." unique_id=758645488]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -355.0
+offset_top = -269.0
+offset_right = 355.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Conteudo" type="Label" parent="Panel" unique_id=82106592]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1084507
+anchor_top = 0.14009662
+anchor_right = 0.82701355
+anchor_bottom = 0.24637681
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_0hk1e")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel" unique_id=1415600698]
+position = Vector2(629, 173)
+scale = Vector2(0.46875, 0.39423078)
+sprite_frames = SubResource("SpriteFrames_sa2ql")
+autoplay = "default"
+
+[node name="Nome" type="Label" parent="Panel" unique_id=1383054963]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 148.0
+offset_right = 101.0
+offset_bottom = 204.0
+theme_override_fonts/font = ExtResource("2_0hk1e")
+theme_override_font_sizes/font_size = 45
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2071206586]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -520.0
+offset_top = 44.0
+offset_right = 520.0
+offset_bottom = 548.0
+grow_horizontal = 2

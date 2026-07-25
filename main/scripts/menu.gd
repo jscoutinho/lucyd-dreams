@@ -37,6 +37,6 @@ func _on_js_coutinho_pressed() -> void:
 func _on_lucy__title_animation_finished() -> void:
 	if lucy.animation == "dormindo":
 
-		get_tree().change_scene_to_file("res://scenes/intro.tscn")
+		get_tree().change_scene_to_file("res://scenes/maps/intro.tscn")
 	if lucy.animation == "quit":
 		get_tree().quit()

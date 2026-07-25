@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://cjwbpb244dch5"]
+
+[ext_resource type="Script" uid="uid://dedmvym355qis" path="res://scripts/objects/retrato.gd" id="1_y56yn"]
+[ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="3_bqfw4"]
+[ext_resource type="Texture2D" uid="uid://bgwuhn51ysmuh" path="res://assets/jogo/casa/interact-button-ss.png" id="3_y56yn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1g1ej"]
+size = Vector2(66, 69)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sa2ql"]
+font = ExtResource("3_bqfw4")
+font_size = 40
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqtc8"]
+atlas = ExtResource("3_y56yn")
+region = Rect2(0, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sw1sf"]
+atlas = ExtResource("3_y56yn")
+region = Rect2(72, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sroq"]
+atlas = ExtResource("3_y56yn")
+region = Rect2(144, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5lgu"]
+atlas = ExtResource("3_y56yn")
+region = Rect2(216, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ockme"]
+atlas = ExtResource("3_y56yn")
+region = Rect2(288, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c1y8"]
+atlas = ExtResource("3_y56yn")
+region = Rect2(360, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47e1h"]
+atlas = ExtResource("3_y56yn")
+region = Rect2(432, 0, 72, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ngise"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqtc8")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sw1sf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sroq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5lgu")
+}],
+"loop": 0,
+"name": &"press",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ockme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c1y8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47e1h")
+}],
+"loop": 0,
+"name": &"release",
+"speed": 12.0
+}]
+
+[node name="Retrato" type="Node2D" unique_id=1730805016]
+script = ExtResource("1_y56yn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=289832909]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1061372169]
+position = Vector2(-12, 266)
+shape = SubResource("RectangleShape2D_1g1ej")
+
+[node name="Retrato" type="Label" parent="." unique_id=955813541]
+offset_left = -57.0
+offset_top = 42.0
+offset_right = 40.0
+offset_bottom = 87.0
+text = "Retrato"
+label_settings = SubResource("LabelSettings_sa2ql")
+metadata/_edit_use_anchors_ = true
+
+[node name="interact" type="AnimatedSprite2D" parent="." unique_id=574152762]
+position = Vector2(-14, 24.000002)
+scale = Vector2(0.5277778, 0.475)
+sprite_frames = SubResource("SpriteFrames_ngise")
+animation = &"release"
+autoplay = "idle"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="animation_finished" from="interact" to="." method="_on_interact_animation_finished"]
