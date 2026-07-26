@@ -15,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://c2u3hf1cybugg" path="res://scenes/objects/porta_banheiro.tscn" id="12_tj0lg"]
 [ext_resource type="PackedScene" uid="uid://djhptl4tm4nw7" path="res://scenes/UI/dialogue_box.tscn" id="13_e2siv"]
 [ext_resource type="PackedScene" uid="uid://bvjb8ngnk127e" path="res://scenes/UI/image_box.tscn" id="14_kvmm6"]
-[ext_resource type="AudioStream" uid="uid://dftxddign7jve" path="res://assets/msc/lucid-dreams.mp3" id="15_y75te"]
 [ext_resource type="Texture2D" uid="uid://drbsofgrkg3xr" path="res://assets/jogo/casa/pia-ss.png" id="16_lsu6o"]
+[ext_resource type="AudioStream" uid="uid://dfryvtv2en02k" path="res://assets/msc/wake_up.mp3" id="16_ojn3e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
 size = Vector2(3036, 57.5)
@@ -25,7 +25,7 @@ size = Vector2(3036, 57.5)
 size = Vector2(246, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vsy63"]
-size = Vector2(53.25, 730.5)
+size = Vector2(61.625, 730.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtsop"]
 size = Vector2(126.5, 72.25)
@@ -226,14 +226,14 @@ region = Rect2(1080, 0, 120, 112)
 atlas = ExtResource("16_lsu6o")
 region = Rect2(1200, 0, 120, 112)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pptxt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojn3e"]
 atlas = ExtResource("16_lsu6o")
 region = Rect2(1320, 0, 120, 112)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sa2ql"]
 animations = [{
 "frames": [{
-"duration": 4.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_mhns3")
 }, {
 "duration": 2.0,
@@ -267,7 +267,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_o42bb")
 }, {
 "duration": 8.0,
-"texture": SubResource("AtlasTexture_pptxt")
+"texture": SubResource("AtlasTexture_ojn3e")
 }],
 "loop": 1,
 "name": &"default",
@@ -300,7 +300,7 @@ position = Vector2(27.375, 465)
 shape = SubResource("RectangleShape2D_vsy63")
 
 [node name="direita" type="CollisionShape2D" parent="Colisões" unique_id=1859195378]
-position = Vector2(3027, 461)
+position = Vector2(3022.8125, 461)
 shape = SubResource("RectangleShape2D_vsy63")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colisões" unique_id=861619175]
@@ -344,7 +344,7 @@ z_index = 1
 offset_left = 2040.0
 offset_top = 255.0
 offset_right = 2144.0
-offset_bottom = 856.0
+offset_bottom = 833.0
 texture = ExtResource("7_ojn3e")
 
 [node name="Objetos" type="Node2D" parent="." unique_id=1155473948]
@@ -390,7 +390,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1065459597]
-stream = ExtResource("15_y75te")
+stream = ExtResource("16_ojn3e")
 volume_db = -10.523
 autoplay = true
 parameters/looping = true
