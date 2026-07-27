@@ -14,7 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://h6fblw0lvndu" path="res://scenes/objects/calendario.tscn" id="11_llpxc"]
 [ext_resource type="PackedScene" uid="uid://c2u3hf1cybugg" path="res://scenes/objects/porta_banheiro.tscn" id="12_tj0lg"]
 [ext_resource type="PackedScene" uid="uid://djhptl4tm4nw7" path="res://scenes/UI/dialogue_box.tscn" id="13_e2siv"]
+[ext_resource type="PackedScene" uid="uid://cyipwkwrxoy66" path="res://scenes/objects/papel.tscn" id="14_7yr2r"]
 [ext_resource type="PackedScene" uid="uid://bvjb8ngnk127e" path="res://scenes/UI/image_box.tscn" id="14_kvmm6"]
+[ext_resource type="PackedScene" uid="uid://yot42mm4tt1i" path="res://scenes/objects/escadaCasa.tscn" id="15_5gewj"]
 [ext_resource type="Texture2D" uid="uid://drbsofgrkg3xr" path="res://assets/jogo/casa/pia-ss.png" id="16_lsu6o"]
 [ext_resource type="AudioStream" uid="uid://dfryvtv2en02k" path="res://assets/msc/wake_up.mp3" id="16_ojn3e"]
 
@@ -367,6 +369,12 @@ position = Vector2(1411, -312)
 
 [node name="PortaBanheiro" parent="Objetos" unique_id=1349251306 instance=ExtResource("12_tj0lg")]
 position = Vector2(1669, -339)
+
+[node name="Papel" parent="Objetos" unique_id=921004507 instance=ExtResource("14_7yr2r")]
+position = Vector2(2354, -180)
+
+[node name="Escada" parent="Objetos" unique_id=159956771 instance=ExtResource("15_5gewj")]
+position = Vector2(2587, -215)
 
 [node name="UI" type="Node2D" parent="." unique_id=1545718603]
 
