@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://yot42mm4tt1i" path="res://scenes/objects/escadaCasa.tscn" id="15_5gewj"]
 [ext_resource type="Texture2D" uid="uid://drbsofgrkg3xr" path="res://assets/jogo/casa/pia-ss.png" id="16_lsu6o"]
 [ext_resource type="AudioStream" uid="uid://dfryvtv2en02k" path="res://assets/msc/wake_up.mp3" id="16_ojn3e"]
+[ext_resource type="PackedScene" uid="uid://b64wotka6us8m" path="res://scenes/objects/porta_rua.tscn" id="16_q0tqs"]
+[ext_resource type="PackedScene" uid="uid://c36pb8kwmupw8" path="res://scenes/objects/caixa_quarto.tscn" id="17_8a3k2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
 size = Vector2(3036, 57.5)
@@ -375,6 +377,12 @@ position = Vector2(2354, -180)
 
 [node name="Escada" parent="Objetos" unique_id=159956771 instance=ExtResource("15_5gewj")]
 position = Vector2(2587, -215)
+
+[node name="Porta_rua" parent="Objetos" unique_id=1723126557 instance=ExtResource("16_q0tqs")]
+position = Vector2(2780, -294)
+
+[node name="Caixa" parent="Objetos" unique_id=289480943 instance=ExtResource("17_8a3k2")]
+position = Vector2(602, -434)
 
 [node name="UI" type="Node2D" parent="." unique_id=1545718603]
 
