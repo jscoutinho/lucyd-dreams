@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://dfryvtv2en02k" path="res://assets/msc/wake_up.mp3" id="16_ojn3e"]
 [ext_resource type="PackedScene" uid="uid://b64wotka6us8m" path="res://scenes/objects/porta_rua.tscn" id="16_q0tqs"]
 [ext_resource type="PackedScene" uid="uid://c36pb8kwmupw8" path="res://scenes/objects/caixa_quarto.tscn" id="17_8a3k2"]
+[ext_resource type="AudioStream" uid="uid://tpf4j3g88erc" path="res://assets/msc/sfx/barulho.mp3" id="22_fw7h6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
 size = Vector2(3036, 57.5)
@@ -416,5 +417,11 @@ position = Vector2(1437, 631)
 sprite_frames = SubResource("SpriteFrames_sa2ql")
 autoplay = "default"
 frame_progress = 0.5003225
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=648696398]
+position = Vector2(1797, 480)
+stream = ExtResource("22_fw7h6")
+volume_db = 7.373
+autoplay = true
 
 [connection signal="finished" from="UI/DialogueBox" to="." method="_on_dialogue_box_finished"]
