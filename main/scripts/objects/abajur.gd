@@ -3,6 +3,7 @@ extends Node2D
 @onready var interact: AnimatedSprite2D = $interact
 @onready var label: Label = $"Abajur nome"
 @onready var luz = $"Luz Abajur"
+@onready var click: AudioStreamPlayer2D = $click
 
 var player_near = false
 var interacting = false
@@ -38,6 +39,7 @@ func _on_interact_animation_finished() -> void:
 			luz.visible = !luz.visible
 			var dialogue = get_tree().current_scene.get_node("UI/DialogueBox")
 			dialogue.show_dialogue(["Bem melhor assim."], "Lucy")
+			click.play()
 			interact.play("release")
 
 		"release":

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dqki68k8g3o05" path="res://scripts/objects/papel.gd" id="1_jjiug"]
 [ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="2_drmd0"]
 [ext_resource type="Texture2D" uid="uid://bgwuhn51ysmuh" path="res://assets/jogo/casa/interact-button-ss.png" id="3_6ayoo"]
+[ext_resource type="AudioStream" uid="uid://cmee5uhk1nos8" path="res://assets/msc/sfx/paper.mp3" id="4_drmd0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2rrc"]
 size = Vector2(66, 69)
@@ -102,6 +103,10 @@ scale = Vector2(0.5277778, 0.475)
 sprite_frames = SubResource("SpriteFrames_v4qje")
 animation = &"release"
 autoplay = "idle"
+
+[node name="paper" type="AudioStreamPlayer2D" parent="." unique_id=806123000]
+position = Vector2(-41, 43)
+stream = ExtResource("4_drmd0")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
