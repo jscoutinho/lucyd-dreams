@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var interact: AnimatedSprite2D = $interact
 @onready var geladeira: Label = $GeladeiraN
+@onready var porta: AudioStreamPlayer2D = $porta
 
 var player_near = false
 var interacting = false
@@ -35,6 +36,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_interact_animation_finished() -> void:
 	match interact.animation:
 		"press":
+			porta.play()
 			var dialogue = get_tree().current_scene.get_node("UI/DialogueBox")
 			dialogue.show_dialogue(["O taco de ontem vai ter que esperar um pouco mais para o lanche da meia noite."], "Lucy")
 			interact.play("release")

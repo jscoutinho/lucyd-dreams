@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var interact: AnimatedSprite2D = $interact
 @onready var calendario: Label = $CalendarioN
+@onready var pegando: AudioStreamPlayer2D = $pegando
 
 var player_near = false
 var interacting = false
@@ -35,6 +36,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_interact_animation_finished() -> void:
 	match interact.animation:
 		"press":
+			pegando.play()
 			var dialogue = get_tree().current_scene.get_node("UI/ImageBox")
 			dialogue.show_dialogue(["Dia 8 de dezembro...", "Ou será 7? Nunca fui boa com tempo, mas parece que ainda não amanheceu"], "Lucy", "res://assets/jogo/casa/calendario.png")
 			interact.play("release")

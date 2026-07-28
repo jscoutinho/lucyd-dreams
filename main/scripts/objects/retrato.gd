@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var interact: AnimatedSprite2D = $interact
 @onready var retrato: Label = $Retrato
+@onready var som_papel: AudioStreamPlayer2D = $SomPapel
 
 const FOTO := preload("res://assets/intro/img-2.png")
 
@@ -37,6 +38,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_interact_animation_finished() -> void:
 	match interact.animation:
 		"press":
+			som_papel.play()
 			var dialogue = get_tree().current_scene.get_node("UI/ImageBox")
 			dialogue.show_dialogue(["'Para MINHA Lucy lembrar de onde veio - SUA Mamãe c:'","Ah... Esse dia no parque. Me lembro como se fosse ontem.", "Nessa época, eu não sabia o quão sortuda era. Queria tantas coisas, mas não enxerguei que já tinha tudo o que eu precisava.", "Obrigada por me obrigar a tirar essa foto."], "Lucy", "res://assets/jogo/casa/quadro.png")
 			interact.play("release")

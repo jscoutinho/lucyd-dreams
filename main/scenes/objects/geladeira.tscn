@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c3nujedlcwgnv" path="res://scripts/objects/geladeira.gd" id="1_gaars"]
 [ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="2_e5g5b"]
 [ext_resource type="Texture2D" uid="uid://bgwuhn51ysmuh" path="res://assets/jogo/casa/interact-button-ss.png" id="3_2fa08"]
+[ext_resource type="AudioStream" uid="uid://bc3uxbmuc4r0y" path="res://assets/msc/sfx/geladeira.mp3" id="4_e5g5b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8jr5m"]
 size = Vector2(66, 69)
@@ -101,6 +102,10 @@ scale = Vector2(0.5277778, 0.475)
 sprite_frames = SubResource("SpriteFrames_6pdng")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="porta" type="AudioStreamPlayer2D" parent="." unique_id=371687656]
+stream = ExtResource("4_e5g5b")
+volume_db = 10.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

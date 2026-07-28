@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var interact: AnimatedSprite2D = $interact
 @onready var rua: Label = $Rua
+@onready var trancada: AudioStreamPlayer2D = $trancada
 
 var player_near = false
 var interacting = false
@@ -38,9 +39,10 @@ func _on_interact_animation_finished() -> void:
 			if player.has_key:
 				get_tree().change_scene_to_file("res://scenes/maps/rua_casa.tscn")
 			else:
+				trancada.play()
 				var dialogue = get_tree().current_scene.get_node("UI/DialogueBox")
 
-				# Conecta o sinal apenas uma vez
+			
 				if !dialogue.finished.is_connected(_on_dialogue_finished):
 					dialogue.finished.connect(_on_dialogue_finished)
 
@@ -70,13 +72,12 @@ func _on_dialogue_finished():
 
 	var dialogue = get_tree().current_scene.get_node("UI/DialogueBox")
 
-	# Desconecta para não disparar novamente
 	if dialogue.finished.is_connected(_on_dialogue_finished):
 		dialogue.finished.disconnect(_on_dialogue_finished)
 
 	dialogue.show_dialogue(
 		[
-			"Pressione z para saltar sobre objetos."
+			"Pressione Z para saltar sobre objetos."
 		],
 		"Tutorial"
 	)

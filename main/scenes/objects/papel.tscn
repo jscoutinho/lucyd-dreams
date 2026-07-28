@@ -107,6 +107,7 @@ autoplay = "idle"
 [node name="paper" type="AudioStreamPlayer2D" parent="." unique_id=806123000]
 position = Vector2(-41, 43)
 stream = ExtResource("4_drmd0")
+volume_db = -3.105
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

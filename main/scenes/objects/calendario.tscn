@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dclndomxykfot" path="res://scripts/objects/calendário.gd" id="1_k775x"]
 [ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="2_go0wb"]
 [ext_resource type="Texture2D" uid="uid://bgwuhn51ysmuh" path="res://assets/jogo/casa/interact-button-ss.png" id="3_fauy5"]
+[ext_resource type="AudioStream" uid="uid://b8wien2ofkrfe" path="res://assets/msc/sfx/pegando.mp3" id="4_go0wb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4w8c"]
 size = Vector2(66, 69)
@@ -102,6 +103,9 @@ scale = Vector2(0.5277778, 0.475)
 sprite_frames = SubResource("SpriteFrames_x8m8v")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="pegando" type="AudioStreamPlayer2D" parent="." unique_id=1995870552]
+stream = ExtResource("4_go0wb")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

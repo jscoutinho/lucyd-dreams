@@ -1,6 +1,7 @@
 extends Control
 @onready var lucy: AnimatedSprite2D = $"Lucy/Lucy + Title"
 @onready var anim: AnimationPlayer = $anim
+@onready var select: AudioStreamPlayer = $select
 
 var iniciando_jogo = false
 
@@ -20,12 +21,14 @@ func _on_game_btn_pressed() -> void:
 		return
 
 	iniciando_jogo = true
+	select.play()
 
 	lucy.play("dormindo")   
 	anim.play("fade_out")
 
 
 func _on_quit_btn_pressed() -> void:
+	select.play()
 	lucy.play("quit")
 	anim.play("fade_out")
 

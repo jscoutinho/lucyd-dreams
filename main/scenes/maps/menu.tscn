@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cirslnewnxhp1" path="res://assets/menu/menu-cover.png" id="4_v86rl"]
 [ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="5_4ytvr"]
 [ext_resource type="AudioStream" uid="uid://dftxddign7jve" path="res://assets/msc/lucid-dreams.mp3" id="6_g3eks"]
+[ext_resource type="AudioStream" uid="uid://pnbm21ycf5d6" path="res://assets/msc/sfx/select.mp3" id="7_jmscb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_13sgg"]
 atlas = ExtResource("3_g3eks")
@@ -492,6 +493,26 @@ stream = ExtResource("6_g3eks")
 volume_db = -10.523
 autoplay = true
 parameters/looping = true
+
+[node name="select" type="AudioStreamPlayer" parent="." unique_id=1159709528]
+stream = ExtResource("7_jmscb")
+volume_db = -10.0
+
+[node name="Label" type="Label" parent="." unique_id=1881122380]
+z_index = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_4ytvr")
+theme_override_font_sizes/font_size = 30
+text = "v0.2.0a"
 
 [connection signal="animation_finished" from="Lucy/Lucy + Title" to="." method="_on_lucy__title_animation_finished"]
 [connection signal="pressed" from="madeby/js_coutinho" to="." method="_on_js_coutinho_pressed"]
