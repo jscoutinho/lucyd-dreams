@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var interact: AnimatedSprite2D = $interact
 @onready var banheiro: Label = $Banheiro
+@onready var abrindo: AudioStreamPlayer2D = $abrindo
 
 var player_near = false
 var interacting = false
@@ -35,9 +36,12 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_interact_animation_finished() -> void:
 	match interact.animation:
 		"press":
-			print("indo")
-			#get_tree().change_scene_to_file("res://scenes/maps/banheiro.tscn")
-
+			abrindo.play()
+			
 		"release":
 			interact.play("idle")
 			interacting = false
+
+
+func _on_abrindo_finished() -> void:
+	get_tree().change_scene_to_file("res://scenes/maps/banheiro.tscn")

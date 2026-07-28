@@ -57,9 +57,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-#====================
-# GO TO STATES
-#====================
+
+
 
 func go_to_idle_state():
 	status = PlayerState.IDLE
@@ -94,9 +93,8 @@ func go_to_dialogue_state():
 	status = PlayerState.DIALOGUE
 	anim.play("idle")
 
-#====================
-# STATES
-#====================
+
+
 
 func idle_state():
 	move()
@@ -169,9 +167,9 @@ func dialogue_state():
 func exit_dialogue():
 	go_to_idle_state()
 
-#====================
-# MOVIMENTO
-#====================
+
+
+
 
 func move():
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -187,9 +185,10 @@ func move():
 		anim.flip_h = true
 
 
-#====================
-# ANIMAÇÕES
-#====================
+
+
+
+
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 

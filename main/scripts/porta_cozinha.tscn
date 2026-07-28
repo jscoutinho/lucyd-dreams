@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://084hpkep0q1p"]
+
+[ext_resource type="Script" uid="uid://bs12i55ve827" path="res://banheiro.gd" id="1_6ke7c"]
+[ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="2_xbkfq"]
+[ext_resource type="Texture2D" uid="uid://bgwuhn51ysmuh" path="res://assets/jogo/casa/interact-button-ss.png" id="3_d5hns"]
+[ext_resource type="AudioStream" uid="uid://dbb34nopnyn03" path="res://assets/msc/sfx/porta-abrindo.mp3" id="4_c2lfu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60n82"]
+size = Vector2(66, 69)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nb4uu"]
+font = ExtResource("2_xbkfq")
+font_size = 40
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqtc8"]
+atlas = ExtResource("3_d5hns")
+region = Rect2(0, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sw1sf"]
+atlas = ExtResource("3_d5hns")
+region = Rect2(72, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sroq"]
+atlas = ExtResource("3_d5hns")
+region = Rect2(144, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5lgu"]
+atlas = ExtResource("3_d5hns")
+region = Rect2(216, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ockme"]
+atlas = ExtResource("3_d5hns")
+region = Rect2(288, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c1y8"]
+atlas = ExtResource("3_d5hns")
+region = Rect2(360, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47e1h"]
+atlas = ExtResource("3_d5hns")
+region = Rect2(432, 0, 72, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3pt1s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqtc8")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sw1sf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sroq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5lgu")
+}],
+"loop": 0,
+"name": &"press",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ockme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c1y8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47e1h")
+}],
+"loop": 0,
+"name": &"release",
+"speed": 12.0
+}]
+
+[node name="Cozinha" type="Node2D" unique_id=783081638]
+script = ExtResource("1_6ke7c")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2086073530]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1579697066]
+position = Vector2(-11, 319)
+shape = SubResource("RectangleShape2D_60n82")
+
+[node name="Banheiro" type="Label" parent="." unique_id=1278356293]
+offset_left = -56.0
+offset_top = 67.0
+offset_right = 41.0
+offset_bottom = 112.0
+text = "Cozinha"
+label_settings = SubResource("LabelSettings_nb4uu")
+
+[node name="interact" type="AnimatedSprite2D" parent="." unique_id=244394911]
+position = Vector2(-14, 54)
+scale = Vector2(0.5277778, 0.475)
+sprite_frames = SubResource("SpriteFrames_3pt1s")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="abrindo" type="AudioStreamPlayer2D" parent="." unique_id=891160350]
+stream = ExtResource("4_c2lfu")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="animation_finished" from="interact" to="." method="_on_interact_animation_finished"]
+[connection signal="finished" from="abrindo" to="." method="_on_abrindo_finished"]
