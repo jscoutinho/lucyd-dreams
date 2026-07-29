@@ -44,4 +44,6 @@ func _on_interact_animation_finished() -> void:
 
 
 func _on_abrindo_finished() -> void:
+	GameManager.spawn_marker = "SpawnBanheiro"
+	GameManager.came_from = "banheiro"
 	get_tree().change_scene_to_file("res://scenes/maps/banheiro.tscn")

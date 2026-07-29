@@ -3,11 +3,20 @@ extends Node2D
 @onready var player = $Lucy
 @onready var intro = $CanvasLayer/AnimationPlayer
 @onready var DialogueBox: CanvasLayer = $UI/DialogueBox
+@onready var barulho: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var intro_step = 0
 
 func _ready():
-	pass
+	if GameManager.came_from == "banheiro":
+		intro.play("fade_out")
+		var marker = $SpawnBanheiro
+		$Lucy.global_position = marker.global_position
+
+		GameManager.came_from = ""
+	else:
+		barulho.play()
+		intro.play("intro")
 
 func dialogo():
 	var dialogo0: Array[String] = [
