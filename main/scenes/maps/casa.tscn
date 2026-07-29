@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c4iga5f0lfy5w" path="res://scripts/casa.gd" id="1_654vb"]
 [ext_resource type="Texture2D" uid="uid://be27jblbnudmw" path="res://assets/jogo/casa/casa.png" id="2_ojn3e"]
-[ext_resource type="PackedScene" uid="uid://d04bshjq5ixbh" path="res://scenes/player/lucy.tscn" id="3_7yr2r"]
+[ext_resource type="PackedScene" uid="uid://d04bshjq5ixbh" path="res://scenes/entities/lucy.tscn" id="3_7yr2r"]
 [ext_resource type="Texture2D" uid="uid://c7qrqtqupo7k8" path="res://assets/jogo/casa/ventilador-ss.png" id="4_5gewj"]
 [ext_resource type="Texture2D" uid="uid://clftp76pb4287" path="res://assets/jogo/casa/porta.png" id="5_q0tqs"]
 [ext_resource type="Texture2D" uid="uid://cvn44tcnbk6k8" path="res://assets/jogo/casa/coisas-frente.png" id="6_8a3k2"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://b64wotka6us8m" path="res://scenes/objects/porta_rua.tscn" id="16_q0tqs"]
 [ext_resource type="PackedScene" uid="uid://c36pb8kwmupw8" path="res://scenes/objects/caixa_quarto.tscn" id="17_8a3k2"]
 [ext_resource type="AudioStream" uid="uid://tpf4j3g88erc" path="res://assets/msc/sfx/barulho.mp3" id="22_fw7h6"]
+[ext_resource type="PackedScene" uid="uid://bvde1sjkrlqmi" path="res://scenes/entities/camera.tscn" id="23_3dot3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
 size = Vector2(3036, 57.5)
@@ -282,6 +283,7 @@ animations = [{
 [node name="Casa" type="Node2D" unique_id=467067166]
 script = ExtResource("1_654vb")
 metadata/_edit_vertical_guides_ = [3039.0]
+metadata/_edit_horizontal_guides_ = [862.0]
 
 [node name="Fundo" type="TextureRect" parent="." unique_id=1784103656]
 offset_right = 1725.0
@@ -423,5 +425,8 @@ position = Vector2(1797, 480)
 stream = ExtResource("22_fw7h6")
 volume_db = 7.373
 autoplay = true
+
+[node name="Camera" parent="." unique_id=872375583 instance=ExtResource("23_3dot3")]
+limit_right = 3039
 
 [connection signal="finished" from="UI/DialogueBox" to="." method="_on_dialogue_box_finished"]

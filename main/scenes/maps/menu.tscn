@@ -498,7 +498,7 @@ parameters/looping = true
 stream = ExtResource("7_jmscb")
 volume_db = -10.0
 
-[node name="Label" type="Label" parent="." unique_id=1881122380]
+[node name="Versão" type="Label" parent="." unique_id=1881122380]
 z_index = 1
 layout_mode = 1
 anchors_preset = 3
@@ -512,7 +512,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("5_4ytvr")
 theme_override_font_sizes/font_size = 30
-text = "v0.2.0a"
+text = "v0.2.1a"
 
 [connection signal="animation_finished" from="Lucy/Lucy + Title" to="." method="_on_lucy__title_animation_finished"]
 [connection signal="pressed" from="madeby/js_coutinho" to="." method="_on_js_coutinho_pressed"]

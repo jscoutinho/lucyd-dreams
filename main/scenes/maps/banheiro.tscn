@@ -3,7 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://mr23frlg3m6j" path="res://assets/jogo/casa/banheiro/base-banheiro.png" id="1_xdqox"]
 [ext_resource type="Texture2D" uid="uid://dfw3jwbcp2qn1" path="res://assets/jogo/casa/banheiro/fundo-banheiro.png" id="2_4v2yb"]
 [ext_resource type="PackedScene" uid="uid://084hpkep0q1p" path="res://scripts/porta_cozinha.tscn" id="3_kguxj"]
-[ext_resource type="PackedScene" uid="uid://d04bshjq5ixbh" path="res://scenes/player/lucy.tscn" id="3_xdqox"]
+[ext_resource type="PackedScene" uid="uid://d04bshjq5ixbh" path="res://scenes/entities/lucy.tscn" id="3_xdqox"]
+[ext_resource type="PackedScene" uid="uid://bvde1sjkrlqmi" path="res://scenes/entities/camera.tscn" id="5_4v2yb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kguxj"]
 size = Vector2(3036, 57.5)
@@ -18,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_vertical_guides_ = [1512.0]
 
 [node name="Fundo" type="TextureRect" parent="." unique_id=1301255821]
 layout_mode = 1
@@ -65,3 +67,6 @@ position = Vector2(-367, -246)
 
 [node name="Cozinha" parent="BanheiroText/objetos" unique_id=783081638 instance=ExtResource("3_kguxj")]
 position = Vector2(431, 434)
+
+[node name="Camera" parent="." unique_id=872375583 instance=ExtResource("5_4v2yb")]
+limit_right = 2000
