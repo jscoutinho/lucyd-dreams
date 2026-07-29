@@ -22,3 +22,5 @@ chmod +x lucyd_dreams.x86_64
 Arte: Usei o <a href="https://www.pixilart.com/">Pixilart</a>. Se quiser acessar o <a href="https://www.pixilart.com/coutothecreator/gallery">meu perfil</a> todas as artes estão na galeria!
 </br>
 Fonte: Utilizei a fonte <a href="https://poppyworks.itch.io/silver">Silver</a>!
+</br>
+Músicas: Algumas foram feitas no <a href="https://bandlab.com">Bandlab</a>!
