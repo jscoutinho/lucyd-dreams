@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://d4h6qexnlkhaf"]
 
-[ext_resource type="Texture2D" uid="uid://r7pjd0ab0vsp" path="res://assets/jogo/casa/banheiro/banheiro.png" id="1_vm6ww"]
-[ext_resource type="PackedScene" uid="uid://d04bshjq5ixbh" path="res://scenes/player/lucy.tscn" id="2_lguog"]
+[ext_resource type="Texture2D" uid="uid://mr23frlg3m6j" path="res://assets/jogo/casa/banheiro/base-banheiro.png" id="1_xdqox"]
+[ext_resource type="Texture2D" uid="uid://dfw3jwbcp2qn1" path="res://assets/jogo/casa/banheiro/fundo-banheiro.png" id="2_4v2yb"]
 [ext_resource type="PackedScene" uid="uid://084hpkep0q1p" path="res://scripts/porta_cozinha.tscn" id="3_kguxj"]
+[ext_resource type="PackedScene" uid="uid://d04bshjq5ixbh" path="res://scenes/player/lucy.tscn" id="3_xdqox"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kguxj"]
 size = Vector2(3036, 57.5)
@@ -10,35 +11,57 @@ size = Vector2(3036, 57.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdqox"]
 size = Vector2(61.625, 730.5)
 
-[node name="Banheiro" type="Node2D" unique_id=1175813134]
+[node name="Banheiro" type="Control" unique_id=1083176381]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Fundo" type="TextureRect" parent="." unique_id=1158069203]
-offset_left = -123.0
-offset_top = 1.0
-offset_right = 1759.0
-offset_bottom = 871.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("1_vm6ww")
+[node name="Fundo" type="TextureRect" parent="." unique_id=1301255821]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xdqox")
 
-[node name="Colisões" type="StaticBody2D" parent="." unique_id=319588806]
+[node name="BanheiroText" type="TextureRect" parent="." unique_id=1862127353]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -392.0
+offset_top = -616.0
+offset_right = 392.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_4v2yb")
 
-[node name="Chão" type="CollisionShape2D" parent="Colisões" unique_id=149341065]
+[node name="Colisões" type="StaticBody2D" parent="BanheiroText" unique_id=319588806]
+position = Vector2(-367, -246)
+
+[node name="Chão" type="CollisionShape2D" parent="BanheiroText/Colisões" unique_id=149341065]
 position = Vector2(1517, 854)
 shape = SubResource("RectangleShape2D_kguxj")
 
-[node name="esquerda" type="CollisionShape2D" parent="Colisões" unique_id=558954236]
-position = Vector2(336, 479)
+[node name="esquerda" type="CollisionShape2D" parent="BanheiroText/Colisões" unique_id=558954236]
+position = Vector2(373, 476)
 shape = SubResource("RectangleShape2D_xdqox")
 
-[node name="direita" type="CollisionShape2D" parent="Colisões" unique_id=1051285597]
-position = Vector2(1257, 476)
+[node name="direita" type="CollisionShape2D" parent="BanheiroText/Colisões" unique_id=1051285597]
+position = Vector2(1132, 481)
 shape = SubResource("RectangleShape2D_xdqox")
 
-[node name="Lucy" parent="." unique_id=1039624184 instance=ExtResource("2_lguog")]
-position = Vector2(449, 702)
+[node name="Lucy" parent="BanheiroText" unique_id=1039624184 instance=ExtResource("3_xdqox")]
+position = Vector2(129, 448)
 
-[node name="objetos" type="Node2D" parent="." unique_id=1297098888]
+[node name="objetos" type="Node2D" parent="BanheiroText" unique_id=1297098888]
+position = Vector2(-367, -246)
 
-[node name="Cozinha" parent="objetos" unique_id=783081638 instance=ExtResource("3_kguxj")]
+[node name="Cozinha" parent="BanheiroText/objetos" unique_id=783081638 instance=ExtResource("3_kguxj")]
 position = Vector2(431, 434)
