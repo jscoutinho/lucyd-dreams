@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bvde1sjkrlqmi" path="res://scenes/entities/camera.tscn" id="5_4v2yb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kguxj"]
-size = Vector2(3036, 57.5)
+size = Vector2(1518, 57.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdqox"]
 size = Vector2(77.8125, 730.5)
@@ -51,7 +51,7 @@ texture = ExtResource("2_4v2yb")
 position = Vector2(-367, -246)
 
 [node name="Chão" type="CollisionShape2D" parent="BanheiroText/Colisões" unique_id=149341065]
-position = Vector2(1517, 854)
+position = Vector2(758, 854)
 shape = SubResource("RectangleShape2D_kguxj")
 
 [node name="esquerda" type="CollisionShape2D" parent="BanheiroText/Colisões" unique_id=558954236]
@@ -77,3 +77,4 @@ position = Vector2(431, 434)
 
 [node name="Camera" parent="." unique_id=872375583 instance=ExtResource("5_4v2yb")]
 limit_right = 2000
+limit_bottom = 862
