@@ -29,18 +29,12 @@ func dialogo():
 func _on_tutorial_finished():
 	$Lucy.exit_dialogue()
 
-func tutorial():
-	var dialogo2: Array[String] = [
-	"Use as setas do teclado para se mover para frente e para trás!"]
-	DialogueBox.show_dialogue(dialogo2, "Tutorial")
 
 
 func _on_dialogue_box_finished() -> void:
 
-	match intro_step:
-
-		0:
-			intro_step = 1
+	if GameManager.tutorial1 == false:
+			GameManager.tutorial1 = true
 
 			var dialogo3: Array[String] = [
 				"Use as setas do teclado para se mover para a (<--) esquerda e para a (-->) direita!"
@@ -48,6 +42,5 @@ func _on_dialogue_box_finished() -> void:
 
 			DialogueBox.show_dialogue(dialogo3, "Tutorial")
 
-		1:
-			intro_step = 2
+	else:
 			$Lucy.exit_dialogue()

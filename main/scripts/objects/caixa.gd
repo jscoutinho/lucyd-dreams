@@ -35,9 +35,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_interact_animation_finished() -> void:
 	match interact.animation:
 		"press":
-			var player =  get_tree().current_scene.get_node("Lucy")
-			if !player.has_key:
-				player.has_key = true
+			if !GameManager.has_key:
+				GameManager.has_key = true
 				var dialogue = get_tree().current_scene.get_node("UI/DialogueBox")
 				dialogue.show_dialogue(["Isso, sabia que você estava por aqui."], "Lucy")
 				interact.play("release")

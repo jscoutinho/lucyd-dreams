@@ -34,9 +34,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_interact_animation_finished() -> void:
 	match interact.animation:
 		"press":
-			var player = get_tree().current_scene.get_node("Lucy")
 
-			if player.has_key:
+			if GameManager.has_key:
 				get_tree().change_scene_to_file("res://scenes/maps/rua_casa.tscn")
 			else:
 				trancada.play()

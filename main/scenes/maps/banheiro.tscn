@@ -10,7 +10,10 @@
 size = Vector2(3036, 57.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdqox"]
-size = Vector2(61.625, 730.5)
+size = Vector2(77.8125, 730.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
+size = Vector2(20, 283)
 
 [node name="Banheiro" type="Control" unique_id=1083176381]
 layout_mode = 3
@@ -52,15 +55,19 @@ position = Vector2(1517, 854)
 shape = SubResource("RectangleShape2D_kguxj")
 
 [node name="esquerda" type="CollisionShape2D" parent="BanheiroText/Colisões" unique_id=558954236]
-position = Vector2(373, 476)
+position = Vector2(381.09375, 476)
 shape = SubResource("RectangleShape2D_xdqox")
 
 [node name="direita" type="CollisionShape2D" parent="BanheiroText/Colisões" unique_id=1051285597]
 position = Vector2(1132, 481)
 shape = SubResource("RectangleShape2D_xdqox")
 
+[node name="Banheira" type="CollisionShape2D" parent="BanheiroText/Colisões" unique_id=609619519]
+position = Vector2(981, 683.5)
+shape = SubResource("RectangleShape2D_sa2ql")
+
 [node name="Lucy" parent="BanheiroText" unique_id=1039624184 instance=ExtResource("3_xdqox")]
-position = Vector2(129, 448)
+position = Vector2(126, 455)
 
 [node name="objetos" type="Node2D" parent="BanheiroText" unique_id=1297098888]
 position = Vector2(-367, -246)

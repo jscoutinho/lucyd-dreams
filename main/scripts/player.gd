@@ -17,7 +17,6 @@ const JUMP_VELOCITY = -770.0
 const GRAVITY_MULTIPLIER = 2.5
 
 var status: PlayerState
-var has_key = false
 
 
 func _ready() -> void:
