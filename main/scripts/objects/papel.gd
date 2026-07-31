@@ -40,7 +40,7 @@ func _on_interact_animation_finished() -> void:
 		"press":
 			paper.play()
 			var dialogue = get_tree().current_scene.get_node("UI/ImageBox")
-			dialogue.show_dialogue(["Parece que alguém deixou esse papel no sofá.","Ah... Esse dia no parque. Me lembro como se fosse ontem.", "Nessa época, eu não sabia o quão sortuda era. Queria tantas coisas, mas não enxerguei que já tinha tudo o que eu precisava.", "Obrigada por me obrigar a tirar essa foto."], "Lucy", "res://assets/jogo/casa/documento.png")
+			dialogue.show_dialogue(["Parece que alguém deixou esse papel no sofá.","'Senhor Moon, é com grande prazer que venho recomendar por meio dessa carta que Lucy faça parte do show de talentos de hoje...'", "'Sabemos que ela passou por muita coisa e esperamos que essa experiência ajude o quadro dela.'", "Ajudar o quadro dela? Será que é por isso que ele concordou em me levar hoje?"], "Lucy", "res://assets/jogo/casa/documento.png")
 			interact.play("release")
 
 		"release":
