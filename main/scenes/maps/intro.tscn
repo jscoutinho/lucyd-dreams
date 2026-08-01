@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://n6y45uc0lnpm" path="res://assets/intro/img-1.png" id="3_wfs7u"]
 [ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="4_i2l1n"]
 [ext_resource type="Texture2D" uid="uid://csprgtnsomd7e" path="res://assets/intro/z-intro-ss.png" id="5_wfs7u"]
-[ext_resource type="AudioStream" uid="uid://b3380y8diy3uk" path="res://assets/msc/ponte.mp3" id="6_rjxww"]
+[ext_resource type="AudioStream" uid="uid://b5hutuw3kgkyb" path="res://assets/msc/Morte.mp3" id="6_rjxww"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wfs7u"]
 atlas = ExtResource("5_wfs7u")
