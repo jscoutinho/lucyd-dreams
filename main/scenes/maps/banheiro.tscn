@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://084hpkep0q1p" path="res://scripts/porta_cozinha.tscn" id="3_kguxj"]
 [ext_resource type="PackedScene" uid="uid://d04bshjq5ixbh" path="res://scenes/entities/lucy.tscn" id="3_xdqox"]
 [ext_resource type="PackedScene" uid="uid://bvde1sjkrlqmi" path="res://scenes/entities/camera.tscn" id="5_4v2yb"]
+[ext_resource type="PackedScene" uid="uid://h6fblw0lvndu" path="res://scenes/objects/calendario.tscn" id="5_dmbxf"]
+[ext_resource type="PackedScene" uid="uid://djhptl4tm4nw7" path="res://scenes/UI/dialogue_box.tscn" id="7_ap40e"]
+[ext_resource type="PackedScene" uid="uid://bvjb8ngnk127e" path="res://scenes/UI/image_box.tscn" id="8_tdoil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kguxj"]
 size = Vector2(1518, 57.5)
@@ -75,6 +78,15 @@ position = Vector2(-367, -246)
 [node name="Cozinha" parent="BanheiroText/objetos" unique_id=783081638 instance=ExtResource("3_kguxj")]
 position = Vector2(431, 434)
 
+[node name="Calendario" parent="BanheiroText/objetos" unique_id=2056697601 instance=ExtResource("5_dmbxf")]
+position = Vector2(606, 400)
+
 [node name="Camera" parent="." unique_id=872375583 instance=ExtResource("5_4v2yb")]
 limit_right = 2000
 limit_bottom = 862
+
+[node name="UI" type="Node2D" parent="." unique_id=1682912650]
+
+[node name="DialogueBox" parent="UI" unique_id=594521042 instance=ExtResource("7_ap40e")]
+
+[node name="ImageBox" parent="UI" unique_id=550762382 instance=ExtResource("8_tdoil")]
