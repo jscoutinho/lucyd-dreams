@@ -89,11 +89,11 @@ position = Vector2(-11, 362)
 shape = SubResource("RectangleShape2D_6t07o")
 
 [node name="CalendarioN" type="Label" parent="." unique_id=1595714186]
-offset_left = -59.0
-offset_top = 67.0
-offset_right = 38.0
-offset_bottom = 112.0
-text = "Calendário
+offset_left = -39.0
+offset_top = 78.0
+offset_right = 58.0
+offset_bottom = 171.0
+text = "Espelho
 "
 label_settings = SubResource("LabelSettings_gqvwm")
 

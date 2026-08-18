@@ -24,7 +24,7 @@ func show_dialogue(dialogue: Array, sujeito: String, caminho: String):
 
 	show()
 
-	var player = get_tree().current_scene.get_node("Lucy")
+	var player = get_tree().get_first_node_in_group("Player")
 	player.go_to_dialogue_state()
 
 
@@ -43,7 +43,7 @@ func _process(_delta):
 		if index >= texts.size():
 			hide()
 			active = false
-			var player = get_tree().current_scene.get_node("Lucy")
+			var player = get_tree().get_first_node_in_group("Player")
 			player.exit_dialogue()
 			finished.emit()
 		else:

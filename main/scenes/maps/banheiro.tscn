@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://084hpkep0q1p" path="res://scripts/porta_cozinha.tscn" id="3_kguxj"]
 [ext_resource type="PackedScene" uid="uid://d04bshjq5ixbh" path="res://scenes/entities/lucy.tscn" id="3_xdqox"]
 [ext_resource type="PackedScene" uid="uid://bvde1sjkrlqmi" path="res://scenes/entities/camera.tscn" id="5_4v2yb"]
-[ext_resource type="PackedScene" uid="uid://h6fblw0lvndu" path="res://scenes/objects/calendario.tscn" id="5_dmbxf"]
+[ext_resource type="PackedScene" uid="uid://b6t1l7ta0phpg" path="res://scenes/objects/espelho.tscn" id="5_ap40e"]
 [ext_resource type="PackedScene" uid="uid://djhptl4tm4nw7" path="res://scenes/UI/dialogue_box.tscn" id="7_ap40e"]
 [ext_resource type="PackedScene" uid="uid://bvjb8ngnk127e" path="res://scenes/UI/image_box.tscn" id="8_tdoil"]
 
@@ -78,7 +78,7 @@ position = Vector2(-367, -246)
 [node name="Cozinha" parent="BanheiroText/objetos" unique_id=783081638 instance=ExtResource("3_kguxj")]
 position = Vector2(431, 434)
 
-[node name="Calendario" parent="BanheiroText/objetos" unique_id=2056697601 instance=ExtResource("5_dmbxf")]
+[node name="Espelho" parent="BanheiroText/objetos" unique_id=923223324 instance=ExtResource("5_ap40e")]
 position = Vector2(606, 400)
 
 [node name="Camera" parent="." unique_id=872375583 instance=ExtResource("5_4v2yb")]

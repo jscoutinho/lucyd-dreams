@@ -38,7 +38,7 @@ func _on_interact_animation_finished() -> void:
 		"press":
 			pegando.play()
 			var dialogue = get_tree().current_scene.get_node("UI/ImageBox")
-			dialogue.show_dialogue(["Dia 8 de dezembro...", "Ou será 7? Nunca fui boa com tempo, mas parece que ainda não amanheceu"], "Lucy", "res://assets/jogo/casa/calendario.png")
+			dialogue.show_dialogue(["Pílulas Demais..." ], "Lucy", "res://assets/jogo/casa/banheiro/espelho-banheiro.png")
 			interact.play("release")
 
 		"release":

@@ -319,6 +319,11 @@ position = Vector2(879, 706)
 shape = SubResource("RectangleShape2D_ov4ip")
 one_way_collision = true
 
+[node name="Mesa2" type="CollisionShape2D" parent="Colisões" unique_id=37539218]
+position = Vector2(2369, 763)
+shape = SubResource("RectangleShape2D_ov4ip")
+one_way_collision = true
+
 [node name="esquerda" type="CollisionShape2D" parent="Colisões" unique_id=1560698557]
 position = Vector2(27.375, 465)
 shape = SubResource("RectangleShape2D_vsy63")
