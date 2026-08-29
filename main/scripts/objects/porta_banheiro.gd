@@ -36,14 +36,16 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_interact_animation_finished() -> void:
 	match interact.animation:
 		"press":
-			abrindo.play()
-			
+			var animation_player = get_tree().current_scene.get_node("CanvasLayer/AnimationPlayer")
+			animation_player.play("porta_banheiro")
+
+			await animation_player.animation_finished
+
+			GameManager.spawn_marker = "SpawnBanheiro"
+			GameManager.came_from = "banheiro"
+
+			get_tree().change_scene_to_file("res://scenes/maps/banheiro.tscn")
+
 		"release":
 			interact.play("idle")
 			interacting = false
-
-
-func _on_abrindo_finished() -> void:
-	GameManager.spawn_marker = "SpawnBanheiro"
-	GameManager.came_from = "banheiro"
-	get_tree().change_scene_to_file("res://scenes/maps/banheiro.tscn")
