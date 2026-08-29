@@ -105,6 +105,7 @@ autoplay = "idle"
 
 [node name="abrindo" type="AudioStreamPlayer2D" parent="." unique_id=1430281626]
 stream = ExtResource("4_g5rdw")
+volume_db = -12.458
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
