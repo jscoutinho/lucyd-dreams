@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://bvjb8ngnk127e" path="res://scenes/UI/image_box.tscn" id="14_kvmm6"]
 [ext_resource type="PackedScene" uid="uid://yot42mm4tt1i" path="res://scenes/objects/escadaCasa.tscn" id="15_5gewj"]
 [ext_resource type="Texture2D" uid="uid://drbsofgrkg3xr" path="res://assets/jogo/casa/pia-ss.png" id="16_lsu6o"]
-[ext_resource type="AudioStream" uid="uid://dfryvtv2en02k" path="res://assets/msc/wake_up.mp3" id="16_ojn3e"]
 [ext_resource type="PackedScene" uid="uid://b64wotka6us8m" path="res://scenes/objects/porta_rua.tscn" id="16_q0tqs"]
 [ext_resource type="PackedScene" uid="uid://c36pb8kwmupw8" path="res://scenes/objects/caixa_quarto.tscn" id="17_8a3k2"]
 [ext_resource type="AudioStream" uid="uid://dbb34nopnyn03" path="res://assets/msc/sfx/porta-abrindo.mp3" id="20_i70gd"]
@@ -474,12 +473,6 @@ color = Color(0, 0, 0, 0)
 [node name="Banheiro" type="AudioStreamPlayer" parent="." unique_id=969520425]
 stream = ExtResource("20_i70gd")
 volume_db = -10.0
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1065459597]
-stream = ExtResource("16_ojn3e")
-volume_db = -10.523
-autoplay = true
-parameters/looping = true
 
 [node name="Pia" type="AnimatedSprite2D" parent="." unique_id=34732416]
 position = Vector2(1437, 631)

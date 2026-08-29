@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d04bshjq5ixbh" path="res://scenes/entities/lucy.tscn" id="3_xdqox"]
 [ext_resource type="PackedScene" uid="uid://bvde1sjkrlqmi" path="res://scenes/entities/camera.tscn" id="5_4v2yb"]
 [ext_resource type="PackedScene" uid="uid://b6t1l7ta0phpg" path="res://scenes/objects/espelho.tscn" id="5_ap40e"]
+[ext_resource type="AudioStream" uid="uid://dbb34nopnyn03" path="res://assets/msc/sfx/porta-abrindo.mp3" id="6_tdoil"]
 [ext_resource type="PackedScene" uid="uid://djhptl4tm4nw7" path="res://scenes/UI/dialogue_box.tscn" id="7_ap40e"]
 [ext_resource type="PackedScene" uid="uid://bvjb8ngnk127e" path="res://scenes/UI/image_box.tscn" id="8_tdoil"]
 
@@ -32,6 +33,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0.8473456)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../porta:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_tdoil"]
 resource_name = "fade_out"
@@ -49,10 +62,39 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_d8xy8"]
+resource_name = "porta_cozinha"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../porta:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d8xy8"]
 _data = {
 &"RESET": SubResource("Animation_ap40e"),
-&"fade_out": SubResource("Animation_tdoil")
+&"fade_out": SubResource("Animation_tdoil"),
+&"porta_cozinha": SubResource("Animation_d8xy8")
 }
 
 [node name="Banheiro" type="Control" unique_id=1083176381]
@@ -124,6 +166,9 @@ position = Vector2(606, 400)
 root_node = NodePath("../ColorRect")
 libraries/ = SubResource("AnimationLibrary_d8xy8")
 autoplay = &"fade_out"
+
+[node name="porta" type="AudioStreamPlayer" parent="CanvasLayer" unique_id=208623111]
+stream = ExtResource("6_tdoil")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=831207982]
 anchors_preset = 15

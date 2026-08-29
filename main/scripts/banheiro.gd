@@ -7,7 +7,10 @@ extends Node2D
 var player_near = false
 var interacting = false
 
+
 func _ready() -> void:
+	MusicManager.get_node("AudioStreamPlayer").volume_db = -20
+	
 	interact.hide()
 	banheiro.hide()
 
@@ -36,12 +39,14 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_interact_animation_finished() -> void:
 	match interact.animation:
 		"press":
-			abrindo.play()
-			
+			var animation_player = get_tree().current_scene.get_node("CanvasLayer/AnimationPlayer")
+			animation_player.play("porta_cozinha")
+
+			await animation_player.animation_finished
+
+
+			get_tree().change_scene_to_file("res://scenes/maps/casa.tscn")
+
 		"release":
 			interact.play("idle")
 			interacting = false
-
-
-func _on_abrindo_finished() -> void:
-	get_tree().change_scene_to_file("res://scenes/maps/casa.tscn")

@@ -8,13 +8,19 @@ extends Node2D
 var intro_step = 0
 
 func _ready():
+	
+	
+	
 	if GameManager.came_from == "banheiro":
+		MusicManager.get_node("AudioStreamPlayer").volume_db = -20
 		intro.play("fade_out")
 		var marker = $SpawnBanheiro
 		$Lucy.global_position = marker.global_position
 
 		GameManager.came_from = ""
 	else:
+		MusicManager.get_node("AudioStreamPlayer").stream = load("res://assets/msc/wake_up.mp3")
+		MusicManager.get_node("AudioStreamPlayer").play()
 		barulho.play()
 		intro.play("intro")
 

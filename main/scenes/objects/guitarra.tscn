@@ -88,11 +88,11 @@ position = Vector2(-12, 266)
 shape = SubResource("RectangleShape2D_1g1ej")
 
 [node name="Guitarra" type="Label" parent="." unique_id=449300055]
-offset_left = -59.0
-offset_top = 67.0
-offset_right = 38.0
-offset_bottom = 112.0
-text = "Guitarra"
+offset_left = -80.0
+offset_top = 66.0
+offset_right = 55.0
+offset_bottom = 111.0
+text = "Contrabaixo"
 label_settings = SubResource("LabelSettings_sa2ql")
 
 [node name="interact" type="AnimatedSprite2D" parent="." unique_id=467609995]
