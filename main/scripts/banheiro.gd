@@ -9,7 +9,7 @@ var interacting = false
 
 
 func _ready() -> void:
-	MusicManager.get_node("AudioStreamPlayer").volume_db = -20
+	MusicManager.get_node("AudioStreamPlayer").volume_db = -15
 	
 	interact.hide()
 	banheiro.hide()

@@ -7,4 +7,5 @@
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=765955427]
 stream = ExtResource("1_pxxh6")
+parameters/looping = true
 script = ExtResource("2_26ni4")

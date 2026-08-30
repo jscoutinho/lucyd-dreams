@@ -12,7 +12,7 @@ func _ready():
 	
 	
 	if GameManager.came_from == "banheiro":
-		MusicManager.get_node("AudioStreamPlayer").volume_db = -20
+		MusicManager.get_node("AudioStreamPlayer").volume_db = -10
 		intro.play("fade_out")
 		var marker = $SpawnBanheiro
 		$Lucy.global_position = marker.global_position
@@ -20,6 +20,7 @@ func _ready():
 		GameManager.came_from = ""
 	else:
 		MusicManager.get_node("AudioStreamPlayer").stream = load("res://assets/msc/wake_up.mp3")
+		MusicManager.get_node("AudioStreamPlayer").volume_db = -10
 		MusicManager.get_node("AudioStreamPlayer").play()
 		barulho.play()
 		intro.play("intro")
