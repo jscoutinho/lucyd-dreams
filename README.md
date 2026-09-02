@@ -5,8 +5,8 @@
 Um jogo plataformer Um jogo que se passa nos sonhos de Lucy (personagem principal), que ao descobrir que não há como escapar deles encontra uma forma de utilizar eles para atingir seus objetivos. Conseguindo controlar seu sonhos aos poucos, até atingir um sonho lúcido.
 
 ## Telas
-<img src="./readme/concept.png" alt="texto alternativo" width="700">
-Primeira concept art da rua no mundo dos sonhos. Construções em ruínas e pedaços da rua flutuando. 
+<img src="./readme/calendário.png" alt="texto alternativo" width="1000">
+<img src="./readme/quarto.png" alt="texto alternativo" width="1000">
 
 ## Como Jogar  
 <h4>Windows</h4>
