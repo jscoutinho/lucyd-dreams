@@ -1,38 +1,31 @@
 [gd_scene format=3 uid="uid://cuh1kec3djmio"]
 
-[ext_resource type="Texture2D" uid="uid://mr23frlg3m6j" path="res://assets/jogo/casa/banheiro/base-banheiro.png" id="1_0iqsg"]
-[ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="2_ksouk"]
+[ext_resource type="Texture2D" uid="uid://bdf0x2s864n77" path="res://assets/jogo/Rua/background.png" id="1_06gr6"]
+[ext_resource type="PackedScene" uid="uid://d04bshjq5ixbh" path="res://scenes/entities/lucy.tscn" id="2_0iqsg"]
+[ext_resource type="Texture2D" uid="uid://dlsqeknbmdpfw" path="res://assets/jogo/Rua/terreno.png" id="3_ksouk"]
 
-[node name="Rua_Casa" type="Control" unique_id=247973776]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksouk"]
+size = Vector2(3036, 57.5)
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1092541913]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_0iqsg")
+[node name="Rua" type="Node2D" unique_id=707169956]
 
-[node name="Label" type="Label" parent="." unique_id=1567323901]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -284.0
-offset_top = -56.0
-offset_right = 284.0
-offset_bottom = 56.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_ksouk")
-theme_override_font_sizes/font_size = 100
-text = "Obrigado Por Jogar!"
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=405671124]
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1257200970]
+position = Vector2(759.74994, 432.25003)
+scale = Vector2(1.4848632, 1.4391667)
+texture = ExtResource("1_06gr6")
+
+[node name="Lucy" parent="." unique_id=1039624184 instance=ExtResource("2_0iqsg")]
+position = Vector2(143.00002, 620)
+scale = Vector2(1.4848632, 1.4391667)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1163381457]
+
+[node name="Chão" type="CollisionShape2D" parent="Area2D" unique_id=2146180427]
+position = Vector2(1517, 854)
+shape = SubResource("RectangleShape2D_ksouk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=560398938]
+position = Vector2(1638, 563)
+texture = ExtResource("3_ksouk")
