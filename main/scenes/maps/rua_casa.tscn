@@ -1,31 +1,69 @@
 [gd_scene format=3 uid="uid://cuh1kec3djmio"]
 
-[ext_resource type="Texture2D" uid="uid://bdf0x2s864n77" path="res://assets/jogo/Rua/background.png" id="1_06gr6"]
-[ext_resource type="PackedScene" uid="uid://d04bshjq5ixbh" path="res://scenes/entities/lucy.tscn" id="2_0iqsg"]
+[ext_resource type="Texture2D" uid="uid://bdf0x2s864n77" path="res://assets/jogo/Rua/background.png" id="1_kemm3"]
+[ext_resource type="Texture2D" uid="uid://dxnagr6c3ahp7" path="res://assets/jogo/Rua/Parallax3.png" id="2_dbgc3"]
+[ext_resource type="Texture2D" uid="uid://bmuaxr4i2658o" path="res://assets/jogo/Rua/casas.png" id="2_ksouk"]
+[ext_resource type="Texture2D" uid="uid://k0255ohegy6o" path="res://assets/jogo/Rua/Parallax2.png" id="3_07kp7"]
 [ext_resource type="Texture2D" uid="uid://dlsqeknbmdpfw" path="res://assets/jogo/Rua/terreno.png" id="3_ksouk"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksouk"]
-size = Vector2(3036, 57.5)
+[ext_resource type="Texture2D" uid="uid://b5m1pd1qih03m" path="res://assets/jogo/Rua/efeito-nuvem.png" id="4_yrgpw"]
+[ext_resource type="Texture2D" uid="uid://d3esviiwqhtrw" path="res://assets/jogo/Rua/parallax1.png" id="6_v2kuc"]
+[ext_resource type="Texture2D" uid="uid://yh6kwbwxvww3" path="res://assets/jogo/Rua/para-peito.png" id="8_ypfyn"]
+[ext_resource type="Texture2D" uid="uid://cqntoaripfr6f" path="res://assets/jogo/Rua/postes.png" id="9_58iaa"]
+[ext_resource type="Texture2D" uid="uid://dwkk4f2g6plr4" path="res://assets/jogo/Rua/plataformas.png" id="11_ukud2"]
 
 [node name="Rua" type="Node2D" unique_id=707169956]
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=405671124]
+[node name="Parallax" type="Node2D" parent="." unique_id=855990337]
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1257200970]
-position = Vector2(759.74994, 432.25003)
-scale = Vector2(1.4848632, 1.4391667)
-texture = ExtResource("1_06gr6")
+[node name="Background" type="Parallax2D" parent="Parallax" unique_id=219628293]
+scroll_offset = Vector2(768, 450)
+repeat_times = 3
 
-[node name="Lucy" parent="." unique_id=1039624184 instance=ExtResource("2_0iqsg")]
-position = Vector2(143.00002, 620)
-scale = Vector2(1.4848632, 1.4391667)
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/Background" unique_id=1740792435]
+texture = ExtResource("1_kemm3")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1163381457]
+[node name="Parallax3" type="Parallax2D" parent="Parallax" unique_id=405671124]
+scroll_scale = Vector2(2, 2)
+scroll_offset = Vector2(768, 436)
 
-[node name="Chão" type="CollisionShape2D" parent="Area2D" unique_id=2146180427]
-position = Vector2(1517, 854)
-shape = SubResource("RectangleShape2D_ksouk")
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/Parallax3" unique_id=911062709]
+texture = ExtResource("2_dbgc3")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=560398938]
-position = Vector2(1638, 563)
+[node name="Parallax2" type="Parallax2D" parent="Parallax" unique_id=669852556]
+scroll_scale = Vector2(3, 3)
+scroll_offset = Vector2(768, 436)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/Parallax2" unique_id=1986982776]
+texture = ExtResource("3_07kp7")
+
+[node name="Efeito Nuvem" type="Parallax2D" parent="Parallax" unique_id=862887594]
+z_index = 2
+scroll_scale = Vector2(3.5, 3.5)
+scroll_offset = Vector2(791, 477)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/Efeito Nuvem" unique_id=16029251]
+texture = ExtResource("4_yrgpw")
+
+[node name="Parallax1" type="Sprite2D" parent="." unique_id=1692519223]
+position = Vector2(2459, 452)
+texture = ExtResource("6_v2kuc")
+
+[node name="Casas" type="Sprite2D" parent="." unique_id=532098573]
+position = Vector2(1040, 450)
+texture = ExtResource("2_ksouk")
+
+[node name="Terreno" type="Sprite2D" parent="." unique_id=560398938]
+position = Vector2(2459, 450)
 texture = ExtResource("3_ksouk")
+
+[node name="Para peito" type="Sprite2D" parent="." unique_id=2013057684]
+position = Vector2(2459, 450)
+texture = ExtResource("8_ypfyn")
+
+[node name="Postes" type="Sprite2D" parent="." unique_id=9420584]
+position = Vector2(2459, 450)
+texture = ExtResource("9_58iaa")
+
+[node name="Plataformas" type="Sprite2D" parent="." unique_id=1543504836]
+position = Vector2(4405, 447)
+texture = ExtResource("11_ukud2")

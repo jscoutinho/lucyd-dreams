@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7yr70q8grlxu"
-path="res://.godot/imported/plataforma.png-95ecc6e5ac449df00ff9d12bf8b9ad5b.ctex"
+uid="uid://yh6kwbwxvww3"
+path="res://.godot/imported/para-peito.png-63fe8eeb9a6f3bcd77aeefe66fade809.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/jogo/Rua/plataforma.png"
-dest_files=["res://.godot/imported/plataforma.png-95ecc6e5ac449df00ff9d12bf8b9ad5b.ctex"]
+source_file="res://assets/jogo/Rua/para-peito.png"
+dest_files=["res://.godot/imported/para-peito.png-63fe8eeb9a6f3bcd77aeefe66fade809.ctex"]
 
 [params]
 
