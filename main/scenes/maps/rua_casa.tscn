@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cuh1kec3djmio"]
 
 [ext_resource type="Texture2D" uid="uid://bdf0x2s864n77" path="res://assets/jogo/Rua/background.png" id="1_kemm3"]
+[ext_resource type="Script" uid="uid://btkk0lfyip8h" path="res://scenes/maps/rua_casa.gd" id="1_v2kuc"]
 [ext_resource type="Texture2D" uid="uid://dxnagr6c3ahp7" path="res://assets/jogo/Rua/Parallax3.png" id="2_dbgc3"]
 [ext_resource type="Texture2D" uid="uid://bmuaxr4i2658o" path="res://assets/jogo/Rua/casas.png" id="2_ksouk"]
 [ext_resource type="Texture2D" uid="uid://k0255ohegy6o" path="res://assets/jogo/Rua/Parallax2.png" id="3_07kp7"]
@@ -9,61 +10,95 @@
 [ext_resource type="Texture2D" uid="uid://d3esviiwqhtrw" path="res://assets/jogo/Rua/parallax1.png" id="6_v2kuc"]
 [ext_resource type="Texture2D" uid="uid://yh6kwbwxvww3" path="res://assets/jogo/Rua/para-peito.png" id="8_ypfyn"]
 [ext_resource type="Texture2D" uid="uid://cqntoaripfr6f" path="res://assets/jogo/Rua/postes.png" id="9_58iaa"]
+[ext_resource type="PackedScene" uid="uid://d04bshjq5ixbh" path="res://scenes/entities/lucy.tscn" id="11_2a4aw"]
 [ext_resource type="Texture2D" uid="uid://dwkk4f2g6plr4" path="res://assets/jogo/Rua/plataformas.png" id="11_ukud2"]
+[ext_resource type="PackedScene" uid="uid://bvde1sjkrlqmi" path="res://scenes/entities/camera.tscn" id="12_ukud2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ov4ip"]
+size = Vector2(4253, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsy63"]
+size = Vector2(20, 365)
 
 [node name="Rua" type="Node2D" unique_id=707169956]
+script = ExtResource("1_v2kuc")
 
 [node name="Parallax" type="Node2D" parent="." unique_id=855990337]
+position = Vector2(3, -19)
 
 [node name="Background" type="Parallax2D" parent="Parallax" unique_id=219628293]
-scroll_offset = Vector2(768, 450)
-repeat_times = 3
+scroll_offset = Vector2(1855, 469)
+repeat_size = Vector2(1536, 0)
+repeat_times = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax/Background" unique_id=1740792435]
 texture = ExtResource("1_kemm3")
 
 [node name="Parallax3" type="Parallax2D" parent="Parallax" unique_id=405671124]
-scroll_scale = Vector2(2, 2)
+scroll_scale = Vector2(1.05, 1.05)
 scroll_offset = Vector2(768, 436)
+repeat_size = Vector2(1536, 0)
+repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax/Parallax3" unique_id=911062709]
 texture = ExtResource("2_dbgc3")
 
 [node name="Parallax2" type="Parallax2D" parent="Parallax" unique_id=669852556]
-scroll_scale = Vector2(3, 3)
+scroll_scale = Vector2(1.2, 1.2)
 scroll_offset = Vector2(768, 436)
+repeat_size = Vector2(1536, 0)
+repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax/Parallax2" unique_id=1986982776]
 texture = ExtResource("3_07kp7")
 
 [node name="Efeito Nuvem" type="Parallax2D" parent="Parallax" unique_id=862887594]
 z_index = 2
-scroll_scale = Vector2(3.5, 3.5)
-scroll_offset = Vector2(791, 477)
+scroll_scale = Vector2(1.1, 1.1)
+scroll_offset = Vector2(-746, 480)
+repeat_size = Vector2(1536, 0)
+repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax/Efeito Nuvem" unique_id=16029251]
 texture = ExtResource("4_yrgpw")
 
 [node name="Parallax1" type="Sprite2D" parent="." unique_id=1692519223]
-position = Vector2(2459, 452)
+position = Vector2(2459, 419)
 texture = ExtResource("6_v2kuc")
 
 [node name="Casas" type="Sprite2D" parent="." unique_id=532098573]
-position = Vector2(1040, 450)
+position = Vector2(1040, 417)
 texture = ExtResource("2_ksouk")
 
 [node name="Terreno" type="Sprite2D" parent="." unique_id=560398938]
-position = Vector2(2459, 450)
+position = Vector2(2459, 417)
 texture = ExtResource("3_ksouk")
 
 [node name="Para peito" type="Sprite2D" parent="." unique_id=2013057684]
-position = Vector2(2459, 450)
+position = Vector2(2459, 417)
 texture = ExtResource("8_ypfyn")
 
 [node name="Postes" type="Sprite2D" parent="." unique_id=9420584]
-position = Vector2(2459, 450)
+position = Vector2(2459, 417)
 texture = ExtResource("9_58iaa")
 
 [node name="Plataformas" type="Sprite2D" parent="." unique_id=1543504836]
-position = Vector2(4405, 447)
+position = Vector2(4405, 414)
 texture = ExtResource("11_ukud2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2021723532]
+position = Vector2(19, 846)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=258633064]
+position = Vector2(2115, -22)
+shape = SubResource("RectangleShape2D_ov4ip")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1628601786]
+position = Vector2(85, -216)
+shape = SubResource("RectangleShape2D_vsy63")
+
+[node name="Camera" parent="." unique_id=872375583 instance=ExtResource("12_ukud2")]
+position = Vector2(873, 819)
+
+[node name="Lucy" parent="." unique_id=1039624184 instance=ExtResource("11_2a4aw")]
+position = Vector2(1816, 681)

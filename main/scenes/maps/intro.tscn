@@ -195,6 +195,5 @@ libraries/ = SubResource("AnimationLibrary_t1qkj")
 [node name="intro" type="AudioStreamPlayer" parent="." unique_id=2077081949]
 stream = ExtResource("6_rjxww")
 volume_db = -17.796
-autoplay = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
