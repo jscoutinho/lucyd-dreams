@@ -30,7 +30,7 @@ func mostrar_slide():
 func _ready() -> void:
 	mostrar_slide()
 	MusicManager.get_node("AudioStreamPlayer").stream = load("res://assets/msc/Morte.mp3")
-	MusicManager.get_node("AudioStreamPlayer").volume_db = -10
+	MusicManager.get_node("AudioStreamPlayer").volume_db = -15
 	MusicManager.get_node("AudioStreamPlayer").play()
 
 	$AnimationPlayer.play("fade_in")
