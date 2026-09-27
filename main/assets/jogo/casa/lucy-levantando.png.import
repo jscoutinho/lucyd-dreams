@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc8q65s3hvp78"
-path="res://.godot/imported/lucy-rising-ss.png-d4d20c2bfbb52f133d271abec8e1eb3b.ctex"
+uid="uid://bydme4yfrtdkm"
+path="res://.godot/imported/lucy-levantando.png-30daab65031d1203e2bea910ad9e8e75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/jogo/casa/lucy-rising-ss.png"
-dest_files=["res://.godot/imported/lucy-rising-ss.png-d4d20c2bfbb52f133d271abec8e1eb3b.ctex"]
+source_file="res://assets/jogo/casa/lucy-levantando.png"
+dest_files=["res://.godot/imported/lucy-levantando.png-30daab65031d1203e2bea910ad9e8e75.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c6a5iysgh4tka" path="res://scripts/player.gd" id="1_sjp7b"]
 [ext_resource type="Texture2D" uid="uid://d4dgqpmq8f0ek" path="res://assets/jogo/casa/lucy-idle-ss.png" id="2_e6skj"]
 [ext_resource type="Texture2D" uid="uid://bkhw62blud1wi" path="res://assets/jogo/casa/lucy-trans.png" id="4_80en1"]
-[ext_resource type="Texture2D" uid="uid://bc8q65s3hvp78" path="res://assets/jogo/casa/lucy-rising-ss.png" id="4_bpv10"]
+[ext_resource type="Texture2D" uid="uid://bydme4yfrtdkm" path="res://assets/jogo/casa/lucy-levantando.png" id="5_e6skj"]
 [ext_resource type="Texture2D" uid="uid://dntrlnss3xunb" path="res://assets/jogo/casa/lucy-andando-ss.png" id="5_e26wd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdqtq"]
@@ -66,25 +66,21 @@ region = Rect2(304, 0, 152, 248)
 atlas = ExtResource("4_80en1")
 region = Rect2(456, 0, 152, 248)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u5dhl"]
-atlas = ExtResource("4_bpv10")
+[sub_resource type="AtlasTexture" id="AtlasTexture_80en1"]
+atlas = ExtResource("5_e6skj")
 region = Rect2(0, 0, 144, 240)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cbwet"]
-atlas = ExtResource("4_bpv10")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8peto"]
+atlas = ExtResource("5_e6skj")
 region = Rect2(144, 0, 144, 240)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_soppo"]
-atlas = ExtResource("4_bpv10")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb08o"]
+atlas = ExtResource("5_e6skj")
 region = Rect2(288, 0, 144, 240)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o8iyh"]
-atlas = ExtResource("4_bpv10")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qshpr"]
+atlas = ExtResource("5_e6skj")
 region = Rect2(432, 0, 144, 240)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o8hm6"]
-atlas = ExtResource("4_bpv10")
-region = Rect2(576, 0, 144, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mhns3"]
 atlas = ExtResource("5_e26wd")
@@ -203,19 +199,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u5dhl")
+"texture": SubResource("AtlasTexture_80en1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cbwet")
+"texture": SubResource("AtlasTexture_8peto")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_soppo")
+"texture": SubResource("AtlasTexture_xb08o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o8iyh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o8hm6")
+"texture": SubResource("AtlasTexture_qshpr")
 }],
 "loop": 0,
 "name": &"wake_up",
@@ -273,7 +266,7 @@ script = ExtResource("1_sjp7b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=804095773]
 sprite_frames = SubResource("SpriteFrames_sa2ql")
-animation = &"transitioning"
+animation = &"wake_up"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=221983422]
