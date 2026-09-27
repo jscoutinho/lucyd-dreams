@@ -6,7 +6,6 @@ enum PlayerState {
 	WALK,
 	STOP,
 	JUMP,
-	CUTSCENE,
 	DIALOGUE
 }
 
@@ -21,9 +20,6 @@ var status: PlayerState
 
 func _ready() -> void:
 	go_to_idle_state()
-	
-func play_wake_up():
-	go_to_cutscene_state()
 
 
 func _physics_process(delta: float) -> void:
@@ -46,9 +42,6 @@ func _physics_process(delta: float) -> void:
 
 		PlayerState.JUMP:
 			jump_state()
-		
-		PlayerState.CUTSCENE:
-			cutscene_state()
 			
 		PlayerState.DIALOGUE:
 			dialogue_state()
@@ -83,10 +76,6 @@ func go_to_jump_state():
 	status = PlayerState.JUMP
 	anim.play("jump")
 	velocity.y = JUMP_VELOCITY
-
-func go_to_cutscene_state():
-	status = PlayerState.CUTSCENE
-	anim.play("wake_up")
 
 func go_to_dialogue_state():
 	status = PlayerState.DIALOGUE
@@ -203,7 +192,5 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		"stop":
 			if status == PlayerState.STOP:
 				go_to_idle_state()
-		"wake_up":
-			if status == PlayerState.CUTSCENE:
-				go_to_dialogue_state()
+
 			
