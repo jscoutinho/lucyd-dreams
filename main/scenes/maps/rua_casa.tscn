@@ -138,7 +138,7 @@ position = Vector2(1815, 713)
 
 [node name="levelEnd" parent="." unique_id=1322953762 instance=ExtResource("14_kt6jj")]
 position = Vector2(4326, 928)
-next_level = "agradecimento"
+next_level = "buraco"
 
 [node name="CollisionShape2D" parent="levelEnd" index="0" unique_id=220745053]
 position = Vector2(324, -20)

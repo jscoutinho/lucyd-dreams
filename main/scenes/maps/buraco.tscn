@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://e1epr8uupypk"]
+
+[ext_resource type="Texture2D" uid="uid://r56dcpgxnhta" path="res://assets/jogo/buraco/buraco.png" id="1_capig"]
+[ext_resource type="Script" uid="uid://d2m0mq0en4ij3" path="res://scripts/cutscene_player.gd" id="3_capig"]
+[ext_resource type="Texture2D" uid="uid://empbndv0q1i6" path="res://assets/entidades/lucy/lucy-idle.png" id="4_6tgku"]
+[ext_resource type="Texture2D" uid="uid://qavbgh7x1b2q" path="res://assets/jogo/buraco/paralax.png" id="4_xyasr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sa2ql"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyasr"]
+atlas = ExtResource("4_6tgku")
+region = Rect2(0, 0, 108, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmom6"]
+atlas = ExtResource("4_6tgku")
+region = Rect2(108, 0, 108, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vag8a"]
+atlas = ExtResource("4_6tgku")
+region = Rect2(216, 0, 108, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1k63b"]
+atlas = ExtResource("4_6tgku")
+region = Rect2(324, 0, 108, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rauue"]
+atlas = ExtResource("4_6tgku")
+region = Rect2(432, 0, 108, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2ca2"]
+atlas = ExtResource("4_6tgku")
+region = Rect2(540, 0, 108, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5upf"]
+atlas = ExtResource("4_6tgku")
+region = Rect2(648, 0, 108, 186)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sa2ql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyasr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmom6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vag8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1k63b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rauue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2ca2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5upf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Buraco" type="Node2D" unique_id=1376457040]
+metadata/_edit_horizontal_guides_ = [883.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1218825566]
+
+[node name="Buraco" type="Sprite2D" parent="." unique_id=1879696022]
+position = Vector2(834, 751)
+texture = ExtResource("1_capig")
+
+[node name="Paralax" type="Sprite2D" parent="." unique_id=2123381469]
+position = Vector2(830, 1666)
+texture = ExtResource("4_xyasr")
+
+[node name="Paralax2" type="Sprite2D" parent="." unique_id=722261908]
+position = Vector2(830, 2013)
+texture = ExtResource("4_xyasr")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1170646502]
+position = Vector2(784, 51)
+script = ExtResource("3_capig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1873908469]
+shape = SubResource("CapsuleShape2D_sa2ql")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1458757644]
+sprite_frames = SubResource("SpriteFrames_sa2ql")
+autoplay = "default"
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1646480719]
+limit_top = 0
