@@ -1,43 +1,87 @@
 [gd_scene format=3 uid="uid://e1epr8uupypk"]
 
 [ext_resource type="Texture2D" uid="uid://r56dcpgxnhta" path="res://assets/jogo/buraco/buraco.png" id="1_capig"]
+[ext_resource type="Script" uid="uid://i14pl6a0k0cw" path="res://scripts/buraco.gd" id="1_dmom6"]
 [ext_resource type="Script" uid="uid://d2m0mq0en4ij3" path="res://scripts/cutscene_player.gd" id="3_capig"]
-[ext_resource type="Texture2D" uid="uid://empbndv0q1i6" path="res://assets/entidades/lucy/lucy-idle.png" id="4_6tgku"]
+[ext_resource type="Texture2D" uid="uid://drp23u3uwmx7l" path="res://assets/entidades/lucy/lucy-queda.png" id="4_6tgku"]
+[ext_resource type="Texture2D" uid="uid://b7v6gcw45mjps" path="res://assets/entidades/lucy/lucy-queda-acelerando.png" id="4_dmom6"]
 [ext_resource type="Texture2D" uid="uid://qavbgh7x1b2q" path="res://assets/jogo/buraco/paralax.png" id="4_xyasr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sa2ql"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2ca2"]
+atlas = ExtResource("4_dmom6")
+region = Rect2(0, 0, 186, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5upf"]
+atlas = ExtResource("4_dmom6")
+region = Rect2(186, 0, 186, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnkay"]
+atlas = ExtResource("4_dmom6")
+region = Rect2(372, 0, 186, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eupsk"]
+atlas = ExtResource("4_dmom6")
+region = Rect2(558, 0, 186, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1any"]
+atlas = ExtResource("4_dmom6")
+region = Rect2(744, 0, 186, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mea5u"]
+atlas = ExtResource("4_dmom6")
+region = Rect2(930, 0, 186, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tgku"]
+atlas = ExtResource("4_6tgku")
+region = Rect2(0, 0, 186, 108)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyasr"]
 atlas = ExtResource("4_6tgku")
-region = Rect2(0, 0, 108, 186)
+region = Rect2(186, 0, 186, 108)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dmom6"]
 atlas = ExtResource("4_6tgku")
-region = Rect2(108, 0, 108, 186)
+region = Rect2(372, 0, 186, 108)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vag8a"]
 atlas = ExtResource("4_6tgku")
-region = Rect2(216, 0, 108, 186)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1k63b"]
-atlas = ExtResource("4_6tgku")
-region = Rect2(324, 0, 108, 186)
+region = Rect2(558, 0, 186, 108)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rauue"]
 atlas = ExtResource("4_6tgku")
-region = Rect2(432, 0, 108, 186)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p2ca2"]
-atlas = ExtResource("4_6tgku")
-region = Rect2(540, 0, 108, 186)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o5upf"]
-atlas = ExtResource("4_6tgku")
-region = Rect2(648, 0, 108, 186)
+region = Rect2(930, 0, 186, 108)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sa2ql"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2ca2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5upf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnkay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eupsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1any")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mea5u")
+}],
+"loop": 0,
+"name": &"acelerando",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tgku")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xyasr")
 }, {
@@ -48,23 +92,70 @@ animations = [{
 "texture": SubResource("AtlasTexture_vag8a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1k63b")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_rauue")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p2ca2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o5upf")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"caindo",
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_kt6jj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_t2ukf"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.43333334, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eg01i"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.60445905),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6tgku"]
+_data = {
+&"RESET": SubResource("Animation_kt6jj"),
+&"fade_in": SubResource("Animation_t2ukf"),
+&"fade_out": SubResource("Animation_eg01i")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
+size = Vector2(1899.5, 194.5)
+
 [node name="Buraco" type="Node2D" unique_id=1376457040]
+script = ExtResource("1_dmom6")
 metadata/_edit_horizontal_guides_ = [883.0]
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1953200164]
@@ -82,7 +173,7 @@ position = Vector2(834, 751)
 texture = ExtResource("1_capig")
 
 [node name="Lucy Cutscene" type="CharacterBody2D" parent="." unique_id=1170646502]
-position = Vector2(805, 120)
+position = Vector2(798, 353)
 script = ExtResource("3_capig")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lucy Cutscene" unique_id=1873908469]
@@ -90,7 +181,30 @@ shape = SubResource("CapsuleShape2D_sa2ql")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Lucy Cutscene" unique_id=1458757644]
 sprite_frames = SubResource("SpriteFrames_sa2ql")
-autoplay = "default"
+animation = &"caindo"
 
 [node name="Camera2D" type="Camera2D" parent="Lucy Cutscene" unique_id=1646480719]
 limit_top = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1517236090]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1867256809]
+libraries/ = SubResource("AnimationLibrary_6tgku")
+autoplay = &"fade_in"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1877376780]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1827624305]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1769558783]
+position = Vector2(966, 4187)
+shape = SubResource("RectangleShape2D_sa2ql")
+
+[connection signal="animation_finished" from="Lucy Cutscene/AnimatedSprite2D" to="Lucy Cutscene" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
