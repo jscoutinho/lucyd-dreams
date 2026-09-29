@@ -36,6 +36,10 @@ func _on_interact_animation_finished() -> void:
 		"press":
 
 			if GameManager.has_key:
+				var animation_player = get_tree().current_scene.get_node("CanvasLayer/AnimationPlayer")
+				animation_player.play("porta_banheiro")
+
+				await animation_player.animation_finished
 				get_tree().change_scene_to_file("res://scenes/maps/rua_casa.tscn")
 			else:
 				trancada.play()

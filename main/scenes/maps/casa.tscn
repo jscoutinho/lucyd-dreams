@@ -389,7 +389,7 @@ shape = SubResource("RectangleShape2D_8wwuq")
 position = Vector2(100, 699)
 
 [node name="Ventilador" type="AnimatedSprite2D" parent="." unique_id=226278224]
-position = Vector2(545, 316)
+position = Vector2(548, 319)
 sprite_frames = SubResource("SpriteFrames_ov4ip")
 autoplay = "default"
 frame_progress = 0.70220166

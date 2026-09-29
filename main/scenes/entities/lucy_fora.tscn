@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6a5iysgh4tka" path="res://scripts/player.gd" id="1_bkbd4"]
 [ext_resource type="Texture2D" uid="uid://empbndv0q1i6" path="res://assets/entidades/lucy/lucy-idle.png" id="2_ifjpp"]
+[ext_resource type="Texture2D" uid="uid://cuvmqtodmbsfu" path="res://assets/entidades/lucy/lucy-pulando-ss.png" id="3_bkbd4"]
 [ext_resource type="Texture2D" uid="uid://crpeuxw5dyleh" path="res://assets/jogo/casa/lucy-andando.png" id="3_gge2m"]
 [ext_resource type="Texture2D" uid="uid://cab3fq0g81kk7" path="res://assets/jogo/casa/lucy-acelerando.png" id="4_bkbd4"]
 
@@ -34,8 +35,20 @@ atlas = ExtResource("2_ifjpp")
 region = Rect2(648, 0, 108, 186)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ifjpp"]
-atlas = ExtResource("3_gge2m")
-region = Rect2(1188, 0, 108, 186)
+atlas = ExtResource("3_bkbd4")
+region = Rect2(108, 0, 108, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b3k2"]
+atlas = ExtResource("3_bkbd4")
+region = Rect2(216, 0, 108, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5ief"]
+atlas = ExtResource("3_bkbd4")
+region = Rect2(324, 0, 108, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0y3n"]
+atlas = ExtResource("3_bkbd4")
+region = Rect2(432, 0, 108, 186)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mhlmd"]
 atlas = ExtResource("4_bkbd4")
@@ -138,12 +151,21 @@ animations = [{
 "speed": 8.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ifjpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b3k2")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_u5ief")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_m0y3n")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"jump",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -225,8 +247,10 @@ script = ExtResource("1_bkbd4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=804095773]
 sprite_frames = SubResource("SpriteFrames_sa2ql")
-animation = &"idle"
+animation = &"jump"
 autoplay = "idle"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=221983422]
 position = Vector2(6, 8)

@@ -61,11 +61,19 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Buraco" type="Node2D" unique_id=1376457040]
 metadata/_edit_horizontal_guides_ = [883.0]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1953200164]
+repeat_size = Vector2(0, 348)
+repeat_times = 4
+
+[node name="Paralax" type="Sprite2D" parent="Parallax2D" unique_id=2123381469]
+position = Vector2(833, 706)
+texture = ExtResource("4_xyasr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1218825566]
 
@@ -73,24 +81,16 @@ metadata/_edit_horizontal_guides_ = [883.0]
 position = Vector2(834, 751)
 texture = ExtResource("1_capig")
 
-[node name="Paralax" type="Sprite2D" parent="." unique_id=2123381469]
-position = Vector2(830, 1666)
-texture = ExtResource("4_xyasr")
-
-[node name="Paralax2" type="Sprite2D" parent="." unique_id=722261908]
-position = Vector2(830, 2013)
-texture = ExtResource("4_xyasr")
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1170646502]
-position = Vector2(784, 51)
+[node name="Lucy Cutscene" type="CharacterBody2D" parent="." unique_id=1170646502]
+position = Vector2(805, 120)
 script = ExtResource("3_capig")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1873908469]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lucy Cutscene" unique_id=1873908469]
 shape = SubResource("CapsuleShape2D_sa2ql")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1458757644]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Lucy Cutscene" unique_id=1458757644]
 sprite_frames = SubResource("SpriteFrames_sa2ql")
 autoplay = "default"
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1646480719]
+[node name="Camera2D" type="Camera2D" parent="Lucy Cutscene" unique_id=1646480719]
 limit_top = 0

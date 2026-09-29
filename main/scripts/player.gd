@@ -79,7 +79,6 @@ func go_to_jump_state():
 
 func go_to_dialogue_state():
 	status = PlayerState.DIALOGUE
-	anim.play("idle")
 
 
 

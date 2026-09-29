@@ -37,6 +37,11 @@ func _on_interact_animation_finished() -> void:
 		"press":
 			if !GameManager.has_key:
 				GameManager.has_key = true
+				
+				var lucy = get_tree().get_first_node_in_group("Player")
+				lucy.get_node("./AnimatedSprite2D").stop()
+				lucy.get_node("./AnimatedSprite2D").play("taking")
+				
 				var dialogue = get_tree().current_scene.get_node("UI/DialogueBox")
 				dialogue.show_dialogue(["Isso, sabia que você estava por aqui."], "Lucy")
 				interact.play("release")
