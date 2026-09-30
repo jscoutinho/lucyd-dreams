@@ -7,7 +7,7 @@ var iniciando_jogo = false
 
 
 func _ready() -> void:
-	pass 
+	MusicManager.tocar_musica(load("res://assets/msc/lucid-dreams.mp3"))
 
 func _process(_delta: float) -> void:
 	pass

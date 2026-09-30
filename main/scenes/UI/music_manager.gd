@@ -1,7 +1,7 @@
 extends Node
 
-@onready var player_a: AudioStreamPlayer = $"."
-@onready var player_b: AudioStreamPlayer = $"../MusicPlayerB"
+@onready var player_a: AudioStreamPlayer = $MusicPlayerA
+@onready var player_b: AudioStreamPlayer = $"MusicPlayerB"
 
 var tocando_a := true
 var tween_atual: Tween
@@ -12,7 +12,8 @@ func _ready() -> void:
 	player_b.volume_db = -10
 
 
-func tocar_musica(nova_musica: AudioStream) -> void:
+func tocar_musica(nova_musica: AudioStream, volume: float = -10) -> void:
+
 	var atual: AudioStreamPlayer
 	var proximo: AudioStreamPlayer
 
@@ -23,11 +24,6 @@ func tocar_musica(nova_musica: AudioStream) -> void:
 		atual = player_b
 		proximo = player_a
 
-	# Se já estiver tocando essa música, não faz nada
-	if atual.stream == nova_musica and atual.playing:
-		return
-
-	# Para qualquer transição anterior
 	if tween_atual:
 		tween_atual.kill()
 
@@ -38,7 +34,6 @@ func tocar_musica(nova_musica: AudioStream) -> void:
 	tween_atual = create_tween()
 	tween_atual.set_parallel(true)
 
-	# Música atual diminui
 	tween_atual.tween_property(
 		atual,
 		"volume_db",
@@ -46,11 +41,10 @@ func tocar_musica(nova_musica: AudioStream) -> void:
 		2.0
 	)
 
-	# Música nova aumenta
 	tween_atual.tween_property(
 		proximo,
 		"volume_db",
-		-10,
+		volume,
 		2.0
 	)
 

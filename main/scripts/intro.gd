@@ -29,10 +29,7 @@ func mostrar_slide():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	mostrar_slide()
-	MusicManager.get_node("AudioStreamPlayer").stream = load("res://assets/msc/Morte.mp3")
-	MusicManager.get_node("AudioStreamPlayer").volume_db = -15
-	MusicManager.get_node("AudioStreamPlayer").play()
-
+	MusicManager.tocar_musica(load("res://assets/msc/Morte.mp3"), -15)
 	$AnimationPlayer.play("fade_in")
 
 func _input(event):

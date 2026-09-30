@@ -56,7 +56,7 @@ region = Rect2(930, 0, 186, 108)
 [sub_resource type="SpriteFrames" id="SpriteFrames_sa2ql"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 10.0,
 "texture": SubResource("AtlasTexture_p2ca2")
 }, {
 "duration": 1.0,
@@ -96,7 +96,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"caindo",
-"speed": 10.0
+"speed": 20.0
 }]
 
 [sub_resource type="Animation" id="Animation_kt6jj"]
@@ -181,7 +181,7 @@ shape = SubResource("CapsuleShape2D_sa2ql")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Lucy Cutscene" unique_id=1458757644]
 sprite_frames = SubResource("SpriteFrames_sa2ql")
-animation = &"caindo"
+animation = &"acelerando"
 
 [node name="Camera2D" type="Camera2D" parent="Lucy Cutscene" unique_id=1646480719]
 limit_top = 0

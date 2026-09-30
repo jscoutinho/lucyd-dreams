@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://c51wpfmquvb8n"]
 
+[ext_resource type="Script" uid="uid://81qoy7t5crxi" path="res://scenes/UI/music_manager.gd" id="1_26ni4"]
 [ext_resource type="AudioStream" uid="uid://dftxddign7jve" path="res://assets/msc/lucid-dreams.mp3" id="1_pxxh6"]
-[ext_resource type="Script" uid="uid://bn3bsm2oul6hm" path="res://audio_stream_player.gd" id="2_26ni4"]
 
 [node name="MusicManager" type="Node2D" unique_id=1713243541]
+script = ExtResource("1_26ni4")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=765955427]
+[node name="MusicPlayerA" type="AudioStreamPlayer" parent="." unique_id=765955427]
 stream = ExtResource("1_pxxh6")
 parameters/looping = true
-script = ExtResource("2_26ni4")
+
+[node name="MusicPlayerB" type="AudioStreamPlayer" parent="." unique_id=2131386112]
