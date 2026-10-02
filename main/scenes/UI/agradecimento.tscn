@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://qjdsqjp1ne7t"]
 
 [ext_resource type="Texture2D" uid="uid://crqyx4cptw871" path="res://assets/intro/intro-bg.png" id="1_m71ay"]
+[ext_resource type="Script" uid="uid://cf7rn00vp6cw" path="res://scripts/UI/agradecimento.gd" id="1_yyow6"]
 [ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="2_yyow6"]
 
 [node name="Agradecimento" type="Control" unique_id=359041201]
@@ -12,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+script = ExtResource("1_yyow6")
 
 [node name="bg" type="TextureRect" parent="." unique_id=1519186058]
 layout_mode = 1
@@ -42,3 +44,22 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_yyow6")
 theme_override_font_sizes/font_size = 100
 text = "Obrigado por Jogar!"
+
+[node name="Button" type="Button" parent="." unique_id=261986888]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -216.0
+offset_top = -279.0
+offset_right = 216.0
+offset_bottom = -173.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_yyow6")
+theme_override_font_sizes/font_size = 64
+text = "Voltar para o menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

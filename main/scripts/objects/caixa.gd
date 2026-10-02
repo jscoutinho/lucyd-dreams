@@ -14,6 +14,10 @@ func _process(_delta: float) -> void:
 	if player_near and Input.is_action_just_pressed("interact") and !interacting:
 		interacting = true
 		interact.play("press")
+		if !GameManager.has_key:
+			var lucy = get_tree().get_first_node_in_group("Player")
+			lucy.get_node("./AnimatedSprite2D").stop()
+			lucy.get_node("./AnimatedSprite2D").play("taking")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Lucy":
@@ -37,10 +41,7 @@ func _on_interact_animation_finished() -> void:
 		"press":
 			if !GameManager.has_key:
 				GameManager.has_key = true
-				
-				var lucy = get_tree().get_first_node_in_group("Player")
-				lucy.get_node("./AnimatedSprite2D").stop()
-				lucy.get_node("./AnimatedSprite2D").play("taking")
+			
 				
 				var dialogue = get_tree().current_scene.get_node("UI/DialogueBox")
 				dialogue.show_dialogue(["Isso, sabia que você estava por aqui."], "Lucy")

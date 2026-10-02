@@ -8,9 +8,6 @@ extends Node2D
 var intro_step = 0
 
 func _ready():
-	
-	
-	
 	if GameManager.came_from == "banheiro":
 		intro.play("fade_out")
 		var marker = $SpawnBanheiro
@@ -29,6 +26,10 @@ func dialogo():
 	"Se eu não conferir, não vou conseguir pregar os olhos"]
 	DialogueBox.show_dialogue(dialogo0, "Lucy")
 	player.go_to_dialogue_state()
+	var lucy = get_tree().get_first_node_in_group("Player")
+	lucy.get_node("./AnimatedSprite2D").stop()
+	lucy.get_node("./AnimatedSprite2D").play("idle")
+
 
 func _on_tutorial_finished():
 	$Lucy.exit_dialogue()

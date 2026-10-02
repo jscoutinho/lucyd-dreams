@@ -8,6 +8,8 @@ script = ExtResource("1_26ni4")
 
 [node name="MusicPlayerA" type="AudioStreamPlayer" parent="." unique_id=765955427]
 stream = ExtResource("1_pxxh6")
-parameters/looping = true
+parameters/looping = false
 
 [node name="MusicPlayerB" type="AudioStreamPlayer" parent="." unique_id=2131386112]
+stream = ExtResource("1_pxxh6")
+parameters/looping = true

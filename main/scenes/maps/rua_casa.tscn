@@ -65,6 +65,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_eg01i"]
 resource_name = "fade_out"
+length = 0.33333334
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -72,7 +73,7 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.60445905),
+"times": PackedFloat32Array(0, 0.33333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
@@ -194,7 +195,7 @@ position = Vector2(4326, 928)
 next_level = "buraco"
 
 [node name="CollisionShape2D" parent="levelEnd" index="0" unique_id=220745053]
-position = Vector2(324, -20)
+position = Vector2(323, -60)
 shape = SubResource("RectangleShape2D_t2ukf")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=579958286]

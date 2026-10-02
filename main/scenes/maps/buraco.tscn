@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://drp23u3uwmx7l" path="res://assets/entidades/lucy/lucy-queda.png" id="4_6tgku"]
 [ext_resource type="Texture2D" uid="uid://b7v6gcw45mjps" path="res://assets/entidades/lucy/lucy-queda-acelerando.png" id="4_dmom6"]
 [ext_resource type="Texture2D" uid="uid://qavbgh7x1b2q" path="res://assets/jogo/buraco/paralax.png" id="4_xyasr"]
+[ext_resource type="Texture2D" uid="uid://caxurhp8r7brl" path="res://assets/jogo/buraco/inicio-caverna.png" id="7_vag8a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sa2ql"]
 
@@ -56,7 +57,7 @@ region = Rect2(930, 0, 186, 108)
 [sub_resource type="SpriteFrames" id="SpriteFrames_sa2ql"]
 animations = [{
 "frames": [{
-"duration": 10.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_p2ca2")
 }, {
 "duration": 1.0,
@@ -96,7 +97,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"caindo",
-"speed": 20.0
+"speed": 16.0
 }]
 
 [sub_resource type="Animation" id="Animation_kt6jj"]
@@ -116,6 +117,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_t2ukf"]
 resource_name = "fade_in"
+length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -123,7 +125,7 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.43333334, 0.9),
+"times": PackedFloat32Array(0, 0.2, 0.6666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
@@ -156,9 +158,10 @@ size = Vector2(1899.5, 194.5)
 
 [node name="Buraco" type="Node2D" unique_id=1376457040]
 script = ExtResource("1_dmom6")
-metadata/_edit_horizontal_guides_ = [883.0]
+metadata/_edit_horizontal_guides_ = [883.0, 4467.0, 4305.0]
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1953200164]
+scroll_offset = Vector2(0, -221)
 repeat_size = Vector2(0, 348)
 repeat_times = 4
 
@@ -169,22 +172,28 @@ texture = ExtResource("4_xyasr")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1218825566]
 
 [node name="Buraco" type="Sprite2D" parent="." unique_id=1879696022]
-position = Vector2(834, 751)
+position = Vector2(833, 528)
 texture = ExtResource("1_capig")
 
+[node name="InicioCaverna" type="Sprite2D" parent="." unique_id=1217717987]
+position = Vector2(833, 3700)
+texture = ExtResource("7_vag8a")
+
 [node name="Lucy Cutscene" type="CharacterBody2D" parent="." unique_id=1170646502]
-position = Vector2(798, 353)
+position = Vector2(759, 365)
 script = ExtResource("3_capig")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lucy Cutscene" unique_id=1873908469]
 shape = SubResource("CapsuleShape2D_sa2ql")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Lucy Cutscene" unique_id=1458757644]
+position = Vector2(-5, 107)
 sprite_frames = SubResource("SpriteFrames_sa2ql")
-animation = &"acelerando"
+animation = &"caindo"
 
 [node name="Camera2D" type="Camera2D" parent="Lucy Cutscene" unique_id=1646480719]
 limit_top = 0
+limit_bottom = 4305
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1517236090]
 
@@ -203,7 +212,7 @@ color = Color(0, 0, 0, 1)
 [node name="Area2D" type="Area2D" parent="." unique_id=1827624305]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1769558783]
-position = Vector2(966, 4187)
+position = Vector2(812, 4117)
 shape = SubResource("RectangleShape2D_sa2ql")
 
 [connection signal="animation_finished" from="Lucy Cutscene/AnimatedSprite2D" to="Lucy Cutscene" method="_on_animated_sprite_2d_animation_finished"]

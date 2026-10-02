@@ -322,7 +322,7 @@ script = ExtResource("1_sjp7b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=804095773]
 sprite_frames = SubResource("SpriteFrames_sa2ql")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=221983422]

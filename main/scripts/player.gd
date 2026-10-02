@@ -90,7 +90,7 @@ func idle_state():
 		go_to_jump_state()
 		return
 
-	if velocity.x != 0:
+	if velocity.x != 0 && !(dialogue_state):
 		go_to_transition_state()
 		return
 
@@ -109,12 +109,12 @@ func transition_state():
 func walk_state():
 	move()
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and status != PlayerState.DIALOGUE:
 		go_to_jump_state()
 		return
 
 	# Jogador soltou a tecla
-	if Input.get_axis("ui_left", "ui_right") == 0:
+	if Input.get_axis("ui_left", "ui_right") == 0 and status != PlayerState.DIALOGUE:
 		go_to_stop_state()
 		return
 
@@ -149,6 +149,7 @@ func cutscene_state():
 	pass
 
 func dialogue_state():
+	
 	velocity = Vector2.ZERO
 
 func exit_dialogue():
@@ -172,7 +173,10 @@ func move():
 		anim.flip_h = true
 
 
-
+func play_wake_up() -> void:
+	var lucy = get_tree().get_first_node_in_group("Player")
+	lucy.get_node("./AnimatedSprite2D").stop()
+	lucy.get_node("./AnimatedSprite2D").play("wake_up")
 
 
 
