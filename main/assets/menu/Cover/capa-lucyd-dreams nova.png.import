@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb3oolk8hwibj"
-path="res://.godot/imported/capa-lucyd-dreams.png-6ff4880598e8a9637e77c832f829c6d5.ctex"
+uid="uid://m0gejnntmv1v"
+path="res://.godot/imported/capa-lucyd-dreams nova.png-dc12b9cf8b1a2dd85d2553055b1c7a76.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/Cover/capa-lucyd-dreams.png"
-dest_files=["res://.godot/imported/capa-lucyd-dreams.png-6ff4880598e8a9637e77c832f829c6d5.ctex"]
+source_file="res://assets/menu/Cover/capa-lucyd-dreams nova.png"
+dest_files=["res://.godot/imported/capa-lucyd-dreams nova.png-dc12b9cf8b1a2dd85d2553055b1c7a76.ctex"]
 
 [params]
 

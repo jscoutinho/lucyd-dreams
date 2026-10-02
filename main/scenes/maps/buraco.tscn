@@ -212,7 +212,7 @@ color = Color(0, 0, 0, 1)
 [node name="Area2D" type="Area2D" parent="." unique_id=1827624305]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1769558783]
-position = Vector2(812, 4117)
+position = Vector2(811, 4084)
 shape = SubResource("RectangleShape2D_sa2ql")
 
 [connection signal="animation_finished" from="Lucy Cutscene/AnimatedSprite2D" to="Lucy Cutscene" method="_on_animated_sprite_2d_animation_finished"]
