@@ -1,4 +1,6 @@
+
 extends CharacterBody2D
+signal animation_finished_custom(animation_name: String)
 
 enum PlayerState {
 	IDLE,
@@ -6,6 +8,7 @@ enum PlayerState {
 	WALK,
 	STOP,
 	JUMP,
+	WAKE_UP,
 	DIALOGUE
 }
 
@@ -28,6 +31,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * GRAVITY_MULTIPLIER * delta
 
 	match status:
+
 		PlayerState.IDLE:
 			idle_state()
 
@@ -42,18 +46,23 @@ func _physics_process(delta: float) -> void:
 
 		PlayerState.JUMP:
 			jump_state()
-			
+
+		PlayerState.WAKE_UP:
+			wake_up_state()
+
 		PlayerState.DIALOGUE:
 			dialogue_state()
-			
+
 	move_and_slide()
 
 
-
-
+# ==========================================
+# ESTADOS
+# ==========================================
 
 func go_to_idle_state():
 	status = PlayerState.IDLE
+	velocity.x = 0
 	anim.play("idle")
 
 
@@ -77,25 +86,41 @@ func go_to_jump_state():
 	anim.play("jump")
 	velocity.y = JUMP_VELOCITY
 
+
+func go_to_wake_up_state():
+	status = PlayerState.WAKE_UP
+	velocity = Vector2.ZERO
+	anim.play("wake_up")
+
+
 func go_to_dialogue_state():
 	status = PlayerState.DIALOGUE
+	velocity = Vector2.ZERO
+	anim.play("idle")
 
-
-
+# ==========================================
+# IDLE
+# ==========================================
 
 func idle_state():
+
 	move()
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		go_to_jump_state()
 		return
 
-	if velocity.x != 0 && !(dialogue_state):
+	if velocity.x != 0:
 		go_to_transition_state()
 		return
 
 
+# ==========================================
+# TRANSITION
+# ==========================================
+
 func transition_state():
+
 	move()
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -106,18 +131,27 @@ func transition_state():
 		go_to_idle_state()
 
 
+# ==========================================
+# WALK
+# ==========================================
+
 func walk_state():
+
 	move()
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and status != PlayerState.DIALOGUE:
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		go_to_jump_state()
 		return
 
 	# Jogador soltou a tecla
-	if Input.get_axis("ui_left", "ui_right") == 0 and status != PlayerState.DIALOGUE:
+	if Input.get_axis("ui_left", "ui_right") == 0:
 		go_to_stop_state()
 		return
 
+
+# ==========================================
+# STOP
+# ==========================================
 
 func stop_state():
 
@@ -130,36 +164,57 @@ func stop_state():
 
 	# Caso o jogador volte a andar antes da animação terminar
 	var direction := Input.get_axis("ui_left", "ui_right")
+
 	if direction != 0:
 		go_to_transition_state()
 		return
 
 
+# ==========================================
+# JUMP
+# ==========================================
+
 func jump_state():
+
 	move()
 
 	if is_on_floor():
+
 		if velocity.x == 0:
 			go_to_idle_state()
 		else:
 			go_to_walk_state()
-			
 
-func cutscene_state():
-	pass
 
-func dialogue_state():
-	
+# ==========================================
+# WAKE UP
+# ==========================================
+
+func wake_up_state():
+
+	# Enquanto acorda, não pode andar
 	velocity = Vector2.ZERO
 
+
+# ==========================================
+# DIALOGUE
+# ==========================================
+
+func dialogue_state():
+	velocity = Vector2.ZERO
+
+
 func exit_dialogue():
+
 	go_to_idle_state()
 
 
-
-
+# ==========================================
+# MOVIMENTO
+# ==========================================
 
 func move():
+
 	var direction := Input.get_axis("ui_left", "ui_right")
 
 	if direction:
@@ -169,22 +224,26 @@ func move():
 
 	if direction > 0:
 		anim.flip_h = false
+
 	elif direction < 0:
 		anim.flip_h = true
 
 
+# ==========================================
+# WAKE UP
+# ==========================================
+
 func play_wake_up() -> void:
-	var lucy = get_tree().get_first_node_in_group("Player")
-	lucy.get_node("./AnimatedSprite2D").stop()
-	lucy.get_node("./AnimatedSprite2D").play("wake_up")
+
+	go_to_wake_up_state()
 
 
-
+# ==========================================
+# ANIMAÇÃO TERMINOU
+# ==========================================
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-
 	match anim.animation:
-
 		"transitioning":
 			if status == PlayerState.TRANSITION:
 				if velocity.x != 0:
@@ -196,4 +255,8 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 			if status == PlayerState.STOP:
 				go_to_idle_state()
 
-			
+		"wake_up":
+			if status == PlayerState.WAKE_UP:
+				go_to_idle_state()
+
+	animation_finished_custom.emit(anim.animation)
