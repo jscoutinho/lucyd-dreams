@@ -350,6 +350,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control" unique_id=528128384]
+position = Vector2(15, -9)
+scale = Vector2(1.3668832, 1.425)
 sprite_frames = SubResource("SpriteFrames_ov4ip")
 autoplay = "default"
 frame = 42

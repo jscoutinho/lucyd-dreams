@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://fiun316knl7d"]
+
+[ext_resource type="Script" uid="uid://cgj2r5bg16hwv" path="res://scripts/UI/menu_pause.gd" id="1_fciye"]
+[ext_resource type="Texture2D" uid="uid://bc5ygp248phyv" path="res://assets/menu/Pause/corda-A.png" id="1_lnosr"]
+[ext_resource type="Texture2D" uid="uid://drpbodyddn4ne" path="res://assets/menu/Pause/corda-E.png" id="2_qdckw"]
+[ext_resource type="Texture2D" uid="uid://cguh8fmt1d8yn" path="res://assets/menu/Pause/corda-C.png" id="3_fciye"]
+[ext_resource type="Texture2D" uid="uid://bw8celwi36ksq" path="res://assets/menu/Pause/corda-D.png" id="4_5hgdi"]
+
+[node name="menu_pause" type="CanvasLayer" unique_id=204628948]
+process_mode = 3
+process_priority = 1
+visible = false
+script = ExtResource("1_fciye")
+
+[node name="CordaA" type="Sprite2D" parent="." unique_id=630170508]
+position = Vector2(699, 390)
+texture = ExtResource("1_lnosr")
+
+[node name="CordaE" type="Sprite2D" parent="." unique_id=1039002249]
+position = Vector2(700, 224)
+texture = ExtResource("2_qdckw")
+
+[node name="CordaC" type="Sprite2D" parent="." unique_id=1985746485]
+position = Vector2(737, 673)
+texture = ExtResource("3_fciye")
+
+[node name="CordaD" type="Sprite2D" parent="." unique_id=972617289]
+position = Vector2(711, 534)
+texture = ExtResource("4_5hgdi")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=635014659]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.48235294)
+
+[node name="Continue" type="Button" parent="." unique_id=1816781169]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -151.0
+offset_top = 199.0
+offset_right = 115.0
+offset_bottom = 249.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "Voltar para o Jogo"
+
+[node name="Config" type="Button" parent="." unique_id=1845764292]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.0
+offset_top = 353.0
+offset_right = 110.0
+offset_bottom = 403.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Configuraões"
+
+[node name="Esc_to_Menu" type="Button" parent="." unique_id=1002356856]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 503.0
+offset_right = 116.0
+offset_bottom = 553.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = " Sair para o menu"
+
+[node name="Exit" type="Button" parent="." unique_id=462379073]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -153.0
+offset_top = 640.0
+offset_right = 113.0
+offset_bottom = 690.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = " Sair do jogo"
+
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Esc_to_Menu" to="." method="_on_esc_to_menu_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

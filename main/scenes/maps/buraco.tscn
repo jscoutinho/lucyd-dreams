@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://d2m0mq0en4ij3" path="res://scripts/cutscene_player.gd" id="3_capig"]
 [ext_resource type="Texture2D" uid="uid://drp23u3uwmx7l" path="res://assets/entidades/lucy/lucy-queda.png" id="4_6tgku"]
 [ext_resource type="Texture2D" uid="uid://b7v6gcw45mjps" path="res://assets/entidades/lucy/lucy-queda-acelerando.png" id="4_dmom6"]
-[ext_resource type="Texture2D" uid="uid://qavbgh7x1b2q" path="res://assets/jogo/buraco/paralax.png" id="4_xyasr"]
+[ext_resource type="Texture2D" uid="uid://hqex8cvv8om5" path="res://assets/jogo/buraco/paralax.png" id="4_xyasr"]
 [ext_resource type="Texture2D" uid="uid://caxurhp8r7brl" path="res://assets/jogo/buraco/inicio-caverna.png" id="7_vag8a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sa2ql"]

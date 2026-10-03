@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hqex8cvv8om5"
-path="res://.godot/imported/paralax.png-3b64f905c17a046a59f0a46e20c144bf.ctex"
+uid="uid://bc5ygp248phyv"
+path="res://.godot/imported/corda-A.png-def8f887963a97aa6d74d427f1e1e956.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/jogo/buraco/paralax.png"
-dest_files=["res://.godot/imported/paralax.png-3b64f905c17a046a59f0a46e20c144bf.ctex"]
+source_file="res://assets/menu/Pause/corda-A.png"
+dest_files=["res://.godot/imported/corda-A.png-def8f887963a97aa6d74d427f1e1e956.ctex"]
 
 [params]
 
