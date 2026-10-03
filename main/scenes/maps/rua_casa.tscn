@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cuh1kec3djmio"]
 
 [ext_resource type="Texture2D" uid="uid://bdf0x2s864n77" path="res://assets/jogo/Rua/background.png" id="1_kemm3"]
-[ext_resource type="Script" uid="uid://btkk0lfyip8h" path="res://scenes/maps/rua_casa.gd" id="1_v2kuc"]
+[ext_resource type="Script" uid="uid://btkk0lfyip8h" path="res://scripts/rua_casa.gd" id="1_v2kuc"]
 [ext_resource type="Texture2D" uid="uid://dxnagr6c3ahp7" path="res://assets/jogo/Rua/Parallax3.png" id="2_dbgc3"]
 [ext_resource type="Texture2D" uid="uid://bmuaxr4i2658o" path="res://assets/jogo/Rua/casas.png" id="2_ksouk"]
 [ext_resource type="Texture2D" uid="uid://k0255ohegy6o" path="res://assets/jogo/Rua/Parallax2.png" id="3_07kp7"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bvde1sjkrlqmi" path="res://scenes/entities/camera.tscn" id="12_ukud2"]
 [ext_resource type="PackedScene" uid="uid://dfaib4f11h4gi" path="res://scenes/entities/lucy_fora.tscn" id="13_ukud2"]
 [ext_resource type="PackedScene" uid="uid://m0k2o1nbfqvm" path="res://scenes/objects/level_end.tscn" id="14_kt6jj"]
+[ext_resource type="PackedScene" uid="uid://fiun316knl7d" path="res://scenes/UI/menu_pause.tscn" id="15_t2ukf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ov4ip"]
 size = Vector2(4253, 27)
@@ -211,5 +212,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="menu_pause" parent="." unique_id=204628948 instance=ExtResource("15_t2ukf")]
 
 [editable path="levelEnd"]
