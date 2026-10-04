@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://e48c8hohg3jo"]
+
+[ext_resource type="Texture2D" uid="uid://8u6knjmyjxoy" path="res://icon.svg" id="1_ctb7j"]
+[ext_resource type="Script" uid="uid://cma1mysarcpmj" path="res://scenes/entities/respiration_node.gd" id="1_eadpu"]
+
+[node name="RespirationNode" type="Node2D" unique_id=1595837897]
+script = ExtResource("1_eadpu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=445100136]
+position = Vector2(1, 4)
+texture = ExtResource("1_ctb7j")

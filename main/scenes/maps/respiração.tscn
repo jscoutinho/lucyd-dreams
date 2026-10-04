@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bj3yo8bvu4s5h"]
+
+[ext_resource type="Shader" uid="uid://bdr1nvh0rami" path="res://scripts/shader/new_shader.gdshader" id="1_1us45"]
+[ext_resource type="Script" uid="uid://jiupk3ukhlll" path="res://scripts/respiração.gd" id="1_bfa1j"]
+[ext_resource type="Texture2D" uid="uid://8u6knjmyjxoy" path="res://icon.svg" id="2_4upba"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sa2ql"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sa2ql"]
+shader = ExtResource("1_1us45")
+shader_parameter/focus_position = Vector2(0.5, 0.7)
+shader_parameter/focus_radius = 0.18
+shader_parameter/edge_softness = 0.08
+shader_parameter/darkness = 0.85
+
+[node name="Respiração" type="Node2D" unique_id=843772327]
+script = ExtResource("1_bfa1j")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1029220724]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=537018074]
+shape = SubResource("CapsuleShape2D_sa2ql")
+
+[node name="Fade" type="ColorRect" parent="." unique_id=442866484]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Bolinhas" type="Node2D" parent="." unique_id=475925200]
+
+[node name="HitPosition" type="Marker2D" parent="." unique_id=1463503106]
+position = Vector2(383, 211)
+
+[node name="Sprite2D" type="Sprite2D" parent="HitPosition" unique_id=1019056621]
+position = Vector2(-2, 5)
+texture = ExtResource("2_4upba")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1894504924]
+
+[node name="FocusOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1808137352]
+material = SubResource("ShaderMaterial_sa2ql")
+custom_minimum_size = Vector2(1518, 856)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

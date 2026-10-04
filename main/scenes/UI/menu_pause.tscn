@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cgj2r5bg16hwv" path="res://scripts/UI/menu_pause.gd" id="1_fciye"]
 [ext_resource type="Texture2D" uid="uid://bc5ygp248phyv" path="res://assets/menu/Pause/corda-A.png" id="1_lnosr"]
+[ext_resource type="Texture2D" uid="uid://mjuv3ea304t5" path="res://assets/menu/Pause/Fundo.png" id="2_5hgdi"]
 [ext_resource type="Texture2D" uid="uid://drpbodyddn4ne" path="res://assets/menu/Pause/corda-E.png" id="2_qdckw"]
 [ext_resource type="Texture2D" uid="uid://cguh8fmt1d8yn" path="res://assets/menu/Pause/corda-C.png" id="3_fciye"]
 [ext_resource type="Texture2D" uid="uid://bw8celwi36ksq" path="res://assets/menu/Pause/corda-D.png" id="4_5hgdi"]
+[ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="7_gvdim"]
 
 [node name="menu_pause" type="CanvasLayer" unique_id=204628948]
 process_mode = 3
@@ -29,21 +31,37 @@ offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
 
-[node name="CordaA" type="Sprite2D" parent="Control" unique_id=630170508]
-position = Vector2(21, 374)
-texture = ExtResource("1_lnosr")
+[node name="Fundo" type="Sprite2D" parent="Control" unique_id=240997324]
+position = Vector2(58, 430)
+texture = ExtResource("2_5hgdi")
 
 [node name="CordaE" type="Sprite2D" parent="Control" unique_id=1039002249]
-position = Vector2(22, 208)
+position = Vector2(56, 244)
 texture = ExtResource("2_qdckw")
 
-[node name="CordaC" type="Sprite2D" parent="Control" unique_id=1985746485]
-position = Vector2(59, 657)
-texture = ExtResource("3_fciye")
+[node name="CordaA" type="Sprite2D" parent="Control" unique_id=630170508]
+position = Vector2(57, 394)
+texture = ExtResource("1_lnosr")
 
 [node name="CordaD" type="Sprite2D" parent="Control" unique_id=972617289]
-position = Vector2(33, 518)
+position = Vector2(58, 526)
 texture = ExtResource("4_5hgdi")
+
+[node name="CordaG" type="Sprite2D" parent="Control" unique_id=1985746485]
+position = Vector2(58, 646)
+texture = ExtResource("3_fciye")
+
+[node name="ColorRect" type="ColorRect" parent="Control/CordaG" unique_id=1850139561]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -952.0
+offset_top = -514.0
+offset_right = -943.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.26666668)
 
 [node name="Continue" type="Button" parent="Control" unique_id=1816781169]
 layout_mode = 1
@@ -51,13 +69,14 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -133.0
-offset_top = 179.0
+offset_top = 211.0
 offset_right = 133.0
-offset_bottom = 229.0
+offset_bottom = 271.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("7_gvdim")
+theme_override_font_sizes/font_size = 46
 text = "Voltar para o Jogo"
 
 [node name="Config" type="Button" parent="Control" unique_id=1845764292]
@@ -66,12 +85,13 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -133.0
-offset_top = 339.0
+offset_top = 356.0
 offset_right = 133.0
-offset_bottom = 389.0
+offset_bottom = 416.0
 grow_horizontal = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("7_gvdim")
+theme_override_font_sizes/font_size = 46
 text = "Configuraões"
 
 [node name="Esc_to_Menu" type="Button" parent="Control" unique_id=1002356856]
@@ -80,12 +100,13 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -133.0
-offset_top = 485.0
+offset_top = 490.0
 offset_right = 133.0
-offset_bottom = 535.0
+offset_bottom = 550.0
 grow_horizontal = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("7_gvdim")
+theme_override_font_sizes/font_size = 46
 text = " Sair para o menu"
 
 [node name="Exit" type="Button" parent="Control" unique_id=462379073]
@@ -94,12 +115,13 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -133.0
-offset_top = 624.0
+offset_top = 614.0
 offset_right = 133.0
 offset_bottom = 674.0
 grow_horizontal = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("7_gvdim")
+theme_override_font_sizes/font_size = 46
 text = " Sair do jogo"
 
 [connection signal="pressed" from="Control/Continue" to="." method="_on_continue_pressed"]
