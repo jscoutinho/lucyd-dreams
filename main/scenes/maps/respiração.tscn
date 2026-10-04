@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://bdr1nvh0rami" path="res://scripts/shader/new_shader.gdshader" id="1_1us45"]
 [ext_resource type="Script" uid="uid://jiupk3ukhlll" path="res://scripts/respiração.gd" id="1_bfa1j"]
 [ext_resource type="Texture2D" uid="uid://8u6knjmyjxoy" path="res://icon.svg" id="2_4upba"]
+[ext_resource type="Texture2D" uid="uid://caxurhp8r7brl" path="res://assets/jogo/buraco/inicio-caverna.png" id="4_ca3ag"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sa2ql"]
 
@@ -13,6 +14,74 @@ shader_parameter/focus_radius = 0.18
 shader_parameter/edge_softness = 0.08
 shader_parameter/darkness = 0.85
 
+[sub_resource type="Animation" id="Animation_ca3ag"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2jmbd"]
+resource_name = "fade_in"
+length = 4.3333335
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.42, 3.9333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.266667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"iniciar_spawn"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/HitPosition")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.133333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hide"
+}, {
+"args": [],
+"method": &"show"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k5hso"]
+_data = {
+&"RESET": SubResource("Animation_ca3ag"),
+&"fade_in": SubResource("Animation_2jmbd")
+}
+
 [node name="Respiração" type="Node2D" unique_id=843772327]
 script = ExtResource("1_bfa1j")
 
@@ -21,21 +90,23 @@ script = ExtResource("1_bfa1j")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=537018074]
 shape = SubResource("CapsuleShape2D_sa2ql")
 
-[node name="Fade" type="ColorRect" parent="." unique_id=442866484]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Bolinhas" type="Node2D" parent="." unique_id=475925200]
-
-[node name="HitPosition" type="Marker2D" parent="." unique_id=1463503106]
-position = Vector2(383, 211)
-
-[node name="Sprite2D" type="Sprite2D" parent="HitPosition" unique_id=1019056621]
-position = Vector2(-2, 5)
-texture = ExtResource("2_4upba")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1894504924]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1872693584]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 1.0
+offset_top = 255.0
+offset_right = 1.0
+offset_bottom = 255.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="InicioCaverna" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1289946681]
+texture = ExtResource("4_ca3ag")
 
 [node name="FocusOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1808137352]
 material = SubResource("ShaderMaterial_sa2ql")
@@ -46,3 +117,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="HitPosition" type="Marker2D" parent="CanvasLayer" unique_id=1463503106]
+position = Vector2(383, 211)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/HitPosition" unique_id=1019056621]
+position = Vector2(-2, 5)
+texture = ExtResource("2_4upba")
+
+[node name="Bolinhas" type="Node2D" parent="CanvasLayer" unique_id=475925200]
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=442866484]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=770135093]
+libraries/ = SubResource("AnimationLibrary_k5hso")
+autoplay = &"fade_in"
