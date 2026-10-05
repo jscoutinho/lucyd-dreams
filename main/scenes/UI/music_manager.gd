@@ -6,6 +6,10 @@ extends Node
 var tocando_a := true
 var tween_atual: Tween
 
+func parar():
+	player_a.stop()
+	player_b.stop()
+
 
 func _ready() -> void:
 	player_a.volume_db = -10

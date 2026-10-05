@@ -24,7 +24,7 @@ var acertos_consecutivos := 0
 const HIT_WINDOW := 40.0
 
 func _ready():
-	pass
+	MusicManager.tocar_musica(load("res://assets/msc/queda.mp3"), -10)
 	
 
 func _input(event):

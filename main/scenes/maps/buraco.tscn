@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b7v6gcw45mjps" path="res://assets/entidades/lucy/lucy-queda-acelerando.png" id="4_dmom6"]
 [ext_resource type="Texture2D" uid="uid://hqex8cvv8om5" path="res://assets/jogo/buraco/paralax.png" id="4_xyasr"]
 [ext_resource type="Texture2D" uid="uid://caxurhp8r7brl" path="res://assets/jogo/buraco/inicio-caverna.png" id="7_vag8a"]
+[ext_resource type="AudioStream" uid="uid://c5nuo1lx5mkx3" path="res://assets/msc/sfx/vento.mp3" id="8_1k63b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sa2ql"]
 
@@ -117,7 +118,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_t2ukf"]
 resource_name = "fade_in"
-length = 0.7
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -125,7 +126,7 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.6666667),
+"times": PackedFloat32Array(0, 0.8666667, 1.4666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
@@ -180,7 +181,7 @@ position = Vector2(833, 3700)
 texture = ExtResource("7_vag8a")
 
 [node name="Lucy Cutscene" type="CharacterBody2D" parent="." unique_id=1170646502]
-position = Vector2(759, 365)
+position = Vector2(783, -294)
 script = ExtResource("3_capig")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lucy Cutscene" unique_id=1873908469]
@@ -214,6 +215,10 @@ color = Color(0, 0, 0, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1769558783]
 position = Vector2(811, 4084)
 shape = SubResource("RectangleShape2D_sa2ql")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1064974173]
+stream = ExtResource("8_1k63b")
+autoplay = true
 
 [connection signal="animation_finished" from="Lucy Cutscene/AnimatedSprite2D" to="Lucy Cutscene" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
