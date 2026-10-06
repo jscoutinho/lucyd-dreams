@@ -2,10 +2,81 @@
 
 [ext_resource type="Shader" uid="uid://bdr1nvh0rami" path="res://scripts/shader/new_shader.gdshader" id="1_1us45"]
 [ext_resource type="Script" uid="uid://jiupk3ukhlll" path="res://scripts/respiração.gd" id="1_bfa1j"]
-[ext_resource type="Texture2D" uid="uid://8u6knjmyjxoy" path="res://icon.svg" id="2_4upba"]
+[ext_resource type="Texture2D" uid="uid://c32vy06d2wqba" path="res://assets/entidades/lucy/buraco/respirando-idle.png" id="3_a18oo"]
+[ext_resource type="Texture2D" uid="uid://cj83fhvg401q3" path="res://assets/jogo/buraco/respiração/target-nota.png" id="4_2jmbd"]
+[ext_resource type="Texture2D" uid="uid://cx2tri1iicfnh" path="res://assets/entidades/lucy/buraco/respirando-acerto.png" id="4_a5o11"]
 [ext_resource type="Texture2D" uid="uid://caxurhp8r7brl" path="res://assets/jogo/buraco/inicio-caverna.png" id="4_ca3ag"]
+[ext_resource type="Texture2D" uid="uid://c14s23ihjcm6n" path="res://assets/jogo/buraco/respiração/guia.png" id="4_k5hso"]
+[ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="6_k5hso"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sa2ql"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_muv75"]
+atlas = ExtResource("3_a18oo")
+region = Rect2(0, 0, 204, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2nsv"]
+atlas = ExtResource("3_a18oo")
+region = Rect2(204, 0, 204, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhkay"]
+atlas = ExtResource("4_a5o11")
+region = Rect2(0, 0, 204, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aquth"]
+atlas = ExtResource("4_a5o11")
+region = Rect2(204, 0, 204, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye738"]
+atlas = ExtResource("4_a5o11")
+region = Rect2(408, 0, 204, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0htj"]
+atlas = ExtResource("4_a5o11")
+region = Rect2(612, 0, 204, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qef05"]
+atlas = ExtResource("4_a5o11")
+region = Rect2(816, 0, 204, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gvhh"]
+atlas = ExtResource("4_a5o11")
+region = Rect2(1020, 0, 204, 186)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ov4ip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muv75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2nsv")
+}],
+"loop": 1,
+"name": &"chorando",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhkay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aquth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye738")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0htj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qef05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gvhh")
+}],
+"loop": 0,
+"name": &"respirando",
+"speed": 15.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sa2ql"]
 shader = ExtResource("1_1us45")
@@ -13,6 +84,33 @@ shader_parameter/focus_position = Vector2(0.5, 0.7)
 shader_parameter/focus_radius = 0.18
 shader_parameter/edge_softness = 0.08
 shader_parameter/darkness = 0.85
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5hso"]
+atlas = ExtResource("4_2jmbd")
+region = Rect2(0, 0, 150, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w071"]
+atlas = ExtResource("4_2jmbd")
+region = Rect2(150, 0, 150, 132)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sa2ql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5hso")
+}],
+"loop": 0,
+"name": &"apertado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w071")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_ca3ag"]
 length = 0.001
@@ -31,7 +129,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_2jmbd"]
 resource_name = "fade_in"
-length = 4.3333335
+length = 14.133333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -51,7 +149,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(4.266667),
+"times": PackedFloat32Array(14),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -65,7 +163,7 @@ tracks/2/path = NodePath("CanvasLayer/HitPosition")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 4.133333),
+"times": PackedFloat32Array(0, 11.9),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -73,6 +171,137 @@ tracks/2/keys = {
 }, {
 "args": [],
 "method": &"show"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/guia")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 13.033334),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hide"
+}, {
+"args": [],
+"method": &"show"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Controle sua Respiracao")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 11.066667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hide"
+}, {
+"args": [],
+"method": &"show"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Espaco")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 12.433333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hide"
+}, {
+"args": [],
+"method": &"show"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Falas/1")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3.3333333, 10.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"hide"
+}, {
+"args": [],
+"method": &"show"
+}, {
+"args": [],
+"method": &"hide"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/Falas/2")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 4.9333334, 10.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"hide"
+}, {
+"args": [],
+"method": &"show"
+}, {
+"args": [],
+"method": &"hide"
+}]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/Falas/3")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 6.4333334, 10.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"hide"
+}, {
+"args": [],
+"method": &"show"
+}, {
+"args": [],
+"method": &"hide"
+}]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/Falas/4")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 7.6666665, 10.266666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"hide"
+}, {
+"args": [],
+"method": &"show"
+}, {
+"args": [],
+"method": &"hide"
 }]
 }
 
@@ -84,11 +313,6 @@ _data = {
 
 [node name="Respiração" type="Node2D" unique_id=843772327]
 script = ExtResource("1_bfa1j")
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1029220724]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=537018074]
-shape = SubResource("CapsuleShape2D_sa2ql")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1894504924]
 
@@ -108,6 +332,14 @@ size_flags_vertical = 4
 [node name="InicioCaverna" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1289946681]
 texture = ExtResource("4_ca3ag")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=401858553]
+position = Vector2(31, 447)
+sprite_frames = SubResource("SpriteFrames_ov4ip")
+animation = &"respirando"
+autoplay = "chorando"
+frame = 5
+frame_progress = 1.0
+
 [node name="FocusOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1808137352]
 material = SubResource("ShaderMaterial_sa2ql")
 custom_minimum_size = Vector2(1518, 856)
@@ -118,14 +350,93 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="HitPosition" type="Marker2D" parent="CanvasLayer" unique_id=1463503106]
-position = Vector2(383, 211)
+[node name="guia" type="Sprite2D" parent="CanvasLayer" unique_id=1246892005]
+position = Vector2(869.5, 319)
+scale = Vector2(1.3447713, 1)
+texture = ExtResource("4_k5hso")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/HitPosition" unique_id=1019056621]
-position = Vector2(-2, 5)
-texture = ExtResource("2_4upba")
+[node name="HitPosition" type="Marker2D" parent="CanvasLayer" unique_id=1463503106]
+position = Vector2(383, 319)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/HitPosition" unique_id=190442656]
+sprite_frames = SubResource("SpriteFrames_sa2ql")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Bolinhas" type="Node2D" parent="CanvasLayer" unique_id=475925200]
+
+[node name="Controle sua Respiracao" type="Label" parent="CanvasLayer" unique_id=1350757128]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -251.0
+offset_top = 153.0
+offset_right = 251.0
+offset_bottom = 232.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_k5hso")
+theme_override_font_sizes/font_size = 70
+text = "Controle sua respiração!"
+
+[node name="Espaco" type="Label" parent="CanvasLayer" unique_id=1668874094]
+offset_left = 333.0
+offset_top = 384.0
+offset_right = 432.0
+offset_bottom = 429.0
+theme_override_fonts/font = ExtResource("6_k5hso")
+theme_override_font_sizes/font_size = 40
+text = "[Espaço]"
+
+[node name="Falas" type="Control" parent="CanvasLayer" unique_id=1162359833]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="1" type="Label" parent="CanvasLayer/Falas" unique_id=380190656]
+layout_mode = 0
+offset_left = 389.0
+offset_top = 398.0
+offset_right = 517.0
+offset_bottom = 443.0
+theme_override_fonts/font = ExtResource("6_k5hso")
+theme_override_font_sizes/font_size = 40
+text = "Eu morri..?"
+
+[node name="2" type="Label" parent="CanvasLayer/Falas" unique_id=1962169682]
+layout_mode = 0
+offset_left = -528.0
+offset_top = 403.0
+offset_right = -355.0
+offset_bottom = 448.0
+theme_override_fonts/font = ExtResource("6_k5hso")
+theme_override_font_sizes/font_size = 40
+text = "Onde eu estou?"
+
+[node name="3" type="Label" parent="CanvasLayer/Falas" unique_id=999324018]
+layout_mode = 0
+offset_left = -336.0
+offset_top = 227.0
+offset_right = -124.0
+offset_bottom = 272.0
+theme_override_fonts/font = ExtResource("6_k5hso")
+theme_override_font_sizes/font_size = 40
+text = "Esse lugar é real?"
+
+[node name="4" type="Label" parent="CanvasLayer/Falas" unique_id=150751474]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 212.0
+offset_right = 519.0
+offset_bottom = 305.0
+theme_override_fonts/font = ExtResource("6_k5hso")
+theme_override_font_sizes/font_size = 40
+text = "Se fosse eu não deveria estar 
+respirando"
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=442866484]
 anchors_preset = 15
@@ -138,3 +449,5 @@ color = Color(0, 0, 0, 1)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=770135093]
 libraries/ = SubResource("AnimationLibrary_k5hso")
 autoplay = &"fade_in"
+
+[connection signal="animation_finished" from="CanvasLayer/Control/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

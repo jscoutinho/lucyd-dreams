@@ -2,6 +2,9 @@ extends Node2D
 @onready var bolinhas: Node2D = $CanvasLayer/Bolinhas
 @onready var hit_position = $CanvasLayer/HitPosition
 @onready var focus_overlay = $CanvasLayer/FocusOverlay
+@onready var anim: AnimatedSprite2D = $CanvasLayer/HitPosition/AnimatedSprite2D
+@onready var guia: Sprite2D = $CanvasLayer/guia
+@onready var anim_lucy: AnimatedSprite2D = $CanvasLayer/Control/AnimatedSprite2D
 
 #Variáveis do FOCO
 var foco_atual := 0.18
@@ -29,8 +32,12 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("respirar"):
+		anim.play("apertado")
+		
 		print("APERTEI ESPAÇO")
 		tentar_acertar()
+		await get_tree().create_timer(0.25).timeout
+		anim.play("idle")
 
 
 func _process(_delta):
@@ -74,7 +81,7 @@ func tentar_acertar():
 
 	if distancia <= HIT_WINDOW:
 		print("ACERTO!")
-
+		anim_lucy.play("respirando")
 		acertos_consecutivos += 1
 		atualizar_foco()
 
@@ -100,7 +107,7 @@ func spawn_note():
 	bolinhas.add_child(note)
 
 	note.position = Vector2(
-		hit_position.position.x + 1000,
+		hit_position.position.x + 900,
 		hit_position.position.y
 	)
 	
@@ -108,3 +115,7 @@ func iniciar_spawn():
 	while true:
 		spawn_note()
 		await get_tree().create_timer(intervalo_spawn+(acertos_consecutivos/6)).timeout
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	anim_lucy.play("chorando")

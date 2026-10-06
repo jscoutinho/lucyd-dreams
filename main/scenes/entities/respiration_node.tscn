@@ -1,11 +1,69 @@
 [gd_scene format=3 uid="uid://e48c8hohg3jo"]
 
-[ext_resource type="Texture2D" uid="uid://8u6knjmyjxoy" path="res://icon.svg" id="1_ctb7j"]
 [ext_resource type="Script" uid="uid://cma1mysarcpmj" path="res://scenes/entities/respiration_node.gd" id="1_eadpu"]
+[ext_resource type="Texture2D" uid="uid://dhkkysm2bnnta" path="res://assets/jogo/buraco/respiração/respiracao-nota.png" id="2_eadpu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfnj4"]
+atlas = ExtResource("2_eadpu")
+region = Rect2(0, 0, 138, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6igv"]
+atlas = ExtResource("2_eadpu")
+region = Rect2(138, 0, 138, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6swjo"]
+atlas = ExtResource("2_eadpu")
+region = Rect2(276, 0, 138, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oul14"]
+atlas = ExtResource("2_eadpu")
+region = Rect2(414, 0, 138, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igu5p"]
+atlas = ExtResource("2_eadpu")
+region = Rect2(552, 0, 138, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm0rs"]
+atlas = ExtResource("2_eadpu")
+region = Rect2(690, 0, 138, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfm37"]
+atlas = ExtResource("2_eadpu")
+region = Rect2(828, 0, 138, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sa2ql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfnj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6igv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6swjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oul14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igu5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm0rs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfm37")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 13.0
+}]
 
 [node name="RespirationNode" type="Node2D" unique_id=1595837897]
 script = ExtResource("1_eadpu")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=445100136]
-position = Vector2(1, 4)
-texture = ExtResource("1_ctb7j")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=264947116]
+sprite_frames = SubResource("SpriteFrames_sa2ql")
+autoplay = "default"
+frame_progress = 0.063679226
