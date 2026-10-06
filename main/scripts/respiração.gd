@@ -5,6 +5,9 @@ extends Node2D
 @onready var anim: AnimatedSprite2D = $CanvasLayer/HitPosition/AnimatedSprite2D
 @onready var guia: Sprite2D = $CanvasLayer/guia
 @onready var anim_lucy: AnimatedSprite2D = $CanvasLayer/Control/AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var monstro_1: AnimatedSprite2D = $CanvasLayer/Control2/Control/monstro1
+@onready var monstro_2: AnimatedSprite2D = $CanvasLayer/Control2/Control2/monstro2
 
 #Variáveis do FOCO
 var foco_atual := 0.18
@@ -25,10 +28,23 @@ var pode_criar_nota := true
 var esperando_nova_nota := false
 var acertos_consecutivos := 0
 const HIT_WINDOW := 40.0
+var passou := false
 
 func _ready():
 	MusicManager.tocar_musica(load("res://assets/msc/queda.mp3"), -10)
 	
+
+func play_levantando():
+	monstro_1.play("surgindo")
+	monstro_2.play("surgindo")
+	
+func play_transformando():
+	monstro_1.play("transformando")
+	monstro_2.play("transformando")
+	
+func play_andando():
+	monstro_1.play("andando")
+	monstro_2.play("andando")
 
 func _input(event):
 	if event.is_action_pressed("respirar"):
@@ -42,7 +58,8 @@ func _input(event):
 
 func _process(_delta):
 	if acertos_consecutivos == 15 :
-		get_tree().change_scene_to_file("res://scenes/UI/agradecimento.tscn")
+		passou = !passou;
+		animation_player.play("luthier")
 	if bolinhas.get_child_count() == 0:
 		return
 
@@ -112,7 +129,7 @@ func spawn_note():
 	)
 	
 func iniciar_spawn():
-	while true:
+	while !passou:
 		spawn_note()
 		await get_tree().create_timer(intervalo_spawn+(acertos_consecutivos/6)).timeout
 
