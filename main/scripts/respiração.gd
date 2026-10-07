@@ -8,6 +8,7 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var monstro_1: AnimatedSprite2D = $CanvasLayer/Control2/Control/monstro1
 @onready var monstro_2: AnimatedSprite2D = $CanvasLayer/Control2/Control2/monstro2
+@onready var luthier: AnimatedSprite2D = $CanvasLayer/Control2/LuthierBox/AnimatedSprite2D
 
 #Variáveis do FOCO
 var foco_atual := 0.18
@@ -32,7 +33,9 @@ var passou := false
 
 func _ready():
 	MusicManager.tocar_musica(load("res://assets/msc/queda.mp3"), -10)
-	
+
+func musica_luthier():
+	MusicManager.tocar_musica(load("res://assets/msc/luthier.mp3"),-10)
 
 func play_levantando():
 	monstro_1.play("surgindo")
@@ -45,6 +48,16 @@ func play_transformando():
 func play_andando():
 	monstro_1.play("andando")
 	monstro_2.play("andando")
+	
+func play_luthier_idle_sax():
+	luthier.play("idle_sax")
+	
+func play_luthier_idle():
+	luthier.play("idle")
+	
+func play_destruindo():
+	monstro_1.play("destruindo")
+	monstro_2.play("destruindo")
 
 func _input(event):
 	if event.is_action_pressed("respirar"):

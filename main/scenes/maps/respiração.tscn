@@ -9,8 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://c14s23ihjcm6n" path="res://assets/jogo/buraco/respiração/guia.png" id="4_k5hso"]
 [ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="6_k5hso"]
 [ext_resource type="Texture2D" uid="uid://ckywq7qyaho6s" path="res://assets/entidades/inimigos/m-altura/m-altura-andando.png" id="9_y2nsv"]
+[ext_resource type="Texture2D" uid="uid://cekwsp8hbgv4v" path="res://assets/entidades/inimigos/m-altura/m-altura-destruindo.png" id="10_aquth"]
 [ext_resource type="Texture2D" uid="uid://mi2xme2i2yc6" path="res://assets/entidades/inimigos/m-altura/m-altura-levantando.png" id="10_mhkay"]
 [ext_resource type="Texture2D" uid="uid://dcjj3mn87oemk" path="res://assets/entidades/inimigos/m-altura/m-altura-transformando.png" id="11_aquth"]
+[ext_resource type="Texture2D" uid="uid://dym36jx0bvhbk" path="res://assets/entidades/npcs/luthier/luthier-idle.png" id="13_aquth"]
+[ext_resource type="Texture2D" uid="uid://d1g5xt5g4w0qk" path="res://assets/entidades/npcs/luthier/luthier-andando-sax.png" id="13_p0htj"]
+[ext_resource type="Texture2D" uid="uid://b0goki54l24pn" path="res://assets/entidades/npcs/luthier/luthier-idle-saxofone.png" id="15_qef05"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_muv75"]
 atlas = ExtResource("3_a18oo")
@@ -135,6 +139,58 @@ region = Rect2(720, 0, 240, 282)
 atlas = ExtResource("9_y2nsv")
 region = Rect2(960, 0, 240, 282)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa1gq"]
+atlas = ExtResource("10_aquth")
+region = Rect2(0, 0, 240, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkfkf"]
+atlas = ExtResource("10_aquth")
+region = Rect2(240, 0, 240, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0huln"]
+atlas = ExtResource("10_aquth")
+region = Rect2(480, 0, 240, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cg0s"]
+atlas = ExtResource("10_aquth")
+region = Rect2(720, 0, 240, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4d08"]
+atlas = ExtResource("10_aquth")
+region = Rect2(960, 0, 240, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6fno"]
+atlas = ExtResource("10_aquth")
+region = Rect2(1200, 0, 240, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy3g6"]
+atlas = ExtResource("10_aquth")
+region = Rect2(1440, 0, 240, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mnl7"]
+atlas = ExtResource("10_aquth")
+region = Rect2(1680, 0, 240, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj5tt"]
+atlas = ExtResource("10_aquth")
+region = Rect2(1920, 0, 240, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26uxx"]
+atlas = ExtResource("10_aquth")
+region = Rect2(2160, 0, 240, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0lny"]
+atlas = ExtResource("10_aquth")
+region = Rect2(2400, 0, 240, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8eyyt"]
+atlas = ExtResource("10_aquth")
+region = Rect2(2640, 0, 240, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3ovq"]
+atlas = ExtResource("10_aquth")
+region = Rect2(2880, 0, 240, 282)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_cch6p"]
 atlas = ExtResource("10_mhkay")
 region = Rect2(0, 0, 240, 282)
@@ -251,6 +307,50 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_pa1gq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkfkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0huln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cg0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4d08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6fno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy3g6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mnl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj5tt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26uxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0lny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8eyyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3ovq")
+}],
+"loop": 0,
+"name": &"destruindo",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_cch6p")
 }, {
 "duration": 1.0,
@@ -329,6 +429,129 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_74tfl"]
+atlas = ExtResource("13_p0htj")
+region = Rect2(0, 0, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv0q6"]
+atlas = ExtResource("13_p0htj")
+region = Rect2(294, 0, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y24fj"]
+atlas = ExtResource("13_p0htj")
+region = Rect2(588, 0, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmvtx"]
+atlas = ExtResource("13_p0htj")
+region = Rect2(882, 0, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pugj2"]
+atlas = ExtResource("13_p0htj")
+region = Rect2(1176, 0, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfi3d"]
+atlas = ExtResource("13_p0htj")
+region = Rect2(1470, 0, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulwi7"]
+atlas = ExtResource("13_p0htj")
+region = Rect2(1764, 0, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjhbb"]
+atlas = ExtResource("13_aquth")
+region = Rect2(0, 0, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyjja"]
+atlas = ExtResource("13_aquth")
+region = Rect2(294, 0, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugprb"]
+atlas = ExtResource("13_aquth")
+region = Rect2(588, 0, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_austk"]
+atlas = ExtResource("13_aquth")
+region = Rect2(882, 0, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6js2s"]
+atlas = ExtResource("15_qef05")
+region = Rect2(0, 0, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk4mj"]
+atlas = ExtResource("15_qef05")
+region = Rect2(294, 0, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmmp1"]
+atlas = ExtResource("15_qef05")
+region = Rect2(588, 0, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eatjg"]
+atlas = ExtResource("15_qef05")
+region = Rect2(882, 0, 294, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qtsop"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74tfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv0q6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y24fj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmvtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pugj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfi3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulwi7")
+}],
+"loop": 1,
+"name": &"andando sax",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_fjhbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyjja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugprb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_austk")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_6js2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk4mj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmmp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eatjg")
+}],
+"loop": 1,
+"name": &"idle_sax",
+"speed": 7.0
+}]
+
 [sub_resource type="Animation" id="Animation_ca3ag"]
 length = 0.001
 tracks/0/type = "value"
@@ -366,6 +589,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Control2/LuthierBox:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1130, -157)]
 }
 
 [sub_resource type="Animation" id="Animation_2jmbd"]
@@ -573,10 +808,24 @@ tracks/11/keys = {
 "method": &"hide"
 }]
 }
+tracks/12/type = "method"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CanvasLayer/Control2/LuthierBox/AnimatedSprite2D")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_pa1gq"]
 resource_name = "luthier"
-length = 7.133333
+length = 19.333334
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -640,11 +889,14 @@ tracks/4/path = NodePath("CanvasLayer/Control2/Control/monstro1")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.26666668),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.26666668, 7.0333333),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"show"
+}, {
+"args": [],
+"method": &"hide"
 }]
 }
 tracks/5/type = "method"
@@ -654,11 +906,14 @@ tracks/5/path = NodePath("CanvasLayer/Control2/Control2/monstro2")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.26666668),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.26666668, 7.0333333),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"show"
+}, {
+"args": [],
+"method": &"hide"
 }]
 }
 tracks/6/type = "method"
@@ -668,9 +923,12 @@ tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.26666668, 2.4333334, 3.4666667),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.26666668, 2.4333334, 3.4666667, 5.9666667, 16.066668, 18.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "values": [{
+"args": [],
+"method": &"musica_luthier"
+}, {
 "args": [],
 "method": &"play_levantando"
 }, {
@@ -679,6 +937,15 @@ tracks/6/keys = {
 }, {
 "args": [],
 "method": &"play_andando"
+}, {
+"args": [],
+"method": &"play_destruindo"
+}, {
+"args": [],
+"method": &"play_luthier_idle_sax"
+}, {
+"args": [],
+"method": &"play_luthier_idle"
 }]
 }
 tracks/7/type = "method"
@@ -702,7 +969,7 @@ tracks/8/path = NodePath("CanvasLayer/Control2/Control2:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(3.5333333, 6.0666666),
+"times": PackedFloat32Array(3.5333333, 5.9666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-300, 0)]
@@ -714,10 +981,36 @@ tracks/9/path = NodePath("CanvasLayer/Control2/Control:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(3.5333333, 6.0466666),
+"times": PackedFloat32Array(3.5333333, 5.9466667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(300, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CanvasLayer/Control2/LuthierBox:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(13, 16.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1130, -157), Vector2(356, -157)]
+}
+tracks/11/type = "method"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CanvasLayer/Control2/LuthierBox/AnimatedSprite2D")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(12.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k5hso"]
@@ -728,6 +1021,7 @@ _data = {
 }
 
 [node name="Respiração" type="Node2D" unique_id=843772327]
+position = Vector2(32, 0)
 script = ExtResource("1_bfa1j")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1894504924]
@@ -855,6 +1149,7 @@ text = "Se fosse eu não deveria estar
 respirando"
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=442866484]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -880,17 +1175,23 @@ grow_vertical = 0
 [node name="monstro1" type="AnimatedSprite2D" parent="CanvasLayer/Control2/Control" unique_id=2095876988]
 position = Vector2(-577, -139)
 sprite_frames = SubResource("SpriteFrames_vsy63")
-animation = &"surgindo"
-frame = 12
-frame_progress = 1.0
+animation = &"destruindo"
 
 [node name="Control2" type="Node2D" parent="CanvasLayer/Control2" unique_id=2012268351]
 
 [node name="monstro2" type="AnimatedSprite2D" parent="CanvasLayer/Control2/Control2" unique_id=802410657]
 position = Vector2(585, -132)
 sprite_frames = SubResource("SpriteFrames_vsy63")
-animation = &"andando"
+animation = &"destruindo"
 flip_h = true
+
+[node name="LuthierBox" type="Node2D" parent="CanvasLayer/Control2" unique_id=2009550043]
+position = Vector2(1130, -157)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Control2/LuthierBox" unique_id=1828305808]
+sprite_frames = SubResource("SpriteFrames_qtsop")
+animation = &"idle"
+autoplay = "andando sax"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=770135093]
 libraries/ = SubResource("AnimationLibrary_k5hso")
