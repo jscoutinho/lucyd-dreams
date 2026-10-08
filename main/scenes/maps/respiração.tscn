@@ -457,6 +457,30 @@ region = Rect2(1470, 0, 294, 288)
 atlas = ExtResource("13_p0htj")
 region = Rect2(1764, 0, 294, 288)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v1c1"]
+atlas = ExtResource("13_p0htj")
+region = Rect2(2058, 0, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8m816"]
+atlas = ExtResource("13_p0htj")
+region = Rect2(2352, 0, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvnkn"]
+atlas = ExtResource("13_p0htj")
+region = Rect2(2646, 0, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvsso"]
+atlas = ExtResource("13_p0htj")
+region = Rect2(2940, 0, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sua7"]
+atlas = ExtResource("13_p0htj")
+region = Rect2(3234, 0, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xoy18"]
+atlas = ExtResource("13_p0htj")
+region = Rect2(3528, 0, 294, 288)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjhbb"]
 atlas = ExtResource("13_aquth")
 region = Rect2(0, 0, 294, 288)
@@ -512,10 +536,28 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ulwi7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v1c1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8m816")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvnkn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvsso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3sua7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xoy18")
 }],
 "loop": 1,
 "name": &"andando sax",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 2.0,
@@ -1021,7 +1063,6 @@ _data = {
 }
 
 [node name="Respiração" type="Node2D" unique_id=843772327]
-position = Vector2(32, 0)
 script = ExtResource("1_bfa1j")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1894504924]
@@ -1038,6 +1079,7 @@ offset_bottom = 255.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="InicioCaverna" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1289946681]
 texture = ExtResource("4_ca3ag")
@@ -1059,6 +1101,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="guia" type="Sprite2D" parent="CanvasLayer" unique_id=1246892005]
 position = Vector2(869.5, 319)
@@ -1087,6 +1130,7 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("6_k5hso")
 theme_override_font_sizes/font_size = 70
 text = "Controle sua respiração!"
+metadata/_edit_use_anchors_ = true
 
 [node name="Espaco" type="Label" parent="CanvasLayer" unique_id=1668874094]
 offset_left = 333.0
@@ -1096,6 +1140,7 @@ offset_bottom = 429.0
 theme_override_fonts/font = ExtResource("6_k5hso")
 theme_override_font_sizes/font_size = 40
 text = "[Espaço]"
+metadata/_edit_use_anchors_ = true
 
 [node name="Falas" type="Control" parent="CanvasLayer" unique_id=1162359833]
 layout_mode = 3
@@ -1106,6 +1151,7 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="1" type="Label" parent="CanvasLayer/Falas" unique_id=380190656]
 layout_mode = 0
@@ -1116,6 +1162,7 @@ offset_bottom = 443.0
 theme_override_fonts/font = ExtResource("6_k5hso")
 theme_override_font_sizes/font_size = 40
 text = "Eu morri..?"
+metadata/_edit_use_anchors_ = true
 
 [node name="2" type="Label" parent="CanvasLayer/Falas" unique_id=1962169682]
 layout_mode = 0
@@ -1126,6 +1173,7 @@ offset_bottom = 448.0
 theme_override_fonts/font = ExtResource("6_k5hso")
 theme_override_font_sizes/font_size = 40
 text = "Onde eu estou?"
+metadata/_edit_use_anchors_ = true
 
 [node name="3" type="Label" parent="CanvasLayer/Falas" unique_id=999324018]
 layout_mode = 0
@@ -1136,6 +1184,7 @@ offset_bottom = 272.0
 theme_override_fonts/font = ExtResource("6_k5hso")
 theme_override_font_sizes/font_size = 40
 text = "Esse lugar é real?"
+metadata/_edit_use_anchors_ = true
 
 [node name="4" type="Label" parent="CanvasLayer/Falas" unique_id=150751474]
 layout_mode = 0
@@ -1147,15 +1196,16 @@ theme_override_fonts/font = ExtResource("6_k5hso")
 theme_override_font_sizes/font_size = 40
 text = "Se fosse eu não deveria estar 
 respirando"
+metadata/_edit_use_anchors_ = true
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=442866484]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Control2" type="Control" parent="CanvasLayer" unique_id=150652920]
 layout_mode = 3
@@ -1169,13 +1219,14 @@ offset_top = -40.0
 offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Node2D" parent="CanvasLayer/Control2" unique_id=1271033352]
 
 [node name="monstro1" type="AnimatedSprite2D" parent="CanvasLayer/Control2/Control" unique_id=2095876988]
 position = Vector2(-577, -139)
 sprite_frames = SubResource("SpriteFrames_vsy63")
-animation = &"destruindo"
+animation = &"andando"
 
 [node name="Control2" type="Node2D" parent="CanvasLayer/Control2" unique_id=2012268351]
 
@@ -1190,8 +1241,9 @@ position = Vector2(1130, -157)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Control2/LuthierBox" unique_id=1828305808]
 sprite_frames = SubResource("SpriteFrames_qtsop")
-animation = &"idle"
+animation = &"andando sax"
 autoplay = "andando sax"
+frame_progress = 0.37648684
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=770135093]
 libraries/ = SubResource("AnimationLibrary_k5hso")
