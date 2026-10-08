@@ -9,6 +9,7 @@ extends Node2D
 @onready var monstro_1: AnimatedSprite2D = $CanvasLayer/Control2/Control/monstro1
 @onready var monstro_2: AnimatedSprite2D = $CanvasLayer/Control2/Control2/monstro2
 @onready var luthier: AnimatedSprite2D = $CanvasLayer/Control2/LuthierBox/AnimatedSprite2D
+@onready var DialogueBox: CanvasLayer = $CanvasLayer/DialogueBox
 
 #Variáveis do FOCO
 var foco_atual := 0.18
@@ -30,6 +31,15 @@ var esperando_nova_nota := false
 var acertos_consecutivos := 0
 const HIT_WINDOW := 40.0
 var passou := false
+
+func inciar_dialogos():
+	animation_player.pause()
+	fala(["ioewjpoewjpfoewj", "gfeowjgpwoeg"], "Lucy")
+	fala(["ioewjpoewjpfoewj", "gfeowjgpwoeg"], "auau")
+
+func fala(falas: Array, sujeito: String):
+	DialogueBox.show_dialogue(falas, sujeito)
+	await DialogueBox.finished
 
 func _ready():
 	MusicManager.tocar_musica(load("res://assets/msc/queda.mp3"), -10)
@@ -58,6 +68,9 @@ func play_luthier_idle():
 func play_destruindo():
 	monstro_1.play("destruindo")
 	monstro_2.play("destruindo")
+	
+func play_luthier_guardando_sax():
+	luthier.play("guardando")
 
 func _input(event):
 	if event.is_action_pressed("respirar"):
@@ -149,3 +162,7 @@ func iniciar_spawn():
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	anim_lucy.play("chorando")
+
+
+func _on_dialogue_box_finished() -> void:
+	pass # Replace with function body.
