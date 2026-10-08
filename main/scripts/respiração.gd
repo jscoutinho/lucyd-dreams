@@ -31,18 +31,42 @@ var esperando_nova_nota := false
 var acertos_consecutivos := 0
 const HIT_WINDOW := 40.0
 var passou := false
+	
+func iniciar_dialogos():
+	var conversa = [
+		{
+			"sujeito": "Luthier",
+			"texto": "Você está bem?"
+		},
+		{
+			"sujeito": "Lucy",
+			"texto": "Acho que sim...",
+			"animacao": "Lucy_nervosa"
+		},
+		{
+			"sujeito": "Luthier",
+			"texto": "Você parece assustada.",
+			"animacao": "Luthier_preocupado"
+		},
+		{
+			"sujeito": "Lucy",
+			"texto": "Eu não consigo enxergar direito."
+		},
+		{
+			"sujeito": "Luthier",
+			"texto": "Então respire. Devagar."
+		}
+	]
 
-func inciar_dialogos():
-	animation_player.pause()
-	fala(["ioewjpoewjpfoewj", "gfeowjgpwoeg"], "Lucy")
-	fala(["ioewjpoewjpfoewj", "gfeowjgpwoeg"], "auau")
-
-func fala(falas: Array, sujeito: String):
-	DialogueBox.show_dialogue(falas, sujeito)
-	await DialogueBox.finished
+	DialogueBox.show_conversation(conversa)
 
 func _ready():
+	DialogueBox.line_started.connect(_on_line_started)
 	MusicManager.tocar_musica(load("res://assets/msc/queda.mp3"), -10)
+
+func _on_line_started(fala: Dictionary):
+	if fala.has("animacao"):
+		animation_player.play(fala["animacao"])
 
 func musica_luthier():
 	MusicManager.tocar_musica(load("res://assets/msc/luthier.mp3"),-10)
@@ -71,6 +95,15 @@ func play_destruindo():
 	
 func play_luthier_guardando_sax():
 	luthier.play("guardando")
+	
+func play_cabeça_levantando():
+	anim_lucy.play("cabeça_levantando")
+
+func play_cabeça_abaixando():
+	anim_lucy.play("cabeça abaixando")
+	
+func play_levantando_chao():
+	anim_lucy.play("levantando_do_chao")
 
 func _input(event):
 	if event.is_action_pressed("respirar"):
@@ -158,6 +191,7 @@ func iniciar_spawn():
 	while !passou:
 		spawn_note()
 		await get_tree().create_timer(intervalo_spawn+(acertos_consecutivos/6)).timeout
+	anim_lucy.play("cabeça_levantando")
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
