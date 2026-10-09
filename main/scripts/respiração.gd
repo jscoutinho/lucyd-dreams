@@ -41,12 +41,11 @@ func iniciar_dialogos():
 		{
 			"sujeito": "Lucy",
 			"texto": "Acho que sim...",
-			"animacao": "Lucy_nervosa"
+			"animacao": "lucy_levanta"
 		},
 		{
 			"sujeito": "Luthier",
-			"texto": "Você parece assustada.",
-			"animacao": "Luthier_preocupado"
+			"texto": "Você parece assustada."
 		},
 		{
 			"sujeito": "Lucy",
@@ -104,6 +103,15 @@ func play_cabeça_abaixando():
 	
 func play_levantando_chao():
 	anim_lucy.play("levantando_do_chao")
+
+func play_cabeça_baixa():
+	anim_lucy.play("parado_cabeça_baixo")
+
+func play_cabeça_alta():
+	anim_lucy.play("parado_cabeça_cima")
+
+func play_lucy_idle():
+	anim_lucy.play("idle")
 
 func _input(event):
 	if event.is_action_pressed("respirar"):

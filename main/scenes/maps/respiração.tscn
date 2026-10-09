@@ -113,6 +113,14 @@ region = Rect2(1428, 0, 204, 186)
 atlas = ExtResource("3_ajtlk")
 region = Rect2(1632, 0, 204, 186)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmo3i"]
+atlas = ExtResource("3_ajtlk")
+region = Rect2(0, 0, 204, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_110ry"]
+atlas = ExtResource("3_ajtlk")
+region = Rect2(816, 0, 204, 186)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mhkay"]
 atlas = ExtResource("4_a5o11")
 region = Rect2(0, 0, 204, 186)
@@ -214,7 +222,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -232,6 +240,22 @@ animations = [{
 "loop": 0,
 "name": &"levantando_do_chao",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmo3i")
+}],
+"loop": 1,
+"name": &"parado_cabeça_baixo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_110ry")
+}],
+"loop": 1,
+"name": &"parado_cabeça_cima",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1091,6 +1115,27 @@ tracks/12/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_8bvjm"]
+resource_name = "lucy_levanta"
+length = 1.2333333
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.13333334, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_levantando_chao"
+}, {
+"args": [],
+"method": &"play_lucy_idle"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_pa1gq"]
 resource_name = "luthier"
 length = 21.0
@@ -1157,7 +1202,7 @@ tracks/4/path = NodePath("CanvasLayer/Control2/Control/monstro1")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.26666668, 7.0333333),
+"times": PackedFloat32Array(0.4, 7.0333333),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -1174,7 +1219,7 @@ tracks/5/path = NodePath("CanvasLayer/Control2/Control2/monstro2")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.26666668, 7.0333333),
+"times": PackedFloat32Array(0.4, 7.0333333),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -1191,9 +1236,12 @@ tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.26666668, 2.4333334, 2.9, 3.4666667, 5.9666667, 16.066668, 17.6, 18.5, 18.933332, 19.433332),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.100000024, 0.4, 2.4333334, 3.1333334, 3.3333333, 3.4666667, 5.9666667, 16.066668, 17.6, 18.5, 18.933332, 19.3, 19.433332),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
+"args": [],
+"method": &"play_cabeça_alta"
+}, {
 "args": [],
 "method": &"musica_luthier"
 }, {
@@ -1202,6 +1250,9 @@ tracks/6/keys = {
 }, {
 "args": [],
 "method": &"play_transformando"
+}, {
+"args": [],
+"method": &"play_cabeça_abaixando"
 }, {
 "args": [],
 "method": &"play_cabeça_abaixando"
@@ -1223,6 +1274,9 @@ tracks/6/keys = {
 }, {
 "args": [],
 "method": &"play_cabeça_levantando"
+}, {
+"args": [],
+"method": &"play_cabeça_alta"
 }, {
 "args": [],
 "method": &"iniciar_dialogos"
@@ -1297,6 +1351,7 @@ tracks/11/keys = {
 _data = {
 &"RESET": SubResource("Animation_ca3ag"),
 &"fade_in": SubResource("Animation_2jmbd"),
+&"lucy_levanta": SubResource("Animation_8bvjm"),
 &"luthier": SubResource("Animation_pa1gq")
 }
 
@@ -1327,6 +1382,7 @@ position = Vector2(31, 447)
 sprite_frames = SubResource("SpriteFrames_ov4ip")
 animation = &"idle"
 autoplay = "chorando"
+frame_progress = 0.3684506
 
 [node name="FocusOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1808137352]
 material = SubResource("ShaderMaterial_sa2ql")
@@ -1461,6 +1517,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Control" type="Node2D" parent="CanvasLayer/Control2" unique_id=1271033352]
 
 [node name="monstro1" type="AnimatedSprite2D" parent="CanvasLayer/Control2/Control" unique_id=2095876988]
+visible = false
 position = Vector2(-577, -139)
 sprite_frames = SubResource("SpriteFrames_vsy63")
 animation = &"andando"
@@ -1468,6 +1525,7 @@ animation = &"andando"
 [node name="Control2" type="Node2D" parent="CanvasLayer/Control2" unique_id=2012268351]
 
 [node name="monstro2" type="AnimatedSprite2D" parent="CanvasLayer/Control2/Control2" unique_id=802410657]
+visible = false
 position = Vector2(585, -132)
 sprite_frames = SubResource("SpriteFrames_vsy63")
 animation = &"destruindo"
@@ -1486,7 +1544,7 @@ frame_progress = 0.76048994
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=770135093]
 libraries/ = SubResource("AnimationLibrary_k5hso")
-autoplay = &"fade_in"
+autoplay = &"luthier"
 
 [node name="Lucy" parent="." unique_id=1039624184 instance=ExtResource("18_mqf5g")]
 visible = false
