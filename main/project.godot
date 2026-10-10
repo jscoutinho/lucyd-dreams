@@ -24,6 +24,7 @@ MusicManager="*uid://c51wpfmquvb8n"
 
 window/size/viewport_width=1518
 window/size/viewport_height=862
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
