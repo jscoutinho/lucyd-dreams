@@ -216,8 +216,6 @@ func play_lucy_idle():
 func _input(event):
 	if event.is_action_pressed("respirar"):
 		anim.play("apertado")
-		
-		print("APERTEI ESPAÇO")
 		tentar_acertar()
 		await get_tree().create_timer(0.25).timeout
 		anim.play("idle")
@@ -232,7 +230,6 @@ func _process(_delta):
 
 	for note in bolinhas.get_children():
 		if note.global_position.x < hit_position.global_position.x - 30:
-			print("ERRO!")
 
 			acertos_consecutivos = max(acertos_consecutivos - 2, 0)
 
@@ -261,10 +258,8 @@ func tentar_acertar():
 
 	var distancia = menor_distancia
 
-	print("DISTÂNCIA: ", distancia)
 
 	if distancia <= HIT_WINDOW:
-		print("ACERTO!")
 		anim_lucy.play("respirando")
 		acertos_consecutivos += 1
 		atualizar_foco()
@@ -282,7 +277,6 @@ func atualizar_foco():
 	var material = focus_overlay.material as ShaderMaterial
 	material.set_shader_parameter("focus_radius", foco_atual)
 
-	print("RAIO DO FOCO: ", foco_atual)
 
 
 
