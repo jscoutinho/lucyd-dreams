@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dr7qqfti1ta0y"]
+
+[ext_resource type="Script" uid="uid://brdlvy4a7pixa" path="res://scripts/cenas/caverna_bifurcacao.gd" id="1_7pe3g"]
+[ext_resource type="Texture2D" uid="uid://caxurhp8r7brl" path="res://assets/jogo/buraco/inicio-caverna.png" id="1_eyh25"]
+[ext_resource type="PackedScene" uid="uid://dfaib4f11h4gi" path="res://scenes/entities/lucy_fora.tscn" id="2_vneir"]
+[ext_resource type="PackedScene" uid="uid://bvde1sjkrlqmi" path="res://scenes/entities/camera.tscn" id="3_fmu4l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4pr2"]
+size = Vector2(1894, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nqnr"]
+size = Vector2(44, 386)
+
+[node name="Caverna Bifurcacao" type="Node2D" unique_id=1147233450]
+script = ExtResource("1_7pe3g")
+metadata/_edit_vertical_guides_ = [1887.0]
+
+[node name="InicioCaverna" type="Sprite2D" parent="." unique_id=1172330538]
+position = Vector2(948, 257)
+texture = ExtResource("1_eyh25")
+
+[node name="Lucy_fora" parent="." unique_id=1039624184 instance=ExtResource("2_vneir")]
+position = Vector2(951, 702)
+
+[node name="Camera" parent="." unique_id=872375583 instance=ExtResource("3_fmu4l")]
+position = Vector2(918, 701)
+limit_right = 1890
+
+[node name="Colisões" type="StaticBody2D" parent="." unique_id=393455710]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisões" unique_id=254711493]
+position = Vector2(948, 829.5)
+shape = SubResource("RectangleShape2D_k4pr2")
+
+[node name="Esquerda" type="Area2D" parent="." unique_id=91984402]
+position = Vector2(5, 787)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Esquerda" unique_id=1910169557]
+position = Vector2(12, -183)
+shape = SubResource("RectangleShape2D_3nqnr")
+
+[node name="Direita" type="Area2D" parent="." unique_id=322824252]
+position = Vector2(1862, 785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direita" unique_id=720652560]
+position = Vector2(12, -183)
+shape = SubResource("RectangleShape2D_3nqnr")
+
+[connection signal="body_entered" from="Esquerda" to="." method="_on_esquerda_body_entered"]
+[connection signal="body_entered" from="Direita" to="." method="_on_direita_body_entered"]

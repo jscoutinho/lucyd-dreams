@@ -1115,6 +1115,50 @@ tracks/12/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_lc2nn"]
+resource_name = "fade_out"
+length = 1.9666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.28),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trocar_cena"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/DialogueBox")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.06666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_8bvjm"]
 resource_name = "lucy_levanta"
 length = 1.2333333
@@ -1236,26 +1280,26 @@ tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.100000024, 0.4, 2.4333334, 3.1333334, 3.3333333, 3.4666667, 5.9666667, 16.066668, 17.6, 18.5, 18.933332, 19.3, 19.433332),
+"times": PackedFloat32Array(0, 0.100000024, 0.3, 0.4, 2.2, 2.4333334, 3.4666667, 5.9666667, 16.066668, 17.6, 18.5, 18.933332, 19.3, 19.433332),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
-"method": &"play_cabeça_alta"
+"method": &"play_cabeça_levantando"
 }, {
 "args": [],
 "method": &"musica_luthier"
 }, {
 "args": [],
+"method": &"play_cabeça_alta"
+}, {
+"args": [],
 "method": &"play_levantando"
 }, {
 "args": [],
+"method": &"play_cabeça_abaixando"
+}, {
+"args": [],
 "method": &"play_transformando"
-}, {
-"args": [],
-"method": &"play_cabeça_abaixando"
-}, {
-"args": [],
-"method": &"play_cabeça_abaixando"
 }, {
 "args": [],
 "method": &"play_andando"
@@ -1351,6 +1395,7 @@ tracks/11/keys = {
 _data = {
 &"RESET": SubResource("Animation_ca3ag"),
 &"fade_in": SubResource("Animation_2jmbd"),
+&"fade_out": SubResource("Animation_lc2nn"),
 &"lucy_levanta": SubResource("Animation_8bvjm"),
 &"luthier": SubResource("Animation_pa1gq")
 }
@@ -1380,9 +1425,8 @@ texture = ExtResource("4_ca3ag")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=401858553]
 position = Vector2(31, 447)
 sprite_frames = SubResource("SpriteFrames_ov4ip")
-animation = &"idle"
+animation = &"cabeça abaixando"
 autoplay = "chorando"
-frame_progress = 0.3684506
 
 [node name="FocusOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1808137352]
 material = SubResource("ShaderMaterial_sa2ql")
@@ -1490,16 +1534,6 @@ text = "Se fosse eu não deveria estar
 respirando"
 metadata/_edit_use_anchors_ = true
 
-[node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=442866484]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
-
 [node name="Control2" type="Control" parent="CanvasLayer" unique_id=150652920]
 layout_mode = 3
 anchors_preset = 7
@@ -1542,9 +1576,19 @@ frame_progress = 0.76048994
 
 [node name="DialogueBox" parent="CanvasLayer" unique_id=594521042 instance=ExtResource("17_3gvhh")]
 
+[node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=442866484]
+z_index = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=770135093]
 libraries/ = SubResource("AnimationLibrary_k5hso")
-autoplay = &"luthier"
+autoplay = &"fade_in"
 
 [node name="Lucy" parent="." unique_id=1039624184 instance=ExtResource("18_mqf5g")]
 visible = false

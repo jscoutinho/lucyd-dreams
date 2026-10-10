@@ -31,29 +31,129 @@ var esperando_nova_nota := false
 var acertos_consecutivos := 0
 const HIT_WINDOW := 40.0
 var passou := false
+
+func trocar_cena():
+	get_tree().change_scene_to_file("res://scenes/maps/caverna_bifurcacao.tscn")
 	
 func iniciar_dialogos():
 	var conversa = [
 		{
-			"sujeito": "Luthier",
-			"texto": "Você está bem?"
+			"sujeito": "???",
+			"texto": "Não vi você aí. Está tudo bem?"
 		},
 		{
 			"sujeito": "Lucy",
-			"texto": "Acho que sim...",
+			"texto": "Acho que sim... Isso tudo parece tão real, mas ao mesmo tempo..."
+		},
+		{
+			"sujeito": "???",
+			"texto": "Vamos começar aos poucos, como você se chama?"
+		},
+		{
+			"sujeito": "Lucy",
+			"texto": "Eu me chamo Lucy..."
+		},
+		{
+			"sujeito": "Lucy",
+			"texto": "Qual é o seu nome?... e por que carrega tanta coisa nas costas?"
+		},
+		{
+			"sujeito": "Luthier",
+			"texto": "Eu sou Luthier, cuido dos instrumentos so subsolo."
+		},
+		{
+			"sujeito": "Luthier",
+			"texto": "Consegue se levantar, Lucy?"
+		},
+		{
+			"sujeito": "Lucy",
+			"texto": "Sim, parece que a queda que eu tive não me machucou.",
 			"animacao": "lucy_levanta"
 		},
 		{
 			"sujeito": "Luthier",
-			"texto": "Você parece assustada."
+			"texto": "Ótimo! E o que você está fazendo sozinha por aqui?.",
 		},
 		{
 			"sujeito": "Lucy",
-			"texto": "Eu não consigo enxergar direito."
+			"texto": "É... Eu ouvi um barulho enquanto eu dormia...",
+		},
+		{
+			"sujeito": "Lucy",
+			"texto": "Eu sai de casa para ver o que era e então caí nesse buraco.",
+		},
+		{
+			"sujeito": "Lucy",
+			"texto": "Por que quer saber?",
 		},
 		{
 			"sujeito": "Luthier",
-			"texto": "Então respire. Devagar."
+			"texto": "Você não é daqui mesmo não é?",
+		},
+		{
+			"sujeito": "Luthier",
+			"texto": "O subsolo foi interditado pelas criaturas que existem aqui...",
+		},
+		{
+			"sujeito": "Luthier",
+			"texto": "Por isso serve bem como esconderijo.",
+		},
+		{
+			"sujeito": "Luthier",
+			"texto": "Mas para andar por aqui você vai precisar de uma arma.",
+		},
+		{
+			"sujeito": "Lucy",
+			"texto": "Tipo aquelas espadas gigantes ou pistolas?",
+		},
+		{
+			"sujeito": "Luthier",
+			"texto": "Não, nada disso tem efeito nas criaturas que ficam aqui.",
+		},
+		{
+			"sujeito": "Luthier",
+			"texto": "Para lutar você vai precisar de um instrumento. Elas são bem sensíveis a certas frequências.",
+		},
+		{
+			"sujeito": "Luthier",
+			"texto": "O que você toca? Temos teclados, guitarras, violinos, gaitas...",
+		},
+		{
+			"sujeito": "Lucy",
+			"texto": "Eu tenho um baixo em casa.",
+		},
+		{
+			"sujeito": "Luthier",
+			"texto": "Baixo? Ótimo! Me lembro de ter um aqui comigo.",
+		},
+		{
+			"sujeito": "Luthier",
+			"texto": "Você é a segunda baixista que eu vejo por aqui.",
+		},
+		{
+			"sujeito": "Lucy",
+			"texto": "E quem foi a primeira...?",
+		},
+		{
+			"sujeito": "Luthier",
+			"texto": "Aqui, achei!",
+		},
+		{
+			"sujeito": "Luthier",
+			"texto": "Não sei muito bem o que aconteceu com a primeira, mas a moça no caminho atrás de você sabe mais do que eu.",
+		},
+		{
+			"sujeito": "Lucy",
+			"texto": "Tudo bem, e obrigado pelo baixo.",
+		},
+		{
+			"sujeito": "Lucy",
+			"texto": "Se eu não conseguir tocar talvez consiga improvisar algo com ele.",
+		},
+		{
+			"sujeito": "...",
+			"texto": "",
+			"animacao": "fade_out"			
 		}
 	]
 
@@ -199,11 +299,11 @@ func iniciar_spawn():
 	while !passou:
 		spawn_note()
 		await get_tree().create_timer(intervalo_spawn+(acertos_consecutivos/6)).timeout
-	anim_lucy.play("cabeça_levantando")
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	anim_lucy.play("chorando")
+	if anim_lucy.animation == "respirando":
+		anim_lucy.play("chorando")
 
 
 func _on_dialogue_box_finished() -> void:
