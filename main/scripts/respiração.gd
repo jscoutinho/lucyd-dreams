@@ -36,6 +36,7 @@ func trocar_cena():
 	get_tree().change_scene_to_file("res://scenes/maps/caverna_bifurcacao.tscn")
 	
 func iniciar_dialogos():
+	animation_player.pause()
 	var conversa = [
 		{
 			"sujeito": "???",
@@ -129,6 +130,7 @@ func iniciar_dialogos():
 		{
 			"sujeito": "Luthier",
 			"texto": "Você é a segunda baixista que eu vejo por aqui.",
+			"animacao": "luthier_procurando"
 		},
 		{
 			"sujeito": "Lucy",
@@ -194,6 +196,9 @@ func play_destruindo():
 	
 func play_luthier_guardando_sax():
 	luthier.play("guardando")
+
+func play_luthier_indo_procurar():
+	luthier.play("indo_procurar")	
 	
 func play_cabeça_levantando():
 	anim_lucy.play("cabeça_levantando")
