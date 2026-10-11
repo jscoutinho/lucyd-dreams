@@ -199,6 +199,9 @@ func play_luthier_guardando_sax():
 
 func play_luthier_indo_procurar():
 	luthier.play("indo_procurar")	
+
+func play_luthier_procurando():
+	luthier.play("procurando")
 	
 func play_cabeça_levantando():
 	anim_lucy.play("cabeça_levantando")
@@ -220,10 +223,11 @@ func play_lucy_idle():
 
 func _input(event):
 	if event.is_action_pressed("respirar"):
-		anim.play("apertado")
-		tentar_acertar()
-		await get_tree().create_timer(0.25).timeout
-		anim.play("idle")
+		if !passou:
+			anim.play("apertado")
+			tentar_acertar()
+			await get_tree().create_timer(0.25).timeout
+			anim.play("idle")
 
 
 func _process(_delta):
