@@ -31,6 +31,7 @@ var esperando_nova_nota := false
 var acertos_consecutivos := 0
 const HIT_WINDOW := 40.0
 var passou := false
+var repetir := true
 
 func trocar_cena():
 	get_tree().change_scene_to_file("res://scenes/maps/caverna_bifurcacao.tscn")
@@ -231,9 +232,10 @@ func _input(event):
 
 
 func _process(_delta):
-	if acertos_consecutivos == 15 :
-		passou = !passou;
+	if acertos_consecutivos == 15 and repetir == true :
+		passou = true;
 		animation_player.play("luthier")
+		repetir = false
 	if bolinhas.get_child_count() == 0:
 		return
 
