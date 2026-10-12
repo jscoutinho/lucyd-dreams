@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://caxurhp8r7brl" path="res://assets/jogo/buraco/inicio-caverna.png" id="4_ca3ag"]
 [ext_resource type="Texture2D" uid="uid://c14s23ihjcm6n" path="res://assets/jogo/buraco/respiração/guia.png" id="4_k5hso"]
 [ext_resource type="Texture2D" uid="uid://cmsuqqbyq2vyl" path="res://assets/entidades/lucy/buraco/lucy-idle-cutscene.png" id="5_cch6p"]
-[ext_resource type="Texture2D" uid="uid://crpr0itlmty7e" path="res://assets/entidades/lucy/baixo/lucy-idle-baixo.png" id="6_ds4hg"]
+[ext_resource type="Texture2D" uid="uid://b5dufwxkaffsu" path="res://assets/entidades/lucy/buraco/lucy-idle-baixo-cutscene.png" id="6_ds4hg"]
 [ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="6_k5hso"]
 [ext_resource type="Texture2D" uid="uid://ckywq7qyaho6s" path="res://assets/entidades/inimigos/m-altura/m-altura-andando.png" id="9_y2nsv"]
 [ext_resource type="Texture2D" uid="uid://cekwsp8hbgv4v" path="res://assets/entidades/inimigos/m-altura/m-altura-destruindo.png" id="10_aquth"]
@@ -100,31 +100,31 @@ region = Rect2(1224, 0, 204, 186)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cl7ta"]
 atlas = ExtResource("6_ds4hg")
-region = Rect2(0, 0, 108, 186)
+region = Rect2(0, 0, 204, 186)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_amr8h"]
 atlas = ExtResource("6_ds4hg")
-region = Rect2(108, 0, 108, 186)
+region = Rect2(204, 0, 204, 186)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e36x2"]
 atlas = ExtResource("6_ds4hg")
-region = Rect2(216, 0, 108, 186)
+region = Rect2(408, 0, 204, 186)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1pqgk"]
 atlas = ExtResource("6_ds4hg")
-region = Rect2(324, 0, 108, 186)
+region = Rect2(612, 0, 204, 186)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y0e02"]
 atlas = ExtResource("6_ds4hg")
-region = Rect2(432, 0, 108, 186)
+region = Rect2(816, 0, 204, 186)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_makpp"]
 atlas = ExtResource("6_ds4hg")
-region = Rect2(540, 0, 108, 186)
+region = Rect2(1020, 0, 204, 186)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w6wfp"]
 atlas = ExtResource("6_ds4hg")
-region = Rect2(648, 0, 108, 186)
+region = Rect2(1224, 0, 204, 186)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6i23a"]
 atlas = ExtResource("3_ajtlk")
@@ -225,7 +225,7 @@ animations = [{
 "speed": 2.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 8.0,
 "texture": SubResource("AtlasTexture_vla8s")
 }, {
 "duration": 1.0,
@@ -251,7 +251,7 @@ animations = [{
 "speed": 8.0
 }, {
 "frames": [{
-"duration": 4.0,
+"duration": 8.0,
 "texture": SubResource("AtlasTexture_cl7ta")
 }, {
 "duration": 1.0,
@@ -274,7 +274,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle_baixo",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1737,7 +1737,7 @@ position = Vector2(31, 447)
 sprite_frames = SubResource("SpriteFrames_ov4ip")
 animation = &"idle_baixo"
 autoplay = "chorando"
-frame_progress = 0.96181804
+frame_progress = 0.65242547
 
 [node name="FocusOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1808137352]
 material = SubResource("ShaderMaterial_sa2ql")
@@ -1891,12 +1891,11 @@ position = Vector2(-739, -822)
 position = Vector2(933, 455)
 sprite_frames = SubResource("SpriteFrames_8wwuq")
 autoplay = "default"
-frame_progress = 0.109285764
+frame_progress = 0.011544674
 
 [node name="DialogueBox" parent="CanvasLayer" unique_id=594521042 instance=ExtResource("17_3gvhh")]
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=442866484]
-visible = false
 z_index = 3
 anchors_preset = 15
 anchor_right = 1.0

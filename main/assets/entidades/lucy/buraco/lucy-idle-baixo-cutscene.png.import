@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crpr0itlmty7e"
-path="res://.godot/imported/lucy-idle-baixo.png-4b5baf89c0361f80e6c9f1e598a0cbe3.ctex"
+uid="uid://b5dufwxkaffsu"
+path="res://.godot/imported/lucy-idle-baixo-cutscene.png-8020e2d7192f4c5fd30a480c91744f49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entidades/lucy/baixo/lucy-idle-baixo.png"
-dest_files=["res://.godot/imported/lucy-idle-baixo.png-4b5baf89c0361f80e6c9f1e598a0cbe3.ctex"]
+source_file="res://assets/entidades/lucy/buraco/lucy-idle-baixo-cutscene.png"
+dest_files=["res://.godot/imported/lucy-idle-baixo-cutscene.png-8020e2d7192f4c5fd30a480c91744f49.ctex"]
 
 [params]
 
