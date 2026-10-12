@@ -140,6 +140,7 @@ func iniciar_dialogos():
 		{
 			"sujeito": "Luthier",
 			"texto": "Aqui, achei!",
+			"animacao": "luthier_mao_cima"
 		},
 		{
 			"sujeito": "Luthier",
@@ -148,6 +149,7 @@ func iniciar_dialogos():
 		{
 			"sujeito": "Lucy",
 			"texto": "Tudo bem, e obrigado pelo baixo.",
+			"animacao": "obteve_baixo"
 		},
 		{
 			"sujeito": "Lucy",
@@ -203,6 +205,9 @@ func play_luthier_indo_procurar():
 
 func play_luthier_procurando():
 	luthier.play("procurando")
+
+func play_luthier_cima():
+	luthier.play("mão_pra_cima")
 	
 func play_cabeça_levantando():
 	anim_lucy.play("cabeça_levantando")
@@ -221,6 +226,9 @@ func play_cabeça_alta():
 
 func play_lucy_idle():
 	anim_lucy.play("idle")
+
+func play_lucy_idle_baixo():
+	anim_lucy.play("idle_baixo")
 
 func _input(event):
 	if event.is_action_pressed("respirar"):
