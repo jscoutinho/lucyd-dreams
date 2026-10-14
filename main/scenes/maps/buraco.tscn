@@ -213,7 +213,7 @@ color = Color(0, 0, 0, 1)
 [node name="Area2D" type="Area2D" parent="." unique_id=1827624305]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1769558783]
-position = Vector2(826, 4112)
+position = Vector2(826, 4147)
 shape = SubResource("RectangleShape2D_sa2ql")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1064974173]

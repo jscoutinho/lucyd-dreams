@@ -27,28 +27,29 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
+offset_top = 2.0
 offset_right = 20.0
-offset_bottom = 40.0
+offset_bottom = 42.0
 grow_horizontal = 2
 
 [node name="Fundo" type="Sprite2D" parent="Control" unique_id=240997324]
-position = Vector2(58, 430)
+position = Vector2(58, 515)
 texture = ExtResource("2_5hgdi")
 
 [node name="CordaE" type="Sprite2D" parent="Control" unique_id=1039002249]
-position = Vector2(56, 244)
+position = Vector2(56, 329)
 texture = ExtResource("2_qdckw")
 
 [node name="CordaA" type="Sprite2D" parent="Control" unique_id=630170508]
-position = Vector2(57, 394)
+position = Vector2(57, 479)
 texture = ExtResource("1_lnosr")
 
 [node name="CordaD" type="Sprite2D" parent="Control" unique_id=972617289]
-position = Vector2(58, 526)
+position = Vector2(58, 611)
 texture = ExtResource("4_5hgdi")
 
 [node name="CordaG" type="Sprite2D" parent="Control" unique_id=1985746485]
-position = Vector2(58, 646)
+position = Vector2(58, 731)
 texture = ExtResource("3_fciye")
 
 [node name="ColorRect" type="ColorRect" parent="Control/CordaG" unique_id=1850139561]
@@ -69,9 +70,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -133.0
-offset_top = 211.0
+offset_top = 296.0
 offset_right = 133.0
-offset_bottom = 271.0
+offset_bottom = 356.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -85,9 +86,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -133.0
-offset_top = 356.0
+offset_top = 441.0
 offset_right = 133.0
-offset_bottom = 416.0
+offset_bottom = 501.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("7_gvdim")
@@ -100,9 +101,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -133.0
-offset_top = 490.0
+offset_top = 575.0
 offset_right = 133.0
-offset_bottom = 550.0
+offset_bottom = 635.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("7_gvdim")
@@ -115,14 +116,28 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -133.0
-offset_top = 614.0
+offset_top = 699.0
 offset_right = 133.0
-offset_bottom = 674.0
+offset_bottom = 759.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("7_gvdim")
 theme_override_font_sizes/font_size = 46
 text = " Sair do jogo"
+
+[node name="Jogo Pausado" type="Label" parent="Control" unique_id=86056416]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -149.5
+offset_top = 77.0
+offset_right = 149.5
+offset_bottom = 166.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("7_gvdim")
+theme_override_font_sizes/font_size = 80
+text = "Jogo Pausado"
 
 [connection signal="pressed" from="Control/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Control/Esc_to_Menu" to="." method="_on_esc_to_menu_pressed"]
