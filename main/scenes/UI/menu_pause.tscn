@@ -33,23 +33,23 @@ offset_bottom = 42.0
 grow_horizontal = 2
 
 [node name="Fundo" type="Sprite2D" parent="Control" unique_id=240997324]
-position = Vector2(58, 515)
+position = Vector2(58, 475)
 texture = ExtResource("2_5hgdi")
 
 [node name="CordaE" type="Sprite2D" parent="Control" unique_id=1039002249]
-position = Vector2(56, 329)
+position = Vector2(56, 289)
 texture = ExtResource("2_qdckw")
 
 [node name="CordaA" type="Sprite2D" parent="Control" unique_id=630170508]
-position = Vector2(57, 479)
+position = Vector2(57, 439)
 texture = ExtResource("1_lnosr")
 
 [node name="CordaD" type="Sprite2D" parent="Control" unique_id=972617289]
-position = Vector2(58, 611)
+position = Vector2(58, 571)
 texture = ExtResource("4_5hgdi")
 
 [node name="CordaG" type="Sprite2D" parent="Control" unique_id=1985746485]
-position = Vector2(58, 731)
+position = Vector2(58, 691)
 texture = ExtResource("3_fciye")
 
 [node name="ColorRect" type="ColorRect" parent="Control/CordaG" unique_id=1850139561]
@@ -70,9 +70,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -133.0
-offset_top = 296.0
+offset_top = 256.0
 offset_right = 133.0
-offset_bottom = 356.0
+offset_bottom = 316.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -86,9 +86,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -133.0
-offset_top = 441.0
+offset_top = 401.0
 offset_right = 133.0
-offset_bottom = 501.0
+offset_bottom = 461.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("7_gvdim")
@@ -101,9 +101,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -133.0
-offset_top = 575.0
+offset_top = 535.0
 offset_right = 133.0
-offset_bottom = 635.0
+offset_bottom = 595.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("7_gvdim")
@@ -116,9 +116,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -133.0
-offset_top = 699.0
+offset_top = 659.0
 offset_right = 133.0
-offset_bottom = 759.0
+offset_bottom = 719.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("7_gvdim")

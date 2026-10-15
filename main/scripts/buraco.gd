@@ -1,4 +1,5 @@
 extends Node2D
+@onready var anim: AnimationPlayer = $CanvasLayer/AnimationPlayer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -12,4 +13,5 @@ func _process(_delta: float) -> void:
 
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
+	anim.play("fade_out")
 	get_tree().call_deferred("change_scene_to_file", ("res://scenes/UI/capa.tscn"));

@@ -2,6 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://bdr1nvh0rami" path="res://scripts/shader/new_shader.gdshader" id="1_1us45"]
 [ext_resource type="Script" uid="uid://jiupk3ukhlll" path="res://scripts/respiração.gd" id="1_bfa1j"]
+[ext_resource type="Texture2D" uid="uid://dy3hj65vuk680" path="res://assets/jogo/buraco/cachoeira-ss.png" id="2_7odbl"]
 [ext_resource type="Texture2D" uid="uid://c32vy06d2wqba" path="res://assets/entidades/lucy/buraco/respirando-idle.png" id="3_a18oo"]
 [ext_resource type="Texture2D" uid="uid://117fpvukufbp" path="res://assets/entidades/lucy/buraco/lucy-levantando.png" id="3_ajtlk"]
 [ext_resource type="Texture2D" uid="uid://cj83fhvg401q3" path="res://assets/jogo/buraco/respiração/target-nota.png" id="4_2jmbd"]
@@ -25,6 +26,42 @@
 [ext_resource type="Texture2D" uid="uid://stjollnj5vbr" path="res://assets/entidades/npcs/luthier/luthier_mao_cima.png" id="20_cch6p"]
 [ext_resource type="Texture2D" uid="uid://ehka84rc1ke4" path="res://assets/entidades/npcs/luthier/luthier_procurando.png" id="20_qe06j"]
 [ext_resource type="Texture2D" uid="uid://cxlgtmd4puruk" path="res://assets/entidades/baixo.png" id="22_fd6qt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8e53"]
+atlas = ExtResource("2_7odbl")
+region = Rect2(0, 0, 1896, 1212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rl5w"]
+atlas = ExtResource("2_7odbl")
+region = Rect2(1896, 0, 1896, 1212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlv0a"]
+atlas = ExtResource("2_7odbl")
+region = Rect2(3792, 0, 1896, 1212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p1kt"]
+atlas = ExtResource("2_7odbl")
+region = Rect2(5688, 0, 1896, 1212)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qd1lp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8e53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rl5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlv0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5p1kt")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_73pfh"]
 atlas = ExtResource("3_ajtlk")
@@ -1715,6 +1752,22 @@ script = ExtResource("1_bfa1j")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1894504924]
 
+[node name="CachoeiraBox" type="Control" parent="CanvasLayer" unique_id=509621486]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Cachoeira" type="AnimatedSprite2D" parent="CanvasLayer/CachoeiraBox" unique_id=604181362]
+position = Vector2(21, 255)
+sprite_frames = SubResource("SpriteFrames_qd1lp")
+autoplay = "default"
+frame_progress = 0.814838
+
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1872693584]
 layout_mode = 3
 anchors_preset = 5
@@ -1896,6 +1949,7 @@ frame_progress = 0.011544674
 [node name="DialogueBox" parent="CanvasLayer" unique_id=594521042 instance=ExtResource("17_3gvhh")]
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=442866484]
+visible = false
 z_index = 3
 anchors_preset = 15
 anchor_right = 1.0
