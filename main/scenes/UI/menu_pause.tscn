@@ -15,6 +15,7 @@
 
 [node name="menu_pause" type="CanvasLayer" unique_id=204628948]
 process_mode = 3
+visible = false
 script = ExtResource("1_fciye")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=635014659]
