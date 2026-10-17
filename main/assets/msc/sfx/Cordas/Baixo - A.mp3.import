@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://btcg6tkou063b"
+path="res://.godot/imported/Baixo - A.mp3-5cb386f36cb40de9704c6e8c0b856ddf.mp3str"
+
+[deps]
+
+source_file="res://assets/msc/sfx/Cordas/Baixo - A.mp3"
+dest_files=["res://.godot/imported/Baixo - A.mp3-5cb386f36cb40de9704c6e8c0b856ddf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

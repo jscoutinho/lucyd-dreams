@@ -6,11 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://drpbodyddn4ne" path="res://assets/menu/Pause/corda-E.png" id="2_qdckw"]
 [ext_resource type="Texture2D" uid="uid://cguh8fmt1d8yn" path="res://assets/menu/Pause/corda-C.png" id="3_fciye"]
 [ext_resource type="Texture2D" uid="uid://bw8celwi36ksq" path="res://assets/menu/Pause/corda-D.png" id="4_5hgdi"]
+[ext_resource type="Script" uid="uid://jq26odxn4jo8" path="res://scripts/UI/corda_menu.gd" id="4_nddg0"]
 [ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="7_gvdim"]
+[ext_resource type="AudioStream" uid="uid://cym1day1x6kva" path="res://assets/msc/sfx/Cordas/Baixo - E.mp3" id="9_n7dsx"]
+[ext_resource type="AudioStream" uid="uid://btcg6tkou063b" path="res://assets/msc/sfx/Cordas/Baixo - A.mp3" id="10_2dotu"]
+[ext_resource type="AudioStream" uid="uid://dpjxdxvbc5w81" path="res://assets/msc/sfx/Cordas/Baixo - D.mp3" id="11_qqbi8"]
+[ext_resource type="AudioStream" uid="uid://m0yiliv6is6l" path="res://assets/msc/sfx/Cordas/Baixo - G.mp3" id="12_ru466"]
 
 [node name="menu_pause" type="CanvasLayer" unique_id=204628948]
 process_mode = 3
-visible = false
 script = ExtResource("1_fciye")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=635014659]
@@ -39,18 +43,22 @@ texture = ExtResource("2_5hgdi")
 [node name="CordaE" type="Sprite2D" parent="Control" unique_id=1039002249]
 position = Vector2(56, 289)
 texture = ExtResource("2_qdckw")
+script = ExtResource("4_nddg0")
 
 [node name="CordaA" type="Sprite2D" parent="Control" unique_id=630170508]
 position = Vector2(57, 439)
 texture = ExtResource("1_lnosr")
+script = ExtResource("4_nddg0")
 
 [node name="CordaD" type="Sprite2D" parent="Control" unique_id=972617289]
 position = Vector2(58, 571)
 texture = ExtResource("4_5hgdi")
+script = ExtResource("4_nddg0")
 
 [node name="CordaG" type="Sprite2D" parent="Control" unique_id=1985746485]
 position = Vector2(58, 691)
 texture = ExtResource("3_fciye")
+script = ExtResource("4_nddg0")
 
 [node name="ColorRect" type="ColorRect" parent="Control/CordaG" unique_id=1850139561]
 anchors_preset = 15
@@ -139,6 +147,22 @@ theme_override_fonts/font = ExtResource("7_gvdim")
 theme_override_font_sizes/font_size = 80
 text = "Jogo Pausado"
 
+[node name="E" type="AudioStreamPlayer" parent="." unique_id=1652612040]
+stream = ExtResource("9_n7dsx")
+
+[node name="A" type="AudioStreamPlayer" parent="." unique_id=1053372469]
+stream = ExtResource("10_2dotu")
+
+[node name="D" type="AudioStreamPlayer" parent="." unique_id=131408146]
+stream = ExtResource("11_qqbi8")
+
+[node name="G" type="AudioStreamPlayer" parent="." unique_id=1643358997]
+stream = ExtResource("12_ru466")
+
+[connection signal="mouse_entered" from="Control/Continue" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="Control/Continue" to="." method="_on_continue_pressed"]
+[connection signal="mouse_entered" from="Control/Config" to="." method="_on_config_mouse_entered"]
+[connection signal="mouse_entered" from="Control/Esc_to_Menu" to="." method="_on_esc_to_menu_mouse_entered"]
 [connection signal="pressed" from="Control/Esc_to_Menu" to="." method="_on_esc_to_menu_pressed"]
+[connection signal="mouse_entered" from="Control/Exit" to="." method="_on_exit_mouse_entered"]
 [connection signal="pressed" from="Control/Exit" to="." method="_on_exit_pressed"]
