@@ -173,7 +173,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6ysf1")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_tnuym")
 }, {
 "duration": 1.0,
@@ -191,7 +191,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n22ko")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_jnh7r")
 }, {
 "duration": 1.0,
@@ -205,7 +205,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walking",
-"speed": 15.0
+"speed": 26.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ov4ip"]
@@ -221,7 +221,7 @@ position = Vector2(0, -27)
 sprite_frames = SubResource("SpriteFrames_u7n6m")
 animation = &"walking"
 autoplay = "idle"
-frame_progress = 0.46418682
+frame_progress = 0.36803365
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=221983422]
 visible = false

@@ -14,7 +14,7 @@ enum PlayerState {
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
-const SPEED = 350.0
+const SPEED = 400.0
 const JUMP_VELOCITY = -770.0
 const GRAVITY_MULTIPLIER = 2.5
 
