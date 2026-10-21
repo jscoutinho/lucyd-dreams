@@ -2,7 +2,7 @@
 extends CharacterBody2D
 signal animation_finished_custom(animation_name: String)
 
-@export var coyote_time :float = 1
+@export var coyote_time :float = 0.15
 var coyote_timer : float = 0
 
 enum PlayerState {
@@ -29,13 +29,15 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	coyote_timer -= delta
-	if not is_on_floor():
-		if status == PlayerState.JUMP:
-			coyote_timer = 0;
+	if is_on_floor():
+		coyote_timer = coyote_time
+	else:
+		coyote_timer = maxf(coyote_timer - delta, 0.0)
+
+		if status != PlayerState.WAKE_UP \
+		and status != PlayerState.DIALOGUE:
 			velocity += get_gravity() * GRAVITY_MULTIPLIER * delta
-		else:
-			coyote_timer = coyote_time;
+
 		
 
 	match status:
@@ -91,6 +93,7 @@ func go_to_stop_state():
 
 func go_to_jump_state():
 	status = PlayerState.JUMP
+	coyote_timer = 0.0
 	anim.play("jump")
 	velocity.y = JUMP_VELOCITY
 
@@ -147,7 +150,7 @@ func walk_state():
 
 	move()
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") && coyote_timer>0:
 		go_to_jump_state()
 		return
 
@@ -166,7 +169,7 @@ func stop_state():
 	velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	# Permite pular durante a desaceleração
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") && coyote_timer>0:
 		go_to_jump_state()
 		return
 
