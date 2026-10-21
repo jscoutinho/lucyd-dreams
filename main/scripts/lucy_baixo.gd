@@ -2,6 +2,9 @@
 extends CharacterBody2D
 signal animation_finished_custom(animation_name: String)
 
+@export var coyote_time :float = 1
+var coyote_timer : float = 0
+
 enum PlayerState {
 	IDLE,
 	TRANSITION,
@@ -15,8 +18,8 @@ enum PlayerState {
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 const SPEED = 400.0
-const JUMP_VELOCITY = -770.0
-const GRAVITY_MULTIPLIER = 2.5
+const JUMP_VELOCITY = -900.0
+const GRAVITY_MULTIPLIER = 2.7
 
 var status: PlayerState
 
@@ -26,9 +29,14 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-
+	coyote_timer -= delta
 	if not is_on_floor():
-		velocity += get_gravity() * GRAVITY_MULTIPLIER * delta
+		if status == PlayerState.JUMP:
+			coyote_timer = 0;
+			velocity += get_gravity() * GRAVITY_MULTIPLIER * delta
+		else:
+			coyote_timer = coyote_time;
+		
 
 	match status:
 
@@ -106,7 +114,7 @@ func idle_state():
 
 	move()
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") && coyote_timer>0:
 		go_to_jump_state()
 		return
 
@@ -123,7 +131,7 @@ func transition_state():
 
 	move()
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") && coyote_timer>0:	
 		go_to_jump_state()
 		return
 
