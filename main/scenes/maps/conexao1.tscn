@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c4qoo5xb4ma3f" path="res://scenes/entities/lucy_baixo.tscn" id="2_3yu6g"]
 [ext_resource type="Script" uid="uid://dsah2vrli1sr3" path="res://scripts/camera.gd" id="3_qmos4"]
 [ext_resource type="PackedScene" uid="uid://cfnqub7mfff3o" path="res://scenes/UI/hud.tscn" id="4_t3oom"]
+[ext_resource type="PackedScene" uid="uid://fiun316knl7d" path="res://scenes/UI/menu_pause.tscn" id="5_5e4dc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
 size = Vector2(698, 137)
@@ -85,6 +86,42 @@ size = Vector2(192, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hkw67"]
 size = Vector2(241, 20)
+
+[sub_resource type="Animation" id="Animation_5e4dc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_42tc5"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vguos"]
+_data = {
+&"RESET": SubResource("Animation_5e4dc"),
+&"fade_out": SubResource("Animation_42tc5")
+}
 
 [node name="conexao" type="Control" unique_id=578286236]
 layout_mode = 3
@@ -235,3 +272,19 @@ script = ExtResource("3_qmos4")
 
 [node name="HUD" parent="." unique_id=701433816 instance=ExtResource("4_t3oom")]
 layout_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=815349822]
+libraries/ = SubResource("AnimationLibrary_vguos")
+autoplay = &"fade_out"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1337375447]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=204394681]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="menu_pause" parent="." unique_id=204628948 instance=ExtResource("5_5e4dc")]

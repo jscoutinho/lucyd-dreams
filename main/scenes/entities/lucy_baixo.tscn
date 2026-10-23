@@ -218,6 +218,7 @@ z_index = 1
 script = ExtResource("1_k4dj6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=804095773]
+modulate = Color(1, 1, 1, 0.9647059)
 position = Vector2(0, -27)
 sprite_frames = SubResource("SpriteFrames_u7n6m")
 animation = &"jump"

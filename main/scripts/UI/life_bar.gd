@@ -1,5 +1,9 @@
 
 extends Control
+@onready var vida_1: AnimatedSprite2D = $Vida1
+@onready var vida_2: AnimatedSprite2D = $Vida2
+@onready var vida_3: AnimatedSprite2D = $Vida3
+@onready var vida_4: AnimatedSprite2D = $Vida4
 
 func _ready() -> void:
 	print("HUD iniciado")
@@ -32,8 +36,11 @@ func _on_vida_alterada(
 
 func atualizar_vida(vida_atual: int) -> void:
 	print("HUD recebeu vida: ", vida_atual)
-
-	$Vida1.visible = vida_atual >= 1
-	$Vida2.visible = vida_atual >= 2
-	$Vida3.visible = vida_atual >= 3
-	$Vida4.visible = vida_atual >= 4
+	if vida_atual == 3:
+		vida_4.play("saindo");
+	elif vida_atual == 2:
+		vida_3.play("saindo");
+	elif vida_atual == 1:
+		vida_2.play("saindo");
+	elif vida_atual == 0:
+		vida_1.play("saindo")

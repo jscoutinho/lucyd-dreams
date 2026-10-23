@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bot6gy57xd72r" path="res://assets/entidades/npcs/luthier/luthier_indo_procurar.png" id="11_dpgc2"]
 [ext_resource type="Texture2D" uid="uid://stjollnj5vbr" path="res://assets/entidades/npcs/luthier/luthier_mao_cima.png" id="12_xgwk5"]
 [ext_resource type="Texture2D" uid="uid://ehka84rc1ke4" path="res://assets/entidades/npcs/luthier/luthier_procurando.png" id="13_2imwq"]
+[ext_resource type="PackedScene" uid="uid://cfnqub7mfff3o" path="res://scenes/UI/hud.tscn" id="13_h4el4"]
 [ext_resource type="PackedScene" uid="uid://c4qoo5xb4ma3f" path="res://scenes/entities/lucy_baixo.tscn" id="13_yglln"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p1qjs"]
@@ -485,8 +486,6 @@ position = Vector2(1862, 785)
 position = Vector2(12, -183)
 shape = SubResource("RectangleShape2D_3nqnr")
 
-[node name="menu_pause" parent="." unique_id=204628948 instance=ExtResource("5_fgu73")]
-
 [node name="LuthierBox" type="Node2D" parent="." unique_id=982668751]
 position = Vector2(1130, -157)
 
@@ -519,6 +518,10 @@ color = Color(0, 0, 0, 1)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=508447777]
 libraries/ = SubResource("AnimationLibrary_117l1")
 autoplay = &"fade_in"
+
+[node name="HUD" parent="." unique_id=701433816 instance=ExtResource("13_h4el4")]
+
+[node name="menu_pause" parent="." unique_id=204628948 instance=ExtResource("5_fgu73")]
 
 [connection signal="body_entered" from="Direita" to="." method="_on_direita_body_entered"]
 [connection signal="body_entered" from="Esquerda" to="." method="_on_esquerda_body_entered"]

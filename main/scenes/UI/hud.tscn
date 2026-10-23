@@ -1,8 +1,105 @@
 [gd_scene format=3 uid="uid://cfnqub7mfff3o"]
 
-[ext_resource type="Texture2D" uid="uid://dyci68fjr4b7o" path="res://assets/menu/HUD/vida.png" id="1_c4vmg"]
 [ext_resource type="Texture2D" uid="uid://dqp3h88n57px2" path="res://assets/menu/HUD/barra_de_vida.png" id="1_rd3kb"]
 [ext_resource type="Script" uid="uid://nniryjd1y342" path="res://scripts/UI/life_bar.gd" id="2_y5tme"]
+[ext_resource type="Texture2D" uid="uid://bc5blc2l6xgb0" path="res://assets/menu/HUD/vida-ss.png" id="3_y5tme"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18exe"]
+atlas = ExtResource("3_y5tme")
+region = Rect2(0, 0, 60, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jeyp"]
+atlas = ExtResource("3_y5tme")
+region = Rect2(60, 0, 60, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg4gw"]
+atlas = ExtResource("3_y5tme")
+region = Rect2(120, 0, 60, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh8q5"]
+atlas = ExtResource("3_y5tme")
+region = Rect2(180, 0, 60, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h03ao"]
+atlas = ExtResource("3_y5tme")
+region = Rect2(240, 0, 60, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wvwv"]
+atlas = ExtResource("3_y5tme")
+region = Rect2(300, 0, 60, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k00v8"]
+atlas = ExtResource("3_y5tme")
+region = Rect2(300, 0, 60, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6axx"]
+atlas = ExtResource("3_y5tme")
+region = Rect2(240, 0, 60, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj32l"]
+atlas = ExtResource("3_y5tme")
+region = Rect2(180, 0, 60, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fcg2"]
+atlas = ExtResource("3_y5tme")
+region = Rect2(120, 0, 60, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe851"]
+atlas = ExtResource("3_y5tme")
+region = Rect2(60, 0, 60, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggbtr"]
+atlas = ExtResource("3_y5tme")
+region = Rect2(0, 0, 60, 66)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sa2ql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18exe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jeyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cg4gw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xh8q5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h03ao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wvwv")
+}],
+"loop": 0,
+"name": &"saindo",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k00v8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6axx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj32l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0fcg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qe851")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggbtr")
+}],
+"loop": 0,
+"name": &"surgindo",
+"speed": 11.0
+}]
 
 [node name="HUD" type="Control" unique_id=701433816]
 layout_mode = 3
@@ -11,47 +108,48 @@ anchors_preset = 0
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1571477875]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=2056515632]
-offset_left = 3.0
-offset_top = -42.0
-offset_right = 345.0
-offset_bottom = 240.0
+offset_top = -21.0
+offset_right = 342.0
+offset_bottom = 261.0
 texture = ExtResource("1_rd3kb")
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=686514052]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 32.0
-offset_top = -10.0
-offset_right = 284.0
-offset_bottom = 56.0
+offset_left = 29.0
+offset_top = 11.0
+offset_right = 281.0
+offset_bottom = 77.0
 script = ExtResource("2_y5tme")
 
-[node name="Vida1" type="TextureRect" parent="CanvasLayer/Control" unique_id=605253919]
-layout_mode = 0
-offset_right = 60.0
-offset_bottom = 66.0
-texture = ExtResource("1_c4vmg")
+[node name="Vida1" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=1751153460]
+position = Vector2(31, 31)
+sprite_frames = SubResource("SpriteFrames_sa2ql")
+animation = &"surgindo"
+autoplay = "surgindo"
+frame = 5
+frame_progress = 1.0
 
-[node name="Vida2" type="TextureRect" parent="CanvasLayer/Control" unique_id=1807680221]
-layout_mode = 0
-offset_left = 62.0
-offset_top = 10.0
-offset_right = 122.0
-offset_bottom = 76.0
-texture = ExtResource("1_c4vmg")
+[node name="Vida2" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=939847341]
+position = Vector2(97, 43)
+sprite_frames = SubResource("SpriteFrames_sa2ql")
+animation = &"surgindo"
+autoplay = "surgindo"
+frame = 5
+frame_progress = 1.0
 
-[node name="Vida3" type="TextureRect" parent="CanvasLayer/Control" unique_id=1178463881]
-layout_mode = 0
-offset_left = 124.0
-offset_top = 22.0
-offset_right = 184.0
-offset_bottom = 88.0
-texture = ExtResource("1_c4vmg")
+[node name="Vida3" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=641699282]
+position = Vector2(160, 55)
+sprite_frames = SubResource("SpriteFrames_sa2ql")
+animation = &"surgindo"
+autoplay = "surgindo"
+frame = 5
+frame_progress = 1.0
 
-[node name="Vida4" type="TextureRect" parent="CanvasLayer/Control" unique_id=891546662]
-layout_mode = 0
-offset_left = 182.0
-offset_top = 39.0
-offset_right = 242.0
-offset_bottom = 105.0
-texture = ExtResource("1_c4vmg")
+[node name="Vida4" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=1876999070]
+position = Vector2(223, 73)
+sprite_frames = SubResource("SpriteFrames_sa2ql")
+animation = &"surgindo"
+autoplay = "surgindo"
+frame = 5
+frame_progress = 1.0

@@ -1,5 +1,6 @@
 
 extends Node
+@onready var lucy_anim: AnimatedSprite2D = $"../AnimatedSprite2D"
 
 signal vida_alterada(vida_atual: int, vida_maxima: int)
 signal morreu
@@ -33,9 +34,9 @@ func receber_dano(quantidade: int = 1) -> void:
 	if vida_atual <= 0:
 		morreu.emit()
 		return
-
+	lucy_anim.modulate.a = 0.8
 	await get_tree().create_timer(tempo_invulnerabilidade).timeout
-
+	lucy_anim.modulate.a = 1
 	invulneravel = false
 
 
