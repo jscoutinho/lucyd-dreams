@@ -12,7 +12,8 @@ enum PlayerState {
 	STOP,
 	JUMP,
 	WAKE_UP,
-	DIALOGUE
+	DIALOGUE,
+	
 }
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -23,6 +24,9 @@ const GRAVITY_MULTIPLIER = 2.7
 
 var status: PlayerState
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		$HealthComponent.receber_dano(1)
 
 func _ready() -> void:
 	go_to_idle_state()

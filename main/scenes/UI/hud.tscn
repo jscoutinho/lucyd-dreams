@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cfnqub7mfff3o"]
+
+[ext_resource type="Texture2D" uid="uid://dyci68fjr4b7o" path="res://assets/menu/HUD/vida.png" id="1_c4vmg"]
+[ext_resource type="Texture2D" uid="uid://dqp3h88n57px2" path="res://assets/menu/HUD/barra_de_vida.png" id="1_rd3kb"]
+[ext_resource type="Script" uid="uid://nniryjd1y342" path="res://scripts/UI/life_bar.gd" id="2_y5tme"]
+
+[node name="HUD" type="Control" unique_id=701433816]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1571477875]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=2056515632]
+offset_left = 3.0
+offset_top = -42.0
+offset_right = 345.0
+offset_bottom = 240.0
+texture = ExtResource("1_rd3kb")
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=686514052]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 32.0
+offset_top = -10.0
+offset_right = 284.0
+offset_bottom = 56.0
+script = ExtResource("2_y5tme")
+
+[node name="Vida1" type="TextureRect" parent="CanvasLayer/Control" unique_id=605253919]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 66.0
+texture = ExtResource("1_c4vmg")
+
+[node name="Vida2" type="TextureRect" parent="CanvasLayer/Control" unique_id=1807680221]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 10.0
+offset_right = 122.0
+offset_bottom = 76.0
+texture = ExtResource("1_c4vmg")
+
+[node name="Vida3" type="TextureRect" parent="CanvasLayer/Control" unique_id=1178463881]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 22.0
+offset_right = 184.0
+offset_bottom = 88.0
+texture = ExtResource("1_c4vmg")
+
+[node name="Vida4" type="TextureRect" parent="CanvasLayer/Control" unique_id=891546662]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 39.0
+offset_right = 242.0
+offset_bottom = 105.0
+texture = ExtResource("1_c4vmg")
