@@ -290,6 +290,9 @@ color = Color(0, 0, 0, 1)
 [node name="Monstros" type="Node" parent="." unique_id=206172749]
 
 [node name="MedoAltura" parent="Monstros" unique_id=1699131937 instance=ExtResource("5_42tc5")]
-position = Vector2(95, 639)
+position = Vector2(1142, 646)
+
+[node name="MedoAltura2" parent="Monstros" unique_id=1617116055 instance=ExtResource("5_42tc5")]
+position = Vector2(126, 620)
 
 [node name="menu_pause" parent="." unique_id=204628948 instance=ExtResource("5_5e4dc")]

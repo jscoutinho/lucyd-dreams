@@ -189,7 +189,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1rvdg")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_40db3")
 }, {
 "duration": 1.0,
@@ -197,7 +197,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"ataque",
-"speed": 13.0
+"speed": 21.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -220,7 +220,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"dano",
-"speed": 16.0
+"speed": 23.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -238,7 +238,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h4kvo")
 }, {
-"duration": 1.0,
+"duration": 8.0,
 "texture": SubResource("AtlasTexture_6m78o")
 }],
 "loop": 0,
@@ -361,9 +361,9 @@ script = ExtResource("1_k4dj6")
 modulate = Color(1, 1, 1, 0.9647059)
 position = Vector2(0, -27)
 sprite_frames = SubResource("SpriteFrames_u7n6m")
-animation = &"ataque"
+animation = &"die"
 autoplay = "idle"
-frame = 4
+frame = 5
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=221983422]

@@ -2,9 +2,12 @@
 extends CharacterBody2D
 signal animation_finished_custom(animation_name: String)
 
+@export var forca_knockback_x: float = 600.0
+@export var forca_knockback_y: float = -300.0
 @export var coyote_time :float = 0.15
 var coyote_timer : float = 0
 
+@onready var health_component: Control = $HealthComponent
 
 var attack_area_posicao_inicial: Vector2
 
@@ -16,11 +19,14 @@ enum PlayerState {
 	JUMP,
 	WAKE_UP,
 	DIALOGUE,
-	ATTACK
+	ATTACK,
+	DAMAGE,
+	DEAD
 }
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_area: Area2D = $AttackArea
+
 
 var alvos_atingidos: Array[Node2D] = []
 
@@ -31,19 +37,36 @@ const GRAVITY_MULTIPLIER = 2.7
 var status: PlayerState
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("testar_dano"):
 		$HealthComponent.receber_dano(1)
 
 func _ready() -> void:
 	attack_area_posicao_inicial = attack_area.position
 
 	attack_area.monitoring = false
-	attack_area.body_entered.connect(_on_attack_area_body_entered)
+	health_component.dano_recebido.connect(_on_dano_recebido)
+	health_component.morreu.connect(_on_morreu)
 
 	go_to_idle_state()
 
 
 func _physics_process(delta: float) -> void:
+	if status == PlayerState.DEAD:
+		return
+
+	if status == PlayerState.DAMAGE:
+		if not is_on_floor():
+			velocity.y += get_gravity().y * GRAVITY_MULTIPLIER * delta
+
+		velocity.x = move_toward(
+			velocity.x,
+			0.0,
+			1000.0 * delta
+		)
+
+		move_and_slide()
+		return
+
 	if is_on_floor():
 		coyote_timer = coyote_time
 	else:
@@ -54,13 +77,14 @@ func _physics_process(delta: float) -> void:
 			velocity += get_gravity() * GRAVITY_MULTIPLIER * delta
 
 	if Input.is_action_just_pressed("atacar") \
-	and is_on_floor() \
 	and status in [
 		PlayerState.IDLE,
 		PlayerState.TRANSITION,
 		PlayerState.WALK,
-		PlayerState.STOP
+		PlayerState.STOP,
+		PlayerState.JUMP
 	]:
+		print("Estado atual: ", PlayerState.keys()[status])
 		go_to_attack_state()
 
 	match status:
@@ -89,12 +113,14 @@ func _physics_process(delta: float) -> void:
 		PlayerState.ATTACK:
 			attack_state()
 
+	
 	move_and_slide()
 
 
 # ==========================================
 # ESTADOS
 # ==========================================
+
 
 func go_to_idle_state():
 	status = PlayerState.IDLE
@@ -137,16 +163,28 @@ func go_to_dialogue_state():
 	
 func go_to_attack_state():
 	status = PlayerState.ATTACK
-	velocity.x = 0
 	alvos_atingidos.clear()
 
 	atualizar_direcao_ataque()
 	attack_area.monitoring = true
 
-	print("Ataque iniciado!")
-	print("Monitoring: ", attack_area.monitoring)
-
 	anim.play("ataque")
+
+func go_to_damage_state() -> void:
+	if status == PlayerState.DEAD:
+		return
+
+	status = PlayerState.DAMAGE
+	velocity.x = 0
+	anim.play("dano")
+
+
+func go_to_dead_state() -> void:
+	status = PlayerState.DEAD
+	velocity = Vector2.ZERO
+	attack_area.monitoring = false
+	$CollisionShape2D.set_deferred("disabled", true)
+	anim.play("die")
 
 # ==========================================
 # IDLE
@@ -169,7 +207,19 @@ func idle_state():
 # ATTACK
 # ==========================================
 func attack_state():
-	velocity.x = 0
+	var direction := Input.get_axis("ui_left", "ui_right")
+
+	if direction != 0:
+		velocity.x = direction * SPEED
+
+		if direction > 0:
+			anim.flip_h = false
+		else:
+			anim.flip_h = true
+
+		atualizar_direcao_ataque()
+	else:
+		velocity.x = move_toward(velocity.x, 0.0, SPEED * 0.5)
 # ==========================================
 # TRANSITION
 # ==========================================
@@ -320,17 +370,43 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 			if status == PlayerState.ATTACK:
 				attack_area.monitoring = false
 
-				var direction := Input.get_axis(
-					"ui_left", "ui_right"
-				)
-
-				if direction != 0:
-					go_to_transition_state()
+				if not is_on_floor():
+					status = PlayerState.JUMP
+					anim.play("jump")
 				else:
-					go_to_idle_state()
+					var direction := Input.get_axis(
+						"ui_left", "ui_right"
+					)
+
+					if direction != 0:
+						go_to_transition_state()
+					else:
+						go_to_idle_state()
+		"dano":
+			if status == PlayerState.DAMAGE:
+				go_to_idle_state()
+
+		"die":
+			if status == PlayerState.DEAD:
+				get_tree().call_deferred("change_scene_to_file", "res://scenes/UI/morte.tscn")
 
 	animation_finished_custom.emit(anim.animation)
 
+func _on_dano_recebido(direcao_impacto: float = 0.0) -> void:
+	go_to_damage_state()
+
+	var direcao := direcao_impacto
+
+	# Se o dano não informar a direção, usa a orientação da Lucy.
+	if direcao == 0.0:
+		direcao = 1.0 if anim.flip_h else -1.0
+
+	velocity.x = direcao * forca_knockback_x
+	velocity.y = forca_knockback_y
+
+		
+func _on_morreu() -> void:
+	go_to_dead_state()
 
 
 func _on_attack_area_body_entered(body: Node2D) -> void:

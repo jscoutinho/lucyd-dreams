@@ -7,9 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://mi2xme2i2yc6" path="res://assets/entidades/inimigos/m-altura/m-altura-levantando.png" id="4_6aybh"]
 [ext_resource type="Texture2D" uid="uid://dcjj3mn87oemk" path="res://assets/entidades/inimigos/m-altura/m-altura-transformando.png" id="5_s2r3l"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sa2ql"]
-radius = 101.0
-height = 202.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42tc5"]
+size = Vector2(210, 220)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fucb5"]
 atlas = ExtResource("1_0ejx0")
@@ -312,7 +311,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jg7pa")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"morrendo",
 "speed": 11.0
 }, {
@@ -396,14 +395,29 @@ animations = [{
 "speed": 21.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_sa2ql"]
+radius = 308.00162
+
 [node name="MedoAltura" type="CharacterBody2D" unique_id=1699131937]
 script = ExtResource("1_70iik")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1072947116]
-position = Vector2(11, 32)
-shape = SubResource("CapsuleShape2D_sa2ql")
+position = Vector2(4, 19)
+shape = SubResource("RectangleShape2D_42tc5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=697844909]
 sprite_frames = SubResource("SpriteFrames_ov4ip")
 animation = &"andando"
 autoplay = "andando"
+
+[node name="SensorChao" type="RayCast2D" parent="." unique_id=677555967]
+position = Vector2(118, 82)
+
+[node name="AreaDeteccao" type="Area2D" parent="." unique_id=203665308]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccao" unique_id=1316597925]
+shape = SubResource("CircleShape2D_sa2ql")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="AreaDeteccao" to="." method="_on_area_deteccao_body_entered"]
+[connection signal="body_exited" from="AreaDeteccao" to="." method="_on_area_deteccao_body_exited"]

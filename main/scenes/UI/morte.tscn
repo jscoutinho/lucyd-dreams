@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://5rkpcwvolimx"]
+
+[ext_resource type="Script" uid="uid://vkil4voda4av" path="res://scripts/UI/morte.gd" id="1_u8enf"]
+
+[node name="Morte" type="Node2D" unique_id=1194767124]
+script = ExtResource("1_u8enf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2021890802]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=109027762]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15258516, 0, 0.20126295, 1)
+
+[node name="Voltar" type="Button" parent="CanvasLayer" unique_id=2121376506]
+offset_left = 316.0
+offset_top = 569.0
+offset_right = 523.0
+offset_bottom = 662.0
+text = "Voltar"
+
+[node name="Sair para o Menu" type="Button" parent="CanvasLayer" unique_id=994370238]
+offset_left = 1074.0
+offset_top = 578.0
+offset_right = 1214.0
+offset_bottom = 665.0
+text = "Sair para o Menu"
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1565990847]
+offset_left = 633.0
+offset_top = 314.0
+offset_right = 898.0
+offset_bottom = 371.0
+theme_override_font_sizes/font_size = 41
+text = "Você Morreu!"
+
+[connection signal="pressed" from="CanvasLayer/Voltar" to="." method="_on_voltar_pressed"]
+[connection signal="pressed" from="CanvasLayer/Sair para o Menu" to="." method="_on_sair_para_o_menu_pressed"]

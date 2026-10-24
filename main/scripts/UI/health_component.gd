@@ -4,7 +4,6 @@ extends Node
 
 signal vida_alterada(vida_atual: int, vida_maxima: int)
 signal morreu
-signal dano_recebido
 
 @export var vida_maxima: int = 4
 @export var tempo_invulnerabilidade: float = 1.0
@@ -17,28 +16,30 @@ func _ready() -> void:
 	vida_atual = vida_maxima
 	vida_alterada.emit(vida_atual, vida_maxima)
 
+signal dano_recebido(direcao_impacto: float)
 
-func receber_dano(quantidade: int = 1) -> void:
+func receber_dano(
+	quantidade: int = 1,
+	direcao_impacto: float = 0.0
+) -> void:
 	if invulneravel or vida_atual <= 0 or quantidade <= 0:
 		return
 
 	invulneravel = true
-
 	vida_atual = max(vida_atual - quantidade, 0)
 
 	print("Vida atual: ", vida_atual)
-
 	vida_alterada.emit(vida_atual, vida_maxima)
-	dano_recebido.emit()
+	dano_recebido.emit(direcao_impacto)
 
 	if vida_atual <= 0:
 		morreu.emit()
 		return
+
 	lucy_anim.modulate.a = 0.8
 	await get_tree().create_timer(tempo_invulnerabilidade).timeout
-	lucy_anim.modulate.a = 1
+	lucy_anim.modulate.a = 1.0
 	invulneravel = false
-
 
 func curar(quantidade: int = 1) -> void:
 	if vida_atual <= 0 or quantidade <= 0:
