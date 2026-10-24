@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ckk5pebmwb5p7"]
 
 [ext_resource type="Texture2D" uid="uid://ckywq7qyaho6s" path="res://assets/entidades/inimigos/m-altura/m-altura-andando.png" id="1_0ejx0"]
+[ext_resource type="Script" uid="uid://ccek5e37ol1sc" path="res://scripts/entidades/inimgos/medo_altura.gd" id="1_70iik"]
 [ext_resource type="Texture2D" uid="uid://ctqctr8qjf0fj" path="res://assets/entidades/inimigos/m-altura/m-altura-dano.png" id="2_70iik"]
 [ext_resource type="Texture2D" uid="uid://cekwsp8hbgv4v" path="res://assets/entidades/inimigos/m-altura/m-altura-destruindo.png" id="3_b2gka"]
 [ext_resource type="Texture2D" uid="uid://mi2xme2i2yc6" path="res://assets/entidades/inimigos/m-altura/m-altura-levantando.png" id="4_6aybh"]
@@ -396,6 +397,7 @@ animations = [{
 }]
 
 [node name="MedoAltura" type="CharacterBody2D" unique_id=1699131937]
+script = ExtResource("1_70iik")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1072947116]
 position = Vector2(11, 32)
@@ -403,6 +405,5 @@ shape = SubResource("CapsuleShape2D_sa2ql")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=697844909]
 sprite_frames = SubResource("SpriteFrames_ov4ip")
-animation = &"surgindo"
-frame = 12
-frame_progress = 1.0
+animation = &"andando"
+autoplay = "andando"

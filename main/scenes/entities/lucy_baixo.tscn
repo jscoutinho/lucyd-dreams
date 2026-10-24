@@ -350,6 +350,9 @@ animations = [{
 radius = 29.0
 height = 174.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wwuq"]
+size = Vector2(92, 59)
+
 [node name="Lucy_fora" type="CharacterBody2D" unique_id=1039624184 groups=["Player"]]
 z_index = 1
 script = ExtResource("1_k4dj6")
@@ -364,7 +367,6 @@ frame = 4
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=221983422]
-visible = false
 shape = SubResource("CapsuleShape2D_ov4ip")
 
 [node name="HealthComponent" type="Control" parent="." unique_id=616352845 groups=["Player"]]
@@ -372,4 +374,11 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("5_k4dj6")
 
+[node name="AttackArea" type="Area2D" parent="." unique_id=399780419]
+position = Vector2(76, 30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=839594350]
+shape = SubResource("RectangleShape2D_8wwuq")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

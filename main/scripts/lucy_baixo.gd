@@ -5,6 +5,9 @@ signal animation_finished_custom(animation_name: String)
 @export var coyote_time :float = 0.15
 var coyote_timer : float = 0
 
+
+var attack_area_posicao_inicial: Vector2
+
 enum PlayerState {
 	IDLE,
 	TRANSITION,
@@ -13,10 +16,13 @@ enum PlayerState {
 	JUMP,
 	WAKE_UP,
 	DIALOGUE,
-	
+	ATTACK
 }
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var attack_area: Area2D = $AttackArea
+
+var alvos_atingidos: Array[Node2D] = []
 
 const SPEED = 400.0
 const JUMP_VELOCITY = -900.0
@@ -29,6 +35,11 @@ func _input(event: InputEvent) -> void:
 		$HealthComponent.receber_dano(1)
 
 func _ready() -> void:
+	attack_area_posicao_inicial = attack_area.position
+
+	attack_area.monitoring = false
+	attack_area.body_entered.connect(_on_attack_area_body_entered)
+
 	go_to_idle_state()
 
 
@@ -42,7 +53,15 @@ func _physics_process(delta: float) -> void:
 		and status != PlayerState.DIALOGUE:
 			velocity += get_gravity() * GRAVITY_MULTIPLIER * delta
 
-		
+	if Input.is_action_just_pressed("atacar") \
+	and is_on_floor() \
+	and status in [
+		PlayerState.IDLE,
+		PlayerState.TRANSITION,
+		PlayerState.WALK,
+		PlayerState.STOP
+	]:
+		go_to_attack_state()
 
 	match status:
 
@@ -66,6 +85,9 @@ func _physics_process(delta: float) -> void:
 
 		PlayerState.DIALOGUE:
 			dialogue_state()
+
+		PlayerState.ATTACK:
+			attack_state()
 
 	move_and_slide()
 
@@ -112,6 +134,19 @@ func go_to_dialogue_state():
 	status = PlayerState.DIALOGUE
 	velocity = Vector2.ZERO
 	anim.play("idle")
+	
+func go_to_attack_state():
+	status = PlayerState.ATTACK
+	velocity.x = 0
+	alvos_atingidos.clear()
+
+	atualizar_direcao_ataque()
+	attack_area.monitoring = true
+
+	print("Ataque iniciado!")
+	print("Monitoring: ", attack_area.monitoring)
+
+	anim.play("ataque")
 
 # ==========================================
 # IDLE
@@ -130,6 +165,11 @@ func idle_state():
 		return
 
 
+# ==========================================
+# ATTACK
+# ==========================================
+func attack_state():
+	velocity.x = 0
 # ==========================================
 # TRANSITION
 # ==========================================
@@ -242,6 +282,8 @@ func move():
 
 	elif direction < 0:
 		anim.flip_h = true
+		
+	atualizar_direcao_ataque()
 
 
 # ==========================================
@@ -274,4 +316,37 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 			if status == PlayerState.WAKE_UP:
 				go_to_idle_state()
 
+		"ataque":
+			if status == PlayerState.ATTACK:
+				attack_area.monitoring = false
+
+				var direction := Input.get_axis(
+					"ui_left", "ui_right"
+				)
+
+				if direction != 0:
+					go_to_transition_state()
+				else:
+					go_to_idle_state()
+
 	animation_finished_custom.emit(anim.animation)
+
+
+
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	print("Área de ataque detectou: ", body.name)
+	if status != PlayerState.ATTACK:
+		return
+
+	if body in alvos_atingidos:
+		return
+
+	if body.has_method("receber_dano"):
+		alvos_atingidos.append(body)
+		body.receber_dano(1)
+		
+func atualizar_direcao_ataque() -> void:
+	if anim.flip_h:
+		attack_area.position.x = -abs(attack_area_posicao_inicial.x)
+	else:
+		attack_area.position.x = abs(attack_area_posicao_inicial.x)

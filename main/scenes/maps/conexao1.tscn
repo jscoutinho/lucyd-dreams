@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dsah2vrli1sr3" path="res://scripts/camera.gd" id="3_qmos4"]
 [ext_resource type="PackedScene" uid="uid://cfnqub7mfff3o" path="res://scenes/UI/hud.tscn" id="4_t3oom"]
 [ext_resource type="PackedScene" uid="uid://fiun316knl7d" path="res://scenes/UI/menu_pause.tscn" id="5_5e4dc"]
+[ext_resource type="PackedScene" uid="uid://ckk5pebmwb5p7" path="res://scenes/entities/inimigos/medo_altura.tscn" id="5_42tc5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
 size = Vector2(698, 137)
@@ -136,7 +137,6 @@ texture = ExtResource("1_4mw46")
 position = Vector2(2085, 809)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1206293218]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1469998666]
 position = Vector2(2076, 948)
@@ -286,5 +286,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Monstros" type="Node" parent="." unique_id=206172749]
+
+[node name="MedoAltura" parent="Monstros" unique_id=1699131937 instance=ExtResource("5_42tc5")]
+position = Vector2(95, 639)
 
 [node name="menu_pause" parent="." unique_id=204628948 instance=ExtResource("5_5e4dc")]
