@@ -373,6 +373,7 @@ shape = SubResource("CapsuleShape2D_ov4ip")
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("5_k4dj6")
+metadata/_edit_use_anchors_ = true
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=399780419]
 position = Vector2(76, 30)

@@ -36,10 +36,6 @@ const GRAVITY_MULTIPLIER = 2.7
 
 var status: PlayerState
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("testar_dano"):
-		$HealthComponent.receber_dano(1)
-
 func _ready() -> void:
 	attack_area_posicao_inicial = attack_area.position
 
