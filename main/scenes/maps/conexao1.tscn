@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dp7cepw1q4oum"]
 
+[ext_resource type="Script" uid="uid://cio4nedspg2d0" path="res://scripts/cenas/conexao_1.gd" id="1_3ooyu"]
 [ext_resource type="Texture2D" uid="uid://dmka74bnroef2" path="res://assets/jogo/caverna/conexao_caverna.png" id="1_4mw46"]
 [ext_resource type="Script" uid="uid://davybokyhxrpt" path="res://scripts/lucy_baixo.gd" id="2_6c3tu"]
 [ext_resource type="Texture2D" uid="uid://diarse4ygqkpj" path="res://assets/entidades/lucy/baixo/anim-ataque.png" id="3_3ooyu"]
@@ -475,9 +476,13 @@ _data = {
 &"fade_out": SubResource("Animation_42tc5")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlqam"]
+size = Vector2(34, 383)
+
 [node name="conexao" type="Control" unique_id=578286236]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_3ooyu")
 metadata/_edit_vertical_guides_ = [-2422.0, 2422.0]
 metadata/_edit_horizontal_guides_ = [984.0, -984.0]
 
@@ -486,7 +491,7 @@ texture = ExtResource("1_4mw46")
 
 [node name="Lucy_fora" type="CharacterBody2D" parent="." unique_id=1039624184 groups=["Player"]]
 z_index = 1
-position = Vector2(2387, 809)
+position = Vector2(2282, 801)
 script = ExtResource("2_6c3tu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Lucy_fora" unique_id=804095773]
@@ -675,5 +680,13 @@ position = Vector2(126, 620)
 
 [node name="menu_pause" parent="." unique_id=204628948 instance=ExtResource("5_5e4dc")]
 
+[node name="Area2D" type="Area2D" parent="." unique_id=387516637]
+position = Vector2(2446, 869)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=612618793]
+position = Vector2(-7, -183.5)
+shape = SubResource("RectangleShape2D_xlqam")
+
 [connection signal="animation_finished" from="Lucy_fora/AnimatedSprite2D" to="Lucy_fora" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Lucy_fora/AttackArea" to="Lucy_fora" method="_on_attack_area_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
