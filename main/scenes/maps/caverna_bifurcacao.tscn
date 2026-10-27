@@ -523,5 +523,8 @@ autoplay = &"fade_in"
 
 [node name="menu_pause" parent="." unique_id=204628948 instance=ExtResource("5_fgu73")]
 
+[node name="SpawnEsquerda" type="Marker2D" parent="." unique_id=1986893438]
+position = Vector2(44, 754)
+
 [connection signal="body_entered" from="Direita" to="." method="_on_direita_body_entered"]
 [connection signal="body_entered" from="Esquerda" to="." method="_on_esquerda_body_entered"]

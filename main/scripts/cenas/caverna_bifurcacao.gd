@@ -1,6 +1,11 @@
 extends Node2D
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
+func _ready():
+	if GameManager.came_from == "conexao1":
+		var marker = $SpawnEsquerda
+		$Lucy_fora.global_position = marker.global_position
+
 
 func _on_direita_body_entered(body: Node2D) -> void:
 	anim.play("fade_out")
@@ -8,6 +13,8 @@ func _on_direita_body_entered(body: Node2D) -> void:
 
 
 func _on_esquerda_body_entered(body: Node2D) -> void:
+	GameManager.spawn_marker = "SpawnEsquerda"
+	GameManager.came_from = "conexao1"
 	anim.play("fade_out")
 
 

@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://dp7cepw1q4oum"]
 
 [ext_resource type="Script" uid="uid://cio4nedspg2d0" path="res://scripts/cenas/conexao_1.gd" id="1_3ooyu"]
-[ext_resource type="Texture2D" uid="uid://dmka74bnroef2" path="res://assets/jogo/caverna/conexao_caverna.png" id="1_4mw46"]
 [ext_resource type="Script" uid="uid://davybokyhxrpt" path="res://scripts/lucy_baixo.gd" id="2_6c3tu"]
+[ext_resource type="Texture2D" uid="uid://b6pmtxoc2olt0" path="res://assets/jogo/caverna/conexao1/conexao1_bg.png" id="2_pl1w2"]
 [ext_resource type="Texture2D" uid="uid://diarse4ygqkpj" path="res://assets/entidades/lucy/baixo/anim-ataque.png" id="3_3ooyu"]
+[ext_resource type="Texture2D" uid="uid://d5rxpypop5e" path="res://assets/jogo/caverna/conexao1/conexao1_p1.png" id="3_40cw5"]
 [ext_resource type="Script" uid="uid://dsah2vrli1sr3" path="res://scripts/camera.gd" id="3_qmos4"]
 [ext_resource type="Texture2D" uid="uid://dtprhgpsq38bf" path="res://assets/entidades/lucy/baixo/lucy_dano.png" id="4_js5cy"]
+[ext_resource type="Texture2D" uid="uid://ddpcdj7qibyf6" path="res://assets/jogo/caverna/conexao1/conexao1_plataformas.png" id="4_kaci1"]
 [ext_resource type="PackedScene" uid="uid://cfnqub7mfff3o" path="res://scenes/UI/hud.tscn" id="4_t3oom"]
 [ext_resource type="PackedScene" uid="uid://fiun316knl7d" path="res://scenes/UI/menu_pause.tscn" id="5_5e4dc"]
 [ext_resource type="PackedScene" uid="uid://ckk5pebmwb5p7" path="res://scenes/entities/inimigos/medo_altura.tscn" id="5_42tc5"]
+[ext_resource type="Texture2D" uid="uid://blo33gq63xk8l" path="res://assets/jogo/caverna/conexao1/conexao1_frente.png" id="5_uaabf"]
 [ext_resource type="Texture2D" uid="uid://cfsljcr42fl8g" path="res://assets/entidades/lucy/baixo/lucy-die.png" id="5_vtitf"]
 [ext_resource type="Texture2D" uid="uid://ce7bm1oxyoqh2" path="res://assets/entidades/lucy/baixo/lucy-idle-baixo.png" id="6_pl1w2"]
 [ext_resource type="Texture2D" uid="uid://dc0gq3k1j877i" path="res://assets/entidades/lucy/baixo/lucy-pulando-baixo.png" id="7_40cw5"]
@@ -486,15 +489,30 @@ script = ExtResource("1_3ooyu")
 metadata/_edit_vertical_guides_ = [-2422.0, 2422.0]
 metadata/_edit_horizontal_guides_ = [984.0, -984.0]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1720776468]
-texture = ExtResource("1_4mw46")
+[node name="Parallaxes" type="Node2D" parent="." unique_id=1155331536]
 
-[node name="Lucy_fora" type="CharacterBody2D" parent="." unique_id=1039624184 groups=["Player"]]
+[node name="Background" type="Parallax2D" parent="Parallaxes" unique_id=78198233]
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallaxes/Background" unique_id=1720776468]
+texture = ExtResource("2_pl1w2")
+
+[node name="Parallax1" type="Parallax2D" parent="Parallaxes" unique_id=115193199]
+scroll_scale = Vector2(0.95, 0.95)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallaxes/Parallax1" unique_id=2071368609]
+texture = ExtResource("3_40cw5")
+
+[node name="Plataformas" type="Parallax2D" parent="Parallaxes" unique_id=324619470]
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallaxes" unique_id=445874253]
+texture = ExtResource("4_kaci1")
+
+[node name="Lucy_fora" type="CharacterBody2D" parent="Parallaxes" unique_id=1039624184 groups=["Player"]]
 z_index = 1
 position = Vector2(2282, 801)
 script = ExtResource("2_6c3tu")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Lucy_fora" unique_id=804095773]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Parallaxes/Lucy_fora" unique_id=804095773]
 modulate = Color(1, 1, 1, 0.9647059)
 position = Vector2(0, -27)
 sprite_frames = SubResource("SpriteFrames_u7n6m")
@@ -504,20 +522,27 @@ frame = 5
 frame_progress = 1.0
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lucy_fora" unique_id=221983422]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parallaxes/Lucy_fora" unique_id=221983422]
 shape = SubResource("CapsuleShape2D_ov4ip")
 
-[node name="HealthComponent" type="Control" parent="Lucy_fora" unique_id=616352845 groups=["Player"]]
+[node name="HealthComponent" type="Control" parent="Parallaxes/Lucy_fora" unique_id=616352845 groups=["Player"]]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("9_uaabf")
 metadata/_edit_use_anchors_ = true
 
-[node name="AttackArea" type="Area2D" parent="Lucy_fora" unique_id=399780419]
+[node name="AttackArea" type="Area2D" parent="Parallaxes/Lucy_fora" unique_id=399780419]
 position = Vector2(-76, 30)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lucy_fora/AttackArea" unique_id=839594350]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parallaxes/Lucy_fora/AttackArea" unique_id=839594350]
 shape = SubResource("RectangleShape2D_8wwuq")
+
+[node name="Frente" type="Parallax2D" parent="Parallaxes" unique_id=1609277495]
+z_index = 2
+scroll_scale = Vector2(1.05, 1.05)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallaxes/Frente" unique_id=1937484268]
+texture = ExtResource("5_uaabf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1206293218]
 
@@ -687,6 +712,6 @@ position = Vector2(2446, 869)
 position = Vector2(-7, -183.5)
 shape = SubResource("RectangleShape2D_xlqam")
 
-[connection signal="animation_finished" from="Lucy_fora/AnimatedSprite2D" to="Lucy_fora" method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="body_entered" from="Lucy_fora/AttackArea" to="Lucy_fora" method="_on_attack_area_body_entered"]
+[connection signal="animation_finished" from="Parallaxes/Lucy_fora/AnimatedSprite2D" to="Parallaxes/Lucy_fora" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Parallaxes/Lucy_fora/AttackArea" to="Parallaxes/Lucy_fora" method="_on_attack_area_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
