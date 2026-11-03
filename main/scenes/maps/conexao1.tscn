@@ -5,7 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://b6pmtxoc2olt0" path="res://assets/jogo/caverna/conexao1/conexao1_bg.png" id="2_pl1w2"]
 [ext_resource type="Texture2D" uid="uid://diarse4ygqkpj" path="res://assets/entidades/lucy/baixo/anim-ataque.png" id="3_3ooyu"]
 [ext_resource type="Texture2D" uid="uid://d5rxpypop5e" path="res://assets/jogo/caverna/conexao1/conexao1_p1.png" id="3_40cw5"]
+[ext_resource type="Texture2D" uid="uid://behd63m8uyj8q" path="res://assets/jogo/caverna/conexao1/conexao1_p3.png" id="3_jqf00"]
 [ext_resource type="Script" uid="uid://dsah2vrli1sr3" path="res://scripts/camera.gd" id="3_qmos4"]
+[ext_resource type="Texture2D" uid="uid://omor3v5j4ses" path="res://assets/jogo/caverna/conexao1/conexao1_p2.png" id="4_hclom"]
 [ext_resource type="Texture2D" uid="uid://dtprhgpsq38bf" path="res://assets/entidades/lucy/baixo/lucy_dano.png" id="4_js5cy"]
 [ext_resource type="Texture2D" uid="uid://ddpcdj7qibyf6" path="res://assets/jogo/caverna/conexao1/conexao1_plataformas.png" id="4_kaci1"]
 [ext_resource type="PackedScene" uid="uid://cfnqub7mfff3o" path="res://scenes/UI/hud.tscn" id="4_t3oom"]
@@ -14,7 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://blo33gq63xk8l" path="res://assets/jogo/caverna/conexao1/conexao1_frente.png" id="5_uaabf"]
 [ext_resource type="Texture2D" uid="uid://cfsljcr42fl8g" path="res://assets/entidades/lucy/baixo/lucy-die.png" id="5_vtitf"]
 [ext_resource type="Texture2D" uid="uid://ce7bm1oxyoqh2" path="res://assets/entidades/lucy/baixo/lucy-idle-baixo.png" id="6_pl1w2"]
+[ext_resource type="Texture2D" uid="uid://cti1p54jbq787" path="res://assets/jogo/caverna/conexao1/conexao1_agua.png" id="6_yimup"]
 [ext_resource type="Texture2D" uid="uid://dc0gq3k1j877i" path="res://assets/entidades/lucy/baixo/lucy-pulando-baixo.png" id="7_40cw5"]
+[ext_resource type="Texture2D" uid="uid://beei6dtfejqpk" path="res://assets/jogo/caverna/conexao1/conexao1_props.png" id="8_80qo6"]
 [ext_resource type="Texture2D" uid="uid://rw5i5e2g101u" path="res://assets/entidades/lucy/baixo/lucy_correndo.png" id="8_kaci1"]
 [ext_resource type="Script" uid="uid://yx4ywk8qt5ov" path="res://scripts/UI/health_component.gd" id="9_uaabf"]
 
@@ -458,6 +462,36 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_pl1w2"]
+resource_name = "fade_in_dir"
+length = 0.46666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"ir_direita"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_42tc5"]
 resource_name = "fade_out"
 tracks/0/type = "value"
@@ -476,6 +510,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vguos"]
 _data = {
 &"RESET": SubResource("Animation_5e4dc"),
+&"fade_in_dir": SubResource("Animation_pl1w2"),
 &"fade_out": SubResource("Animation_42tc5")
 }
 
@@ -496,16 +531,35 @@ metadata/_edit_horizontal_guides_ = [984.0, -984.0]
 [node name="Sprite2D" type="Sprite2D" parent="Parallaxes/Background" unique_id=1720776468]
 texture = ExtResource("2_pl1w2")
 
+[node name="Parallax3" type="Parallax2D" parent="Parallaxes" unique_id=459449057]
+scroll_scale = Vector2(0.85, 0.85)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallaxes/Parallax3" unique_id=24303286]
+texture = ExtResource("3_jqf00")
+
+[node name="Parallax2" type="Parallax2D" parent="Parallaxes" unique_id=1841041466]
+scroll_scale = Vector2(0.9, 0.9)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallaxes/Parallax2" unique_id=1698197566]
+texture = ExtResource("4_hclom")
+
 [node name="Parallax1" type="Parallax2D" parent="Parallaxes" unique_id=115193199]
 scroll_scale = Vector2(0.95, 0.95)
+scroll_offset = Vector2(77, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallaxes/Parallax1" unique_id=2071368609]
 texture = ExtResource("3_40cw5")
 
 [node name="Plataformas" type="Parallax2D" parent="Parallaxes" unique_id=324619470]
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallaxes" unique_id=445874253]
+[node name="agua" type="Sprite2D" parent="Parallaxes/Plataformas" unique_id=950015173]
+texture = ExtResource("6_yimup")
+
+[node name="Plats" type="Sprite2D" parent="Parallaxes/Plataformas" unique_id=445874253]
 texture = ExtResource("4_kaci1")
+
+[node name="Props" type="Sprite2D" parent="Parallaxes/Plataformas" unique_id=1844925709]
+texture = ExtResource("8_80qo6")
 
 [node name="Lucy_fora" type="CharacterBody2D" parent="Parallaxes" unique_id=1039624184 groups=["Player"]]
 z_index = 1
@@ -540,6 +594,7 @@ shape = SubResource("RectangleShape2D_8wwuq")
 [node name="Frente" type="Parallax2D" parent="Parallaxes" unique_id=1609277495]
 z_index = 2
 scroll_scale = Vector2(1.05, 1.05)
+scroll_offset = Vector2(29, 8)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallaxes/Frente" unique_id=1937484268]
 texture = ExtResource("5_uaabf")
