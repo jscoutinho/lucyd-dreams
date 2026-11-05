@@ -36,7 +36,7 @@ func show_dialogue(dialogue: Array, sujeito: String):
 	nome.text = sujeito
 	show()
 
-	var player = get_tree().current_scene.get_node("Lucy")
+	var player = get_tree().get_first_node_in_group("Player")
 	player.go_to_dialogue_state()
 
 	start_typing()
@@ -53,7 +53,7 @@ func show_conversation(conversation: Array):
 
 	show()
 
-	var player = get_tree().current_scene.get_node("Lucy")
+	var player = get_tree().get_first_node_in_group("Player")
 	player.go_to_dialogue_state()
 
 	start_conversation_line()
@@ -102,7 +102,7 @@ func _process(delta):
 			hide()
 			active = false
 
-			var player = get_tree().current_scene.get_node("Lucy")
+			var player = get_tree().get_first_node_in_group("Player")
 			player.exit_dialogue()
 
 			finished.emit()
@@ -146,7 +146,7 @@ func next_conversation_line():
 		active = false
 		conversation_active = false
 
-		var player = get_tree().current_scene.get_node("Lucy")
+		var player = get_tree().get_first_node_in_group("Player")
 		player.exit_dialogue()
 
 		finished.emit()

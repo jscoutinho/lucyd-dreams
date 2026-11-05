@@ -384,6 +384,8 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 		"die":
 			if status == PlayerState.DEAD:
+				GameManager.spawn_marker = ""
+				GameManager.came_from = ""
 				get_tree().call_deferred("change_scene_to_file", "res://scenes/UI/morte.tscn")
 
 	animation_finished_custom.emit(anim.animation)

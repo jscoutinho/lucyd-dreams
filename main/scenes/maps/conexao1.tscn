@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://ddpcdj7qibyf6" path="res://assets/jogo/caverna/conexao1/conexao1_plataformas.png" id="4_kaci1"]
 [ext_resource type="PackedScene" uid="uid://cfnqub7mfff3o" path="res://scenes/UI/hud.tscn" id="4_t3oom"]
 [ext_resource type="PackedScene" uid="uid://fiun316knl7d" path="res://scenes/UI/menu_pause.tscn" id="5_5e4dc"]
-[ext_resource type="PackedScene" uid="uid://ckk5pebmwb5p7" path="res://scenes/entities/inimigos/medo_altura.tscn" id="5_42tc5"]
 [ext_resource type="Texture2D" uid="uid://blo33gq63xk8l" path="res://assets/jogo/caverna/conexao1/conexao1_frente.png" id="5_uaabf"]
 [ext_resource type="Texture2D" uid="uid://cfsljcr42fl8g" path="res://assets/entidades/lucy/baixo/lucy-die.png" id="5_vtitf"]
 [ext_resource type="Texture2D" uid="uid://ce7bm1oxyoqh2" path="res://assets/entidades/lucy/baixo/lucy-idle-baixo.png" id="6_pl1w2"]
@@ -21,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://beei6dtfejqpk" path="res://assets/jogo/caverna/conexao1/conexao1_props.png" id="8_80qo6"]
 [ext_resource type="Texture2D" uid="uid://rw5i5e2g101u" path="res://assets/entidades/lucy/baixo/lucy_correndo.png" id="8_kaci1"]
 [ext_resource type="Script" uid="uid://yx4ywk8qt5ov" path="res://scripts/UI/health_component.gd" id="9_uaabf"]
+[ext_resource type="PackedScene" uid="uid://dfv4mrclyv3gn" path="res://scenes/entities/inimigos/lagarta.tscn" id="20_jqf00"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wws87"]
 atlas = ExtResource("3_3ooyu")
@@ -367,7 +367,7 @@ height = 174.0
 size = Vector2(92, 59)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
-size = Vector2(698, 137)
+size = Vector2(734, 137)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ov4ip"]
 size = Vector2(734.5, 62.5)
@@ -420,9 +420,6 @@ size = Vector2(165, 242)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dx840"]
 size = Vector2(992, 66)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tf5hl"]
-size = Vector2(3440, 20)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1l0s"]
 size = Vector2(112, 26)
 
@@ -447,6 +444,9 @@ size = Vector2(192, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hkw67"]
 size = Vector2(241, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tf5hl"]
+size = Vector2(3423, 34)
+
 [sub_resource type="Animation" id="Animation_5e4dc"]
 length = 0.001
 tracks/0/type = "value"
@@ -460,6 +460,36 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jqf00"]
+resource_name = "fade_in"
+length = 0.46666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.39999998),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"esq_ou_dir"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_pl1w2"]
@@ -510,6 +540,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vguos"]
 _data = {
 &"RESET": SubResource("Animation_5e4dc"),
+&"fade_in_agua": SubResource("Animation_jqf00"),
 &"fade_in_dir": SubResource("Animation_pl1w2"),
 &"fade_out": SubResource("Animation_42tc5")
 }
@@ -594,7 +625,7 @@ shape = SubResource("RectangleShape2D_8wwuq")
 [node name="Frente" type="Parallax2D" parent="Parallaxes" unique_id=1609277495]
 z_index = 2
 scroll_scale = Vector2(1.05, 1.05)
-scroll_offset = Vector2(29, 8)
+scroll_offset = Vector2(89, 5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallaxes/Frente" unique_id=1937484268]
 texture = ExtResource("5_uaabf")
@@ -602,7 +633,7 @@ texture = ExtResource("5_uaabf")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1206293218]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1469998666]
-position = Vector2(2076, 948)
+position = Vector2(2094, 948)
 shape = SubResource("RectangleShape2D_sa2ql")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1898075559]
@@ -682,10 +713,6 @@ shape = SubResource("RectangleShape2D_3x0uh")
 position = Vector2(-1925, -321)
 shape = SubResource("RectangleShape2D_dx840")
 
-[node name="Agua" type="CollisionShape2D" parent="StaticBody2D" unique_id=1528561989]
-position = Vector2(19, 979)
-shape = SubResource("RectangleShape2D_tf5hl")
-
 [node name="CollisionShape2D19" type="CollisionShape2D" parent="StaticBody2D" unique_id=1526377234]
 position = Vector2(-1377, -178)
 shape = SubResource("RectangleShape2D_g1l0s")
@@ -724,6 +751,12 @@ position = Vector2(1235, -414)
 shape = SubResource("RectangleShape2D_hkw67")
 one_way_collision = true
 
+[node name="Agua" type="Area2D" parent="." unique_id=2022332886]
+
+[node name="ColisaoAgua" type="CollisionShape2D" parent="Agua" unique_id=1528561989]
+position = Vector2(11.5, 976)
+shape = SubResource("RectangleShape2D_tf5hl")
+
 [node name="Camera2" type="Camera2D" parent="." unique_id=872375583]
 limit_left = -2422
 limit_top = -984
@@ -752,11 +785,14 @@ color = Color(0, 0, 0, 1)
 
 [node name="Monstros" type="Node" parent="." unique_id=206172749]
 
-[node name="MedoAltura" parent="Monstros" unique_id=1699131937 instance=ExtResource("5_42tc5")]
-position = Vector2(1142, 646)
+[node name="Lagarta" parent="Monstros" unique_id=1699131937 instance=ExtResource("20_jqf00")]
+position = Vector2(-125, 654)
 
-[node name="MedoAltura2" parent="Monstros" unique_id=1617116055 instance=ExtResource("5_42tc5")]
-position = Vector2(126, 620)
+[node name="Lagarta2" parent="Monstros" unique_id=1062331042 instance=ExtResource("20_jqf00")]
+position = Vector2(-44, 165)
+
+[node name="Lagarta3" parent="Monstros" unique_id=1935851574 instance=ExtResource("20_jqf00")]
+position = Vector2(-1649, 145)
 
 [node name="menu_pause" parent="." unique_id=204628948 instance=ExtResource("5_5e4dc")]
 
@@ -767,6 +803,16 @@ position = Vector2(2446, 869)
 position = Vector2(-7, -183.5)
 shape = SubResource("RectangleShape2D_xlqam")
 
+[node name="Spawns" type="Node2D" parent="." unique_id=575714057]
+
+[node name="SpawnBE" type="Marker2D" parent="Spawns" unique_id=745000960]
+position = Vector2(-1920, 813)
+
+[node name="SpawnBD" type="Marker2D" parent="Spawns" unique_id=911509714]
+position = Vector2(1874, 839)
+
 [connection signal="animation_finished" from="Parallaxes/Lucy_fora/AnimatedSprite2D" to="Parallaxes/Lucy_fora" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Parallaxes/Lucy_fora/AttackArea" to="Parallaxes/Lucy_fora" method="_on_attack_area_body_entered"]
+[connection signal="body_entered" from="Agua" to="." method="_on_agua_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
