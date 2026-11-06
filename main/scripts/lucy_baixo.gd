@@ -2,6 +2,9 @@
 extends CharacterBody2D
 signal animation_finished_custom(animation_name: String)
 
+@export var gravidade_pulo: float = 0.7
+@export var multiplicador_pulo: float = 2.0
+
 @export var forca_knockback_x: float = 600.0
 @export var forca_knockback_y: float = -300.0
 @export var coyote_time :float = 0.15
@@ -30,11 +33,12 @@ enum PlayerState {
 
 var alvos_atingidos: Array[Node2D] = []
 
-const SPEED = 400.0
+const SPEED = 500.0
 const JUMP_VELOCITY = -900.0
-const GRAVITY_MULTIPLIER = 2.7
+const GRAVITY_MULTIPLIER = 2.0
 
 var status: PlayerState
+var estado_anterior_ataque: PlayerState
 
 func _ready() -> void:
 	attack_area_posicao_inicial = attack_area.position
@@ -52,7 +56,12 @@ func _physics_process(delta: float) -> void:
 
 	if status == PlayerState.DAMAGE:
 		if not is_on_floor():
-			velocity.y += get_gravity().y * GRAVITY_MULTIPLIER * delta
+			var multiplicador_gravidade = multiplicador_pulo
+
+			if Input.is_action_pressed("ui_accept") and velocity.y < 0:
+				multiplicador_gravidade = gravidade_pulo
+
+			velocity += get_gravity() * GRAVITY_MULTIPLIER * multiplicador_gravidade * delta
 
 		velocity.x = move_toward(
 			velocity.x,
@@ -70,7 +79,12 @@ func _physics_process(delta: float) -> void:
 
 		if status != PlayerState.WAKE_UP \
 		and status != PlayerState.DIALOGUE:
-			velocity += get_gravity() * GRAVITY_MULTIPLIER * delta
+			var multiplicador_gravidade = multiplicador_pulo
+
+			if Input.is_action_pressed("ui_accept") and velocity.y < 0:
+				multiplicador_gravidade = gravidade_pulo
+
+			velocity += get_gravity() * GRAVITY_MULTIPLIER * multiplicador_gravidade * delta
 
 	if Input.is_action_just_pressed("atacar") \
 	and status in [
@@ -158,13 +172,24 @@ func go_to_dialogue_state():
 	anim.play("idle")
 	
 func go_to_attack_state():
+	estado_anterior_ataque = status
 	status = PlayerState.ATTACK
-	alvos_atingidos.clear()
 
+	alvos_atingidos.clear()
 	atualizar_direcao_ataque()
 	attack_area.monitoring = true
 
-	anim.play("ataque")
+	if estado_anterior_ataque == PlayerState.JUMP:
+		anim.play("ataque_pulando")
+
+	elif estado_anterior_ataque in [
+		PlayerState.WALK,
+		PlayerState.TRANSITION
+	]:
+		anim.play("ataque_andando")
+
+	else:
+		anim.play("ataque")
 
 func go_to_damage_state() -> void:
 	if status == PlayerState.DEAD:
@@ -203,19 +228,37 @@ func idle_state():
 # ATTACK
 # ==========================================
 func attack_state():
-	var direction := Input.get_axis("ui_left", "ui_right")
 
-	if direction != 0:
-		velocity.x = direction * SPEED
+	if estado_anterior_ataque == PlayerState.JUMP:
+		# Mantém o controle horizontal no ar
+		var direction := Input.get_axis("ui_left", "ui_right")
 
-		if direction > 0:
-			anim.flip_h = false
+		if direction != 0:
+			velocity.x = direction * SPEED
+			anim.flip_h = direction < 0
+			atualizar_direcao_ataque()
+
+	elif estado_anterior_ataque in [
+		PlayerState.WALK,
+		PlayerState.TRANSITION
+	]:
+		# Mantém a movimentação durante o ataque correndo
+		var direction := Input.get_axis("ui_left", "ui_right")
+
+		if direction != 0:
+			velocity.x = direction * SPEED
+			anim.flip_h = direction < 0
+			atualizar_direcao_ataque()
 		else:
-			anim.flip_h = true
+			velocity.x = move_toward(
+				velocity.x,
+				0.0,
+				SPEED * 0.5
+			)
 
-		atualizar_direcao_ataque()
 	else:
-		velocity.x = move_toward(velocity.x, 0.0, SPEED * 0.5)
+		# Ataque parado
+		velocity.x = 0.0
 # ==========================================
 # TRANSITION
 # ==========================================
@@ -362,22 +405,28 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 			if status == PlayerState.WAKE_UP:
 				go_to_idle_state()
 
-		"ataque":
+		"ataque", "ataque_andando":
+			if status == PlayerState.ATTACK:
+				attack_area.monitoring = false
+
+				var direction := Input.get_axis("ui_left", "ui_right")
+
+				if direction != 0 and is_on_floor():
+					go_to_walk_state()
+				else:
+					go_to_idle_state()
+
+		"ataque_pulando":
 			if status == PlayerState.ATTACK:
 				attack_area.monitoring = false
 
 				if not is_on_floor():
 					status = PlayerState.JUMP
-					anim.play("jump")
+					# Não altera a animação atual.
 				else:
-					var direction := Input.get_axis(
-						"ui_left", "ui_right"
-					)
+					go_to_idle_state()
 
-					if direction != 0:
-						go_to_transition_state()
-					else:
-						go_to_idle_state()
+
 		"dano":
 			if status == PlayerState.DAMAGE:
 				go_to_idle_state()
