@@ -46,7 +46,7 @@ size = Vector2(218, 20)
 size = Vector2(763.5, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_stg1n"]
-size = Vector2(855, 50)
+size = Vector2(965, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gubht"]
 size = Vector2(416, 52)
@@ -302,7 +302,7 @@ shape = SubResource("RectangleShape2D_mg7sa")
 one_way_collision = true
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="StaticBody2D" unique_id=2080140099]
-position = Vector2(46, 286)
+position = Vector2(44.5, 286)
 shape = SubResource("RectangleShape2D_stg1n")
 one_way_collision = true
 
@@ -403,10 +403,6 @@ autoplay = &"fade_out"
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = -1.0
-offset_right = 1.0
-offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)

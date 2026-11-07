@@ -230,7 +230,27 @@ animations = [{
 "texture": SubResource("AtlasTexture_glr7x")
 }],
 "loop": 0,
-"name": &"ataque",
+"name": &"ataque_1",
+"speed": 21.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glr7x")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_40db3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rvdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8fgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wws87")
+}],
+"loop": 0,
+"name": &"ataque_2",
 "speed": 21.0
 }, {
 "frames": [{
@@ -247,7 +267,24 @@ animations = [{
 "texture": SubResource("AtlasTexture_uu5dn")
 }],
 "loop": 0,
-"name": &"ataque_andando",
+"name": &"ataque_andando_1",
+"speed": 21.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uu5dn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_is0dp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhtkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp18n")
+}],
+"loop": 0,
+"name": &"ataque_andando_2",
 "speed": 21.0
 }, {
 "frames": [{
@@ -264,7 +301,24 @@ animations = [{
 "texture": SubResource("AtlasTexture_ymoqi")
 }],
 "loop": 0,
-"name": &"ataque_pulando",
+"name": &"ataque_pulando_1",
+"speed": 21.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxxl2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s507w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aunte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymoqi")
+}],
+"loop": 0,
+"name": &"ataque_pulando_2",
 "speed": 21.0
 }, {
 "frames": [{
@@ -429,7 +483,7 @@ script = ExtResource("1_k4dj6")
 modulate = Color(1, 1, 1, 0.9647059)
 position = Vector2(0, -27)
 sprite_frames = SubResource("SpriteFrames_u7n6m")
-animation = &"ataque_pulando"
+animation = &"ataque_andando_1"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=221983422]

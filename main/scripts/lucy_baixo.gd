@@ -1,9 +1,9 @@
-
 extends CharacterBody2D
 signal animation_finished_custom(animation_name: String)
 
-@export var gravidade_pulo: float = 0.7
+@export var gravidade_pulo: float = 0.8
 @export var multiplicador_pulo: float = 2.0
+var proximo_ataque: int = 1
 
 @export var forca_knockback_x: float = 600.0
 @export var forca_knockback_y: float = -300.0
@@ -180,16 +180,24 @@ func go_to_attack_state():
 	attack_area.monitoring = true
 
 	if estado_anterior_ataque == PlayerState.JUMP:
-		anim.play("ataque_pulando")
+		if proximo_ataque == 1:
+			anim.play("ataque_pulando_1")
+		else:
+			anim.play("ataque_pulando_2")
 
-	elif estado_anterior_ataque in [
-		PlayerState.WALK,
-		PlayerState.TRANSITION
-	]:
-		anim.play("ataque_andando")
+	elif estado_anterior_ataque in [PlayerState.WALK, PlayerState.TRANSITION]:
+		if proximo_ataque == 1:
+			anim.play("ataque_andando_1")
+		else:
+			anim.play("ataque_andando_2")
 
 	else:
-		anim.play("ataque")
+		if proximo_ataque == 1:
+			anim.play("ataque_1")
+		else:
+			anim.play("ataque_2")
+
+	proximo_ataque = 2 if proximo_ataque == 1 else 1
 
 func go_to_damage_state() -> void:
 	if status == PlayerState.DEAD:
@@ -405,7 +413,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 			if status == PlayerState.WAKE_UP:
 				go_to_idle_state()
 
-		"ataque", "ataque_andando":
+		"ataque_1","ataque_2", "ataque_andando_1","ataque_andando_2":
 			if status == PlayerState.ATTACK:
 				attack_area.monitoring = false
 
@@ -416,7 +424,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 				else:
 					go_to_idle_state()
 
-		"ataque_pulando":
+		"ataque_pulando_1", "ataque_pulando_2":
 			if status == PlayerState.ATTACK:
 				attack_area.monitoring = false
 
