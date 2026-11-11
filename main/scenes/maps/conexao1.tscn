@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cti1p54jbq787" path="res://assets/jogo/caverna/conexao1/conexao1_agua.png" id="6_yimup"]
 [ext_resource type="Texture2D" uid="uid://beei6dtfejqpk" path="res://assets/jogo/caverna/conexao1/conexao1_props.png" id="8_80qo6"]
 [ext_resource type="PackedScene" uid="uid://c4qoo5xb4ma3f" path="res://scenes/entities/lucy_baixo.tscn" id="9_3ooyu"]
+[ext_resource type="Texture2D" uid="uid://bybq47ao6260p" path="res://assets/entidades/npcs/harpa/Harpa.png" id="9_js5cy"]
 [ext_resource type="PackedScene" uid="uid://dfv4mrclyv3gn" path="res://scenes/entities/inimigos/lagarta.tscn" id="20_jqf00"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
@@ -197,6 +198,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlqam"]
 size = Vector2(34, 383)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wwuq"]
+size = Vector2(53, 439)
+
 [node name="conexao" type="Control" unique_id=578286236]
 layout_mode = 3
 anchors_preset = 0
@@ -240,6 +244,10 @@ texture = ExtResource("4_kaci1")
 
 [node name="Props" type="Sprite2D" parent="Parallaxes/Plataformas" unique_id=1844925709]
 texture = ExtResource("8_80qo6")
+
+[node name="Harpa" type="Sprite2D" parent="Parallaxes" unique_id=121636603]
+position = Vector2(2121, -95)
+texture = ExtResource("9_js5cy")
 
 [node name="Lucy_fora" parent="Parallaxes" unique_id=1039624184 instance=ExtResource("9_3ooyu")]
 position = Vector2(2312, 792)
@@ -416,7 +424,7 @@ position = Vector2(-125, 654)
 position = Vector2(-44, 165)
 
 [node name="Lagarta3" parent="Monstros" unique_id=1935851574 instance=ExtResource("20_jqf00")]
-position = Vector2(-1649, 145)
+position = Vector2(-1795, 144)
 
 [node name="menu_pause" parent="." unique_id=204628948 instance=ExtResource("5_5e4dc")]
 
@@ -435,6 +443,13 @@ position = Vector2(-1920, 813)
 [node name="SpawnBD" type="Marker2D" parent="Spawns" unique_id=911509714]
 position = Vector2(1874, 839)
 
+[node name="conexao2" type="Area2D" parent="." unique_id=905422899]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="conexao2" unique_id=2035077577]
+position = Vector2(-2400.5, -573.5)
+shape = SubResource("RectangleShape2D_8wwuq")
+
 [connection signal="body_entered" from="Agua" to="." method="_on_agua_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="conexao2" to="." method="_on_conexao_2_body_entered"]

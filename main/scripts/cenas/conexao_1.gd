@@ -39,3 +39,8 @@ func esq_ou_dir():
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_in_agua":
 		anim.play("fade_out")
+
+
+func _on_conexao_2_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/maps/conexao_2.tscn")

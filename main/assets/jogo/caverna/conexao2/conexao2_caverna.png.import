@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmka74bnroef2"
-path="res://.godot/imported/conexao_caverna.png-1b34044f3e03833ab9babf8e3b6fea3a.ctex"
+uid="uid://dsemahtygynj0"
+path="res://.godot/imported/conexao2_caverna.png-02f3125e0e33b4f3c337cee4c55228e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/jogo/caverna/conexao_caverna.png"
-dest_files=["res://.godot/imported/conexao_caverna.png-1b34044f3e03833ab9babf8e3b6fea3a.ctex"]
+source_file="res://assets/jogo/caverna/conexao2/conexao2_caverna.png"
+dest_files=["res://.godot/imported/conexao2_caverna.png-02f3125e0e33b4f3c337cee4c55228e1.ctex"]
 
 [params]
 
