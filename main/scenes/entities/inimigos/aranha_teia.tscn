@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://bicgrp64ab1io"]
+
+[ext_resource type="Texture2D" uid="uid://ph86h4r33erb" path="res://assets/entidades/inimigos/aranha/aranha-dano.png" id="1_7kixl"]
+[ext_resource type="Script" uid="uid://7iwxhdvexedt" path="res://scripts/entidades/inimgos/aranha_teia.gd" id="1_ouk7u"]
+[ext_resource type="Texture2D" uid="uid://diiy3bp52iqmc" path="res://assets/entidades/inimigos/aranha/aranha-descendo.png" id="2_d4rp8"]
+[ext_resource type="Script" uid="uid://bu63jqoc5pxv1" path="res://scenes/entities/inimigos/aranha.gd" id="2_e8mrm"]
+[ext_resource type="Texture2D" uid="uid://c1vh3yx4naql6" path="res://assets/entidades/inimigos/aranha/aranha-subindo.png" id="3_ouk7u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8mrm"]
+atlas = ExtResource("1_7kixl")
+region = Rect2(0, 0, 252, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svbvh"]
+atlas = ExtResource("1_7kixl")
+region = Rect2(252, 0, 252, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7263"]
+atlas = ExtResource("1_7kixl")
+region = Rect2(504, 0, 252, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6j4bx"]
+atlas = ExtResource("2_d4rp8")
+region = Rect2(0, 0, 252, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8n0y"]
+atlas = ExtResource("2_d4rp8")
+region = Rect2(252, 0, 252, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcpf5"]
+atlas = ExtResource("2_d4rp8")
+region = Rect2(504, 0, 252, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xle5t"]
+atlas = ExtResource("2_d4rp8")
+region = Rect2(0, 0, 252, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jbpu"]
+atlas = ExtResource("3_ouk7u")
+region = Rect2(0, 0, 252, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1xkq"]
+atlas = ExtResource("3_ouk7u")
+region = Rect2(252, 0, 252, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kwmp"]
+atlas = ExtResource("3_ouk7u")
+region = Rect2(504, 0, 252, 228)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vsy63"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8mrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svbvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7263")
+}],
+"loop": 0,
+"name": &"dano",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6j4bx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8n0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcpf5")
+}],
+"loop": 0,
+"name": &"descer",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xle5t")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jbpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1xkq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kwmp")
+}],
+"loop": 0,
+"name": &"subir",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sa2ql"]
+radius = 48.09366
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ov4ip"]
+radius = 49.365982
+
+[node name="AranhaTeia" type="Node2D" unique_id=861207934]
+script = ExtResource("1_ouk7u")
+
+[node name="Aranha" type="CharacterBody2D" parent="." unique_id=1261121752]
+position = Vector2(0, 120)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_e8mrm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Aranha" unique_id=134624741]
+position = Vector2(-1, 42)
+sprite_frames = SubResource("SpriteFrames_vsy63")
+animation = &"dano"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aranha" unique_id=435483014]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(-1, 36)
+shape = SubResource("CircleShape2D_sa2ql")
+
+[node name="Area2D" type="Area2D" parent="Aranha" unique_id=1714301703]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aranha/Area2D" unique_id=1101039816]
+position = Vector2(-1, 37)
+shape = SubResource("CircleShape2D_ov4ip")
+
+[node name="TimerDano" type="Timer" parent="Aranha" unique_id=190862500]
+
+[node name="Teia" type="Line2D" parent="." unique_id=1756394660]
+points = PackedVector2Array(0, 0, 0, 0)
+
+[connection signal="animation_finished" from="Aranha/AnimatedSprite2D" to="Aranha" method="_on_animated_sprite_2d_animation_finished"]
