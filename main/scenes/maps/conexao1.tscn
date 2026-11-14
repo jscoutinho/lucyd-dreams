@@ -590,6 +590,9 @@ position = Vector2(-1920, 813)
 [node name="SpawnBD" type="Marker2D" parent="Spawns" unique_id=911509714]
 position = Vector2(1874, 839)
 
+[node name="SpawnEsquerda" type="Marker2D" parent="Spawns" unique_id=1838054032]
+position = Vector2(-2315, -440)
+
 [node name="conexao2" type="Area2D" parent="." unique_id=905422899]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="conexao2" unique_id=2035077577]

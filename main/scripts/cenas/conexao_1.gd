@@ -5,10 +5,13 @@ extends Control
 @onready var spawn_bd: Marker2D = $Spawns/SpawnBD
 @onready var spawn_be: Marker2D = $Spawns/SpawnBE
 @onready var health_component: Control = $Parallaxes/Lucy_fora/HealthComponent
+@onready var spawn_esquerda: Marker2D = $Spawns/SpawnEsquerda
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	MusicManager.tocar_musica(load("res://assets/msc/sfx/adventure_dreams.mp3"))
+	if GameManager.came_from == "conexao2":
+		lucy.global_position = spawn_esquerda.global_position
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,4 +46,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func _on_conexao_2_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		GameManager.spawn_marker = "SpawnEsquerda"
+		GameManager.came_from = "conexao1"
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/maps/conexao_2.tscn")
