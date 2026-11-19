@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cego8al7m4rrp"
+path="res://.godot/imported/pichacao_lucyd dreams.mp3-f1c86a7210d2044611bd6f72e6290971.mp3str"
+
+[deps]
+
+source_file="res://assets/msc/sfx/pichacao_lucyd dreams.mp3"
+dest_files=["res://.godot/imported/pichacao_lucyd dreams.mp3-f1c86a7210d2044611bd6f72e6290971.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

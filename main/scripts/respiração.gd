@@ -10,6 +10,9 @@ extends Node2D
 @onready var monstro_2: AnimatedSprite2D = $CanvasLayer/Control2/Control2/monstro2
 @onready var luthier: AnimatedSprite2D = $CanvasLayer/Control2/LuthierBox/AnimatedSprite2D
 @onready var DialogueBox: CanvasLayer = $CanvasLayer/DialogueBox
+@onready var acerto: AudioStreamPlayer = $acerto
+@onready var erro: AudioStreamPlayer = $erro
+@onready var efeito_bolado: AudioStreamPlayer = $Efeito_Bolado
 
 #Variáveis do FOCO
 var foco_atual := 0.18
@@ -230,6 +233,9 @@ func play_lucy_idle():
 func play_lucy_idle_baixo():
 	anim_lucy.play("idle_baixo")
 
+func play_efeito_bolado():
+	efeito_bolado.play()
+
 func _input(event):
 	if event.is_action_pressed("respirar"):
 		if !passou:
@@ -281,12 +287,14 @@ func tentar_acertar():
 	if distancia <= HIT_WINDOW:
 		anim_lucy.play("respirando")
 		acertos_consecutivos += 1
+		acerto.play()
 		atualizar_foco()
 
 		note.queue_free()
 	else:
 		acertos_consecutivos = max(acertos_consecutivos - 2, 0)
 		atualizar_foco()
+		erro.play()
 
 
 func atualizar_foco():

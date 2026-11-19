@@ -11,10 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://yh6kwbwxvww3" path="res://assets/jogo/Rua/para-peito.png" id="8_ypfyn"]
 [ext_resource type="Texture2D" uid="uid://cqntoaripfr6f" path="res://assets/jogo/Rua/postes.png" id="9_58iaa"]
 [ext_resource type="Texture2D" uid="uid://dwkk4f2g6plr4" path="res://assets/jogo/Rua/plataformas.png" id="11_ukud2"]
+[ext_resource type="PackedScene" uid="uid://h0gn31ert5er" path="res://scenes/objects/vizinhos.tscn" id="12_eg01i"]
 [ext_resource type="PackedScene" uid="uid://bvde1sjkrlqmi" path="res://scenes/entities/camera.tscn" id="12_ukud2"]
 [ext_resource type="PackedScene" uid="uid://dfaib4f11h4gi" path="res://scenes/entities/lucy_fora.tscn" id="13_ukud2"]
 [ext_resource type="PackedScene" uid="uid://m0k2o1nbfqvm" path="res://scenes/objects/level_end.tscn" id="14_kt6jj"]
 [ext_resource type="PackedScene" uid="uid://fiun316knl7d" path="res://scenes/UI/menu_pause.tscn" id="15_t2ukf"]
+[ext_resource type="PackedScene" uid="uid://djhptl4tm4nw7" path="res://scenes/UI/dialogue_box.tscn" id="16_onp6w"]
+[ext_resource type="AudioStream" uid="uid://b8387l7tsatml" path="res://assets/msc/sfx/Sino.mp3" id="16_srowd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ov4ip"]
 size = Vector2(4253, 27)
@@ -33,6 +36,9 @@ size = Vector2(35.5, 103.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2ukf"]
 size = Vector2(773.5, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
+size = Vector2(10, 288)
 
 [sub_resource type="Animation" id="Animation_kt6jj"]
 length = 0.001
@@ -185,6 +191,9 @@ shape = SubResource("RectangleShape2D_8wwuq")
 position = Vector2(4670, -481)
 shape = SubResource("RectangleShape2D_qd1lp")
 
+[node name="Vizinhos" parent="." unique_id=1047451273 instance=ExtResource("12_eg01i")]
+position = Vector2(764, 473)
+
 [node name="Camera" parent="." unique_id=872375583 instance=ExtResource("12_ukud2")]
 position = Vector2(873, 819)
 
@@ -198,6 +207,16 @@ next_level = "buraco"
 [node name="CollisionShape2D" parent="levelEnd" index="0" unique_id=220745053]
 position = Vector2(323, -60)
 shape = SubResource("RectangleShape2D_t2ukf")
+
+[node name="Altura" type="Area2D" parent="." unique_id=1045829448]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Altura" unique_id=151809327]
+position = Vector2(3802, 649)
+shape = SubResource("RectangleShape2D_sa2ql")
+
+[node name="UI" type="Node2D" parent="." unique_id=1495329967]
+
+[node name="DialogueBox" parent="UI" unique_id=594521042 instance=ExtResource("16_onp6w")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=579958286]
 
@@ -214,5 +233,10 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="menu_pause" parent="." unique_id=204628948 instance=ExtResource("15_t2ukf")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1105110544]
+stream = ExtResource("16_srowd")
+
+[connection signal="body_entered" from="Altura" to="." method="_on_altura_body_entered"]
 
 [editable path="levelEnd"]

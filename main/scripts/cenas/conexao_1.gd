@@ -22,9 +22,10 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	anim.play("fade_in")
+	anim.play("fade_in_dir")
 
 func ir_direita():
+	GameManager.came_from = "conexao1"
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/maps/caverna_bifurcacao.tscn")
 
 

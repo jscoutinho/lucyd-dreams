@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://h0gn31ert5er"]
+
+[ext_resource type="Script" uid="uid://di1u7ivxjgn3c" path="res://scripts/objects/vizinhos.gd" id="1_3svx0"]
+[ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="2_t87wp"]
+[ext_resource type="Texture2D" uid="uid://bgwuhn51ysmuh" path="res://assets/jogo/casa/interact-button-ss.png" id="3_l4u7u"]
+[ext_resource type="AudioStream" uid="uid://cym1day1x6kva" path="res://assets/msc/sfx/Cordas/Baixo - E.mp3" id="4_8x8pc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oaabr"]
+size = Vector2(66, 69)
+
+[sub_resource type="LabelSettings" id="LabelSettings_js1m0"]
+font = ExtResource("2_t87wp")
+font_size = 40
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqtc8"]
+atlas = ExtResource("3_l4u7u")
+region = Rect2(0, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sw1sf"]
+atlas = ExtResource("3_l4u7u")
+region = Rect2(72, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sroq"]
+atlas = ExtResource("3_l4u7u")
+region = Rect2(144, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5lgu"]
+atlas = ExtResource("3_l4u7u")
+region = Rect2(216, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ockme"]
+atlas = ExtResource("3_l4u7u")
+region = Rect2(288, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c1y8"]
+atlas = ExtResource("3_l4u7u")
+region = Rect2(360, 0, 72, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47e1h"]
+atlas = ExtResource("3_l4u7u")
+region = Rect2(432, 0, 72, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w346t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqtc8")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sw1sf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sroq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5lgu")
+}],
+"loop": 0,
+"name": &"press",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ockme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c1y8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47e1h")
+}],
+"loop": 0,
+"name": &"release",
+"speed": 12.0
+}]
+
+[node name="Vizinhos" type="Node2D" unique_id=1047451273]
+script = ExtResource("1_3svx0")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1145918104]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=729307401]
+position = Vector2(-12, 266)
+shape = SubResource("RectangleShape2D_oaabr")
+
+[node name="Vizinhos" type="Label" parent="." unique_id=2136833563]
+offset_left = -58.0
+offset_top = 66.0
+offset_right = 77.0
+offset_bottom = 111.0
+text = "Vizinhos"
+label_settings = SubResource("LabelSettings_js1m0")
+metadata/_edit_use_anchors_ = true
+
+[node name="interact" type="AnimatedSprite2D" parent="." unique_id=1206728224]
+position = Vector2(-14, 54)
+scale = Vector2(0.5277778, 0.475)
+sprite_frames = SubResource("SpriteFrames_w346t")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Baixo" type="AudioStreamPlayer2D" parent="." unique_id=1988426088]
+stream = ExtResource("4_8x8pc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="animation_finished" from="interact" to="." method="_on_interact_animation_finished"]
