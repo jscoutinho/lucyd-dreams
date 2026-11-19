@@ -12,7 +12,9 @@ func _ready() -> void:
 	MusicManager.tocar_musica(load("res://assets/msc/sfx/adventure_dreams.mp3"))
 	if GameManager.came_from == "conexao2":
 		lucy.global_position = spawn_esquerda.global_position
-
+		anim.play("fade_out")
+	else:
+		anim.play("fade_out_nome")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -20,7 +22,7 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	anim.play("fade_in_dir")
+	anim.play("fade_in")
 
 func ir_direita():
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/maps/caverna_bifurcacao.tscn")

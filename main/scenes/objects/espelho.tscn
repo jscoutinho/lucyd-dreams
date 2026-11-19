@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bwarui2ngvq0t" path="res://scripts/objects/espelho.gd" id="1_0ikne"]
 [ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="1_smary"]
 [ext_resource type="Texture2D" uid="uid://bgwuhn51ysmuh" path="res://assets/jogo/casa/interact-button-ss.png" id="2_0ikne"]
-[ext_resource type="AudioStream" uid="uid://b8wien2ofkrfe" path="res://assets/msc/sfx/pegando.mp3" id="3_jmld6"]
+[ext_resource type="AudioStream" uid="uid://c25f31l1wdgn8" path="res://assets/msc/sfx/porta_abindo.mp3" id="4_0ikne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6t07o"]
 size = Vector2(66, 69)
@@ -105,7 +105,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="pegando" type="AudioStreamPlayer2D" parent="." unique_id=1060273430]
-stream = ExtResource("3_jmld6")
+stream = ExtResource("4_0ikne")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

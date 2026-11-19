@@ -14,7 +14,7 @@ func _on_direita_body_entered(body: Node2D) -> void:
 
 func _on_esquerda_body_entered(body: Node2D) -> void:
 	GameManager.spawn_marker = "SpawnEsquerda"
-	GameManager.came_from = "conexao1"
+	GameManager.came_from = "bifurcacao"
 	anim.play("fade_out")
 
 

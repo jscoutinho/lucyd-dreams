@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://beei6dtfejqpk" path="res://assets/jogo/caverna/conexao1/conexao1_props.png" id="8_80qo6"]
 [ext_resource type="PackedScene" uid="uid://c4qoo5xb4ma3f" path="res://scenes/entities/lucy_baixo.tscn" id="9_3ooyu"]
 [ext_resource type="Texture2D" uid="uid://bybq47ao6260p" path="res://assets/entidades/npcs/harpa/Harpa.png" id="9_js5cy"]
+[ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="14_hclom"]
 [ext_resource type="Script" uid="uid://7iwxhdvexedt" path="res://scripts/entidades/inimgos/aranha_teia.gd" id="15_jqf00"]
 [ext_resource type="PackedScene" uid="uid://bicgrp64ab1io" path="res://scenes/entities/inimigos/aranha_teia.tscn" id="15_vtitf"]
 [ext_resource type="Script" uid="uid://bu63jqoc5pxv1" path="res://scenes/entities/inimigos/aranha.gd" id="16_hclom"]
@@ -74,7 +75,7 @@ size = Vector2(105, 1473)
 size = Vector2(165, 242)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dx840"]
-size = Vector2(992, 66)
+size = Vector2(1019.5, 95)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1l0s"]
 size = Vector2(112, 26)
@@ -116,6 +117,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/o bosque:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_jqf00"]
@@ -178,7 +191,7 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_42tc5"]
+[sub_resource type="Animation" id="Animation_hclom"]
 resource_name = "fade_out"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -187,7 +200,47 @@ tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.9),
+"times": PackedFloat32Array(0, 0.8666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/o bosque:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yimup"]
+resource_name = "fade_out_nome"
+length = 2.0666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/o bosque:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.53333336, 1.19, 2.03),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.89),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
@@ -198,7 +251,8 @@ _data = {
 &"RESET": SubResource("Animation_5e4dc"),
 &"fade_in_agua": SubResource("Animation_jqf00"),
 &"fade_in_dir": SubResource("Animation_pl1w2"),
-&"fade_out": SubResource("Animation_42tc5")
+&"fade_out": SubResource("Animation_hclom"),
+&"fade_out_nome": SubResource("Animation_yimup")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e8mrm"]
@@ -447,7 +501,7 @@ position = Vector2(1350.5, -46)
 shape = SubResource("RectangleShape2D_3x0uh")
 
 [node name="CollisionShape2D18" type="CollisionShape2D" parent="StaticBody2D" unique_id=753313469]
-position = Vector2(-1924.5, -321)
+position = Vector2(-1938.25, -335.5)
 shape = SubResource("RectangleShape2D_dx840")
 
 [node name="CollisionShape2D19" type="CollisionShape2D" parent="StaticBody2D" unique_id=1526377234]
@@ -508,9 +562,23 @@ layout_mode = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=815349822]
 libraries/ = SubResource("AnimationLibrary_vguos")
-autoplay = &"fade_out"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1337375447]
+
+[node name="o bosque" type="Label" parent="CanvasLayer" unique_id=1370950372]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -185.5
+offset_top = -167.0
+offset_right = 185.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("14_hclom")
+theme_override_font_sizes/font_size = 150
+text = "O Bosque"
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=204394681]
 anchors_preset = 15
@@ -596,7 +664,7 @@ position = Vector2(-2315, -440)
 [node name="conexao2" type="Area2D" parent="." unique_id=905422899]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="conexao2" unique_id=2035077577]
-position = Vector2(-2400.5, -573.5)
+position = Vector2(-2491, -570)
 shape = SubResource("RectangleShape2D_8wwuq")
 
 [connection signal="body_entered" from="Agua" to="." method="_on_agua_body_entered"]

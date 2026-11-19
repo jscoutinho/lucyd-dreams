@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="lucyd dreams"
-run/main_scene="uid://b7tp0xx432djm"
+run/main_scene="uid://dqarun0i746bm"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
