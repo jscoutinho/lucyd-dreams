@@ -98,13 +98,14 @@ func morrer() -> void:
 	area_contato.set_deferred("monitoring", false)
 	$CollisionShape2D.set_deferred("disabled", true)
 
-	anim.stop()
-	queue_free()
+	anim.play("morte")
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if anim.animation == "dano":
 		recebendo_dano = false
+	if anim.animation == "morte":
+		queue_free()
 
 
 # =====================================

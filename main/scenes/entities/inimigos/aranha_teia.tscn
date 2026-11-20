@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://diiy3bp52iqmc" path="res://assets/entidades/inimigos/aranha/aranha-descendo.png" id="2_d4rp8"]
 [ext_resource type="Script" uid="uid://bu63jqoc5pxv1" path="res://scenes/entities/inimigos/aranha.gd" id="2_e8mrm"]
 [ext_resource type="Texture2D" uid="uid://c1vh3yx4naql6" path="res://assets/entidades/inimigos/aranha/aranha-subindo.png" id="3_ouk7u"]
+[ext_resource type="Texture2D" uid="uid://llrb7jrtswo2" path="res://assets/entidades/inimigos/aranha/aranha-morte.png" id="5_e8mrm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e8mrm"]
 atlas = ExtResource("1_7kixl")
@@ -33,6 +34,34 @@ region = Rect2(504, 0, 252, 228)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xle5t"]
 atlas = ExtResource("2_d4rp8")
 region = Rect2(0, 0, 252, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3x7q"]
+atlas = ExtResource("5_e8mrm")
+region = Rect2(0, 0, 252, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grhug"]
+atlas = ExtResource("5_e8mrm")
+region = Rect2(252, 0, 252, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kgxb"]
+atlas = ExtResource("5_e8mrm")
+region = Rect2(504, 0, 252, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld0ie"]
+atlas = ExtResource("5_e8mrm")
+region = Rect2(756, 0, 252, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk0kj"]
+atlas = ExtResource("5_e8mrm")
+region = Rect2(1008, 0, 252, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g18ue"]
+atlas = ExtResource("5_e8mrm")
+region = Rect2(1260, 0, 252, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nk3a"]
+atlas = ExtResource("5_e8mrm")
+region = Rect2(1512, 0, 252, 228)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5jbpu"]
 atlas = ExtResource("3_ouk7u")
@@ -86,6 +115,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_p3x7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grhug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kgxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ld0ie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mk0kj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g18ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nk3a")
+}],
+"loop": 0,
+"name": &"morte",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5jbpu")
 }, {
 "duration": 1.0,
@@ -117,7 +172,9 @@ script = ExtResource("2_e8mrm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Aranha" unique_id=134624741]
 position = Vector2(-1, 42)
 sprite_frames = SubResource("SpriteFrames_vsy63")
-animation = &"dano"
+animation = &"morte"
+frame = 6
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aranha" unique_id=435483014]
 light_mask = 3
