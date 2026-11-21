@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://ce7bm1oxyoqh2" path="res://assets/entidades/lucy/baixo/lucy-idle-baixo.png" id="11_caop7"]
 [ext_resource type="Texture2D" uid="uid://rw5i5e2g101u" path="res://assets/entidades/lucy/baixo/lucy_correndo.png" id="12_2c111"]
 [ext_resource type="Script" uid="uid://yx4ywk8qt5ov" path="res://scripts/UI/health_component.gd" id="13_4w1jd"]
+[ext_resource type="PackedScene" uid="uid://3r3df8hurugu" path="res://scenes/entities/inimigos/vespa.tscn" id="16_t80mg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
 size = Vector2(1039, 48)
@@ -1011,6 +1012,9 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("7_qu5ii")
 theme_override_font_sizes/font_size = 150
 text = "O Bosque"
+
+[node name="Vespa" parent="." unique_id=792253550 instance=ExtResource("16_t80mg")]
+position = Vector2(-287, -1688)
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=1459837452]
 
