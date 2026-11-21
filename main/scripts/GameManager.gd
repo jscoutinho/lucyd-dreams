@@ -6,5 +6,6 @@ var spawn_marker = ""
 var tutorial1: bool = false
 
 var medoaltura = 0
+var poderes = 0
 
 var has_key: bool = false

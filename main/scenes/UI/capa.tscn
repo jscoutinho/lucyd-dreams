@@ -359,11 +359,12 @@ frame_progress = 1.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=460489604]
 stream = ExtResource("4_ean5o")
-volume_db = -10.0
+volume_db = -7.0
 autoplay = true
 
 [node name="pixo" type="AudioStreamPlayer" parent="." unique_id=530067156]
 stream = ExtResource("5_sre55")
+volume_db = -1.0
 autoplay = true
 
 [connection signal="animation_finished" from="Control/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

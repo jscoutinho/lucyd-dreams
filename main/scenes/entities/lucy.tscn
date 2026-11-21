@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://pnlu8h0hg1hd" path="res://assets/jogo/casa/lucy-pegando-ss.png" id="5_80en1"]
 [ext_resource type="Texture2D" uid="uid://bydme4yfrtdkm" path="res://assets/jogo/casa/lucy-levantando.png" id="5_e6skj"]
 [ext_resource type="Texture2D" uid="uid://dntrlnss3xunb" path="res://assets/jogo/casa/lucy-andando-ss.png" id="5_e26wd"]
+[ext_resource type="AudioStream" uid="uid://behd3ic7waf6t" path="res://assets/msc/sfx/passos.mp3" id="8_rx830"]
+[ext_resource type="AudioStream" uid="uid://ch46ch6i7or3w" path="res://assets/msc/sfx/pulo.mp3" id="9_5gnlv"]
+[ext_resource type="AudioStream" uid="uid://bup22xvwkt5t0" path="res://assets/msc/sfx/caindo_pulo.mp3" id="10_a0y23"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdqtq"]
 atlas = ExtResource("2_e6skj")
@@ -328,5 +331,18 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=221983422]
 position = Vector2(6, 14)
 shape = SubResource("CapsuleShape2D_ov4ip")
+
+[node name="passos" type="AudioStreamPlayer2D" parent="." unique_id=1625995815]
+stream = ExtResource("8_rx830")
+volume_db = 8.0
+parameters/looping = true
+
+[node name="pulo" type="AudioStreamPlayer2D" parent="." unique_id=381536690]
+stream = ExtResource("9_5gnlv")
+volume_db = 2.0
+
+[node name="caindo" type="AudioStreamPlayer2D" parent="." unique_id=1839479455]
+stream = ExtResource("10_a0y23")
+volume_db = 8.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

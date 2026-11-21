@@ -1,8 +1,10 @@
 extends Node2D
-@onready var anim_sprite: AnimatedSprite2D = $CanvasLayer/Control/AnimatedSprite2D
+@onready var anim_sprite: AnimatedSprite2D = $CanvasLayer/Control/Despertador
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var select: AudioStreamPlayer = $AudioStreamPlayer
 
+func play_desp():
+	anim_player.play("fade_out_desp")
 
 var voltar = -1
 

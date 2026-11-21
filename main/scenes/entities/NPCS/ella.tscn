@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://cdum0nh7huteu"]
+
+[ext_resource type="Script" uid="uid://caum1w5qvbawl" path="res://scripts/entidades/npcs/ella.gd" id="1_60hgs"]
+[ext_resource type="Texture2D" uid="uid://dpytyg0j4hb5c" path="res://assets/entidades/npcs/harpa/harpa-atencao.png" id="1_unv1x"]
+[ext_resource type="Texture2D" uid="uid://dtt3juivly0ce" path="res://assets/entidades/npcs/harpa/harpa-idle.png" id="2_fpwei"]
+[ext_resource type="AudioStream" uid="uid://bturdln4qjdq2" path="res://assets/msc/sfx/Cordas/Slap.mp3" id="4_4ligq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60hgs"]
+atlas = ExtResource("1_unv1x")
+region = Rect2(0, 0, 306, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ligq"]
+atlas = ExtResource("1_unv1x")
+region = Rect2(306, 0, 306, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4jps"]
+atlas = ExtResource("1_unv1x")
+region = Rect2(612, 0, 306, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbwng"]
+atlas = ExtResource("2_fpwei")
+region = Rect2(0, 0, 306, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21gj5"]
+atlas = ExtResource("2_fpwei")
+region = Rect2(306, 0, 306, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go00y"]
+atlas = ExtResource("2_fpwei")
+region = Rect2(612, 0, 306, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx8xp"]
+atlas = ExtResource("2_fpwei")
+region = Rect2(918, 0, 306, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ov4ip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60hgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ligq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4jps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60hgs")
+}],
+"loop": 0,
+"name": &"atencao",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 8.0,
+"texture": SubResource("AtlasTexture_vbwng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21gj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_go00y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vx8xp")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sa2ql"]
+radius = 87.0
+height = 294.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sa2ql"]
+radius = 272.0092
+
+[node name="Ella" type="CharacterBody2D" unique_id=791468528]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_60hgs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=68332818]
+sprite_frames = SubResource("SpriteFrames_ov4ip")
+animation = &"atencao"
+autoplay = "idle"
+frame = 3
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=707599580]
+position = Vector2(15, 4)
+shape = SubResource("CapsuleShape2D_sa2ql")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=132892303]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1007607247]
+position = Vector2(-116, 0)
+shape = SubResource("CircleShape2D_sa2ql")
+
+[node name="Harpa" type="AudioStreamPlayer2D" parent="." unique_id=984457221]
+stream = ExtResource("4_4ligq")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,6 +1,9 @@
 
 extends CharacterBody2D
 signal animation_finished_custom(animation_name: String)
+@onready var passos: AudioStreamPlayer2D = $passos
+@onready var pulo: AudioStreamPlayer2D = $pulo
+@onready var caindo: AudioStreamPlayer2D = $caindo
 
 enum PlayerState {
 	IDLE,
@@ -74,6 +77,7 @@ func go_to_transition_state():
 func go_to_walk_state():
 	status = PlayerState.WALK
 	anim.play("walking")
+	passos.play()
 
 
 func go_to_stop_state():
@@ -84,6 +88,7 @@ func go_to_stop_state():
 func go_to_jump_state():
 	status = PlayerState.JUMP
 	anim.play("jump")
+	pulo.play()
 	velocity.y = JUMP_VELOCITY
 
 
@@ -141,11 +146,13 @@ func walk_state():
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		go_to_jump_state()
+		passos.stop()
 		return
 
 	# Jogador soltou a tecla
 	if Input.get_axis("ui_left", "ui_right") == 0:
 		go_to_stop_state()
+		passos.stop()
 		return
 
 
@@ -179,7 +186,7 @@ func jump_state():
 	move()
 
 	if is_on_floor():
-
+		caindo.play()
 		if velocity.x == 0:
 			go_to_idle_state()
 		else:
@@ -194,7 +201,7 @@ func wake_up_state():
 
 	# Enquanto acorda, não pode andar
 	velocity = Vector2.ZERO
-
+	passos.stop();
 
 # ==========================================
 # DIALOGUE
@@ -202,6 +209,7 @@ func wake_up_state():
 
 func dialogue_state():
 	velocity = Vector2.ZERO
+	passos.stop();
 
 
 func exit_dialogue():

@@ -3,8 +3,61 @@
 [ext_resource type="Script" uid="uid://vkil4voda4av" path="res://scripts/UI/morte.gd" id="1_u8enf"]
 [ext_resource type="Texture2D" uid="uid://dj5wlhk1bfju5" path="res://assets/menu/morte/bg-morte.png" id="2_03jbh"]
 [ext_resource type="Texture2D" uid="uid://bfg4k3f8l6h28" path="res://assets/menu/morte/morte.png" id="3_j0ge2"]
+[ext_resource type="Texture2D" uid="uid://bev4e51ypeeht" path="res://assets/menu/menu-bg.png" id="3_o8hun"]
+[ext_resource type="Texture2D" uid="uid://di5qcwp4p6oil" path="res://assets/menu/lucy-menu-ss.png" id="4_d6774"]
 [ext_resource type="FontFile" uid="uid://b0tdwhxunbw3o" path="res://font/Silver.ttf" id="4_j0ge2"]
 [ext_resource type="AudioStream" uid="uid://pnbm21ycf5d6" path="res://assets/msc/sfx/select.mp3" id="5_bgvmi"]
+[ext_resource type="Texture2D" uid="uid://cirslnewnxhp1" path="res://assets/menu/menu-cover.png" id="6_uecaf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqwc1"]
+atlas = ExtResource("4_d6774")
+region = Rect2(3680, 0, 736, 864)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7qi6"]
+atlas = ExtResource("4_d6774")
+region = Rect2(4416, 0, 736, 864)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmdbf"]
+atlas = ExtResource("4_d6774")
+region = Rect2(5152, 0, 736, 864)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4kdm"]
+atlas = ExtResource("4_d6774")
+region = Rect2(5888, 0, 736, 864)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trjek"]
+atlas = ExtResource("4_d6774")
+region = Rect2(6624, 0, 736, 864)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k8pe"]
+atlas = ExtResource("4_d6774")
+region = Rect2(7360, 0, 736, 864)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ov4ip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqwc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7qi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmdbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4kdm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trjek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k8pe")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bgvmi"]
 atlas = ExtResource("3_j0ge2")
@@ -66,9 +119,22 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_j0ge2"]
 resource_name = "fade_in"
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -76,10 +142,123 @@ tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.59),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5, 2.5, 3.6666667, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0.59607846), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Control/lucy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.26666668, 4.766667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"show"
+}, {
+"args": [],
+"method": &"hide"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Control/Despertador")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.8333335),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hide"
+}, {
+"args": [],
+"method": &"show"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Voltar")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.03333333, 4.8),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hide"
+}, {
+"args": [],
+"method": &"show"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Sair para o Menu")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 4.8),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hide"
+}, {
+"args": [],
+"method": &"show"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Label")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4.8),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hide"
+}, {
+"args": [],
+"method": &"show"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(4.866667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_desp"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/Fundo-Cama")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(4.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_bgvmi"]
@@ -112,11 +291,40 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_o8hun"]
+resource_name = "fade_out_desp"
+length = 2.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.033333335, 0.93333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.1666666, 1.9333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cp8ux"]
 _data = {
 &"RESET": SubResource("Animation_03jbh"),
 &"fade_in": SubResource("Animation_j0ge2"),
-&"fade_out": SubResource("Animation_bgvmi")
+&"fade_out": SubResource("Animation_bgvmi"),
+&"fade_out_desp": SubResource("Animation_o8hun")
 }
 
 [node name="Morte" type="Node2D" unique_id=1194767124]
@@ -124,7 +332,7 @@ script = ExtResource("1_u8enf")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2021890802]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=54443118]
+[node name="Fundo-Parede" type="TextureRect" parent="CanvasLayer" unique_id=54443118]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -133,6 +341,11 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_03jbh")
+
+[node name="Fundo-Cama" type="TextureRect" parent="CanvasLayer" unique_id=1944036354]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_o8hun")
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=623056952]
 layout_mode = 3
@@ -148,20 +361,58 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=916331588]
+[node name="lucy" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=1814337905]
+position = Vector2(-18, 20)
+sprite_frames = SubResource("SpriteFrames_ov4ip")
+autoplay = "default"
+frame = 5
+frame_progress = 1.0
+
+[node name="Despertador" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=916331588]
 position = Vector2(19, 19)
 sprite_frames = SubResource("SpriteFrames_sa2ql")
 animation = &"piscando"
 autoplay = "piscando"
 
+[node name="Cobertor" type="TextureRect" parent="CanvasLayer" unique_id=1188555024]
+z_index = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -760.0
+offset_top = -88.0
+offset_right = 760.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+offset_transform_enabled = true
+texture = ExtResource("6_uecaf")
+
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=1565990847]
-offset_left = 336.0
-offset_top = 133.0
-offset_right = 1283.0
-offset_bottom = 245.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -473.5
+offset_top = 104.0
+offset_right = 473.5
+offset_bottom = 216.0
+grow_horizontal = 2
 theme_override_fonts/font = ExtResource("4_j0ge2")
 theme_override_font_sizes/font_size = 100
-text = "Parece que o despertador tocou!"
+text = "Parece que você teve outro pesadelo..."
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1459355994]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
 
 [node name="Voltar" type="Button" parent="CanvasLayer" unique_id=2121376506]
 offset_left = 232.0
@@ -181,15 +432,6 @@ theme_override_fonts/font = ExtResource("4_j0ge2")
 theme_override_font_sizes/font_size = 40
 text = "Levantar"
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1459355994]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 0)
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1579372193]
 libraries/ = SubResource("AnimationLibrary_cp8ux")
 autoplay = &"fade_in"
@@ -197,6 +439,8 @@ autoplay = &"fade_in"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1284492679]
 stream = ExtResource("5_bgvmi")
 volume_db = -18.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1689514282]
 
 [connection signal="pressed" from="CanvasLayer/Voltar" to="." method="_on_voltar_pressed"]
 [connection signal="pressed" from="CanvasLayer/Sair para o Menu" to="." method="_on_sair_para_o_menu_pressed"]

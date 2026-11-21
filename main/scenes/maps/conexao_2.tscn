@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://brycmgfcit1pv"]
 
 [ext_resource type="Script" uid="uid://bft4ijaw3cpjq" path="res://scripts/cenas/conexao_2.gd" id="1_onapn"]
-[ext_resource type="Texture2D" uid="uid://dsemahtygynj0" path="res://assets/jogo/caverna/conexao2/conexao2_caverna.png" id="2_i0to2"]
+[ext_resource type="Texture2D" uid="uid://cb8ewpd33n04x" path="res://assets/jogo/caverna/conexao2/conexao2_caverna.png" id="2_i0to2"]
 [ext_resource type="PackedScene" uid="uid://bvde1sjkrlqmi" path="res://scenes/entities/camera.tscn" id="3_78am2"]
 [ext_resource type="Script" uid="uid://davybokyhxrpt" path="res://scripts/lucy_baixo.gd" id="4_dytwu"]
 [ext_resource type="PackedScene" uid="uid://cfnqub7mfff3o" path="res://scenes/UI/hud.tscn" id="5_78am2"]
@@ -983,8 +983,6 @@ shape = SubResource("RectangleShape2D_1e2rs")
 
 [node name="HUD" parent="." unique_id=701433816 instance=ExtResource("5_78am2")]
 
-[node name="menu_pause" parent="." unique_id=204628948 instance=ExtResource("6_qu5ii")]
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=271760011]
 libraries/ = SubResource("AnimationLibrary_lkadc")
 autoplay = &"fade_out"
@@ -1019,6 +1017,8 @@ text = "O Bosque"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1797117007]
 position = Vector2(-1527, 1723)
 shape = SubResource("RectangleShape2D_bwl7o")
+
+[node name="menu_pause" parent="." unique_id=204628948 instance=ExtResource("6_qu5ii")]
 
 [connection signal="body_entered" from="Agua" to="." method="_on_agua_body_entered"]
 [connection signal="animation_finished" from="Lucy_fora/AnimatedSprite2D" to="Lucy_fora" method="_on_animated_sprite_2d_animation_finished"]
